@@ -1,5 +1,7 @@
 package com.LTICarLoan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +23,19 @@ public class LoanServiceImpl implements LoanService{
 	}
 
 	@Override
-	public Loan findLoanByCarId(int car_id) {
+	public Loan findLoanById(int id) {
+		
+		return loanDao.findLoanById(id);
+		
+	}
+	
+	@Override
+	public List<Loan> findLoanByCarId(int car_id) {
 
 		return loanDao.findLoanByCarId(car_id);
 		
 	}
+
+	
 
 }
