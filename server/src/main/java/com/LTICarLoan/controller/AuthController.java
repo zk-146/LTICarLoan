@@ -18,6 +18,7 @@ public class AuthController {
 	@Autowired
 	UserPersonalService userService;
 	
+	//http://localhost:8090/user-api/addUser
 	@PostMapping(path = "/addUser",consumes="application/json")
 	public int addUser(@RequestBody User u) {
 		return userService.addUser(u);

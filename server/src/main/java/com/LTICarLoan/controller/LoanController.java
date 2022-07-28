@@ -22,6 +22,8 @@ public class LoanController {
 	LoanService loanService;
 	
 
+	//http://localhost:8090/loan-api/addloan
+
 		@PostMapping("/addloan")
 		public int addloan(@RequestBody Loan l)
 		{
