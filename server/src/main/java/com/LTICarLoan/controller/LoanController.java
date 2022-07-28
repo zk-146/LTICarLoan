@@ -31,7 +31,7 @@ public class LoanController {
 			return lId;
 		}
 		
-
+		//http://localhost:8090/loan-api/findloan/1111
 		@GetMapping("/findloan/{cid}")
 		public Loan getLoanByCarId(@PathVariable("cid") int car_id) {
 			
