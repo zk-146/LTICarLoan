@@ -20,7 +20,7 @@ public class Vehicle {
 	private String model_name;
 	
 	@Column(name="company_name", length=15)
-	private String compnay_name;
+	private String company_name;
 	
 	@Column(name="price")
 	private double price;
@@ -29,11 +29,11 @@ public class Vehicle {
 	@JoinColumn(name="user_id")
 	User user;
 
-	public Vehicle(int car_id, String model_name, String compnay_name, double price, User user) {
+	public Vehicle(int car_id, String model_name, String company_name, double price, User user) {
 		super();
 		this.car_id = car_id;
 		this.model_name = model_name;
-		this.compnay_name = compnay_name;
+		this.company_name = company_name;
 		this.price = price;
 		this.user = user;
 	}
@@ -58,12 +58,12 @@ public class Vehicle {
 		this.model_name = model_name;
 	}
 
-	public String getCompnay_name() {
-		return compnay_name;
+	public String getcompany_name() {
+		return company_name;
 	}
 
-	public void setCompnay_name(String compnay_name) {
-		this.compnay_name = compnay_name;
+	public void setcompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 
 	public double getPrice() {
@@ -84,7 +84,7 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return "\nVehicle [car_id=" + car_id + ", model_name=" + model_name + ", compnay_name=" + compnay_name
+		return "\nVehicle [car_id=" + car_id + ", model_name=" + model_name + ", company_name=" + company_name
 				+ ", price=" + price + ", user=" + user + "]";
 	}
 	
