@@ -24,6 +24,7 @@ public class LoanDetails {
 		@Column(name="interest_rate")
 		private double interest_rate;
 		
+		
 		@Column(name="loan_amt")
 		private double loan_amt;
 
