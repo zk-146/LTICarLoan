@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "admin_details")
-public class AdminDetails {
+public class Admin {
 	@Id
 	@Column(name = "admin_id")
 //	@Seq
@@ -20,14 +20,14 @@ public class AdminDetails {
 	@Column(name = "password", length = 40)
 	private String password;
 
-	public AdminDetails(int admin_id, String username, String password) {
+	public Admin(int admin_id, String username, String password) {
 		super();
 		this.admin_id = admin_id;
 		this.username = username;
 		this.password = password;
 	}
 
-	public AdminDetails() {
+	public Admin() {
 		super();
 	}
 

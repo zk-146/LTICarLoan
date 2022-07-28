@@ -7,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_personal_details")
-public class UserPersonalDetails {
+public class User {
 	@Id
 	@Column(name = "user_id")
 	private int user_id;
@@ -51,7 +51,7 @@ public class UserPersonalDetails {
 	@Column(name = "annual_salary", length = 8)
 	private int annual_salary;
 
-	public UserPersonalDetails(int user_id, String first_name, String last_name, String email, String password, int age,
+	public User(int user_id, String first_name, String last_name, String email, String password, int age,
 			String gender, String address, String city, String state, String nationality, int pincode,
 			String type_of_employment, int annual_salary) {
 		super();
@@ -71,7 +71,7 @@ public class UserPersonalDetails {
 		this.annual_salary = annual_salary;
 	}
 
-	public UserPersonalDetails() {
+	public User() {
 		super();
 	}
 

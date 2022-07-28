@@ -1,5 +1,5 @@
 package com.LTICarLoan.exception;
 
-public class LoanDetailsException {
+public class LoanException {
 
 }
