@@ -27,9 +27,10 @@ public class VehicleDaoImpl implements VehicleDao {
 	
 	@Override
 	public Vehicle findVehicleByUserId(int user_id) {
-		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v where v.user=:user_id", Vehicle.class);
+		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id", Vehicle.class);
 		qry.setParameter("user_id", user_id);
-		Vehicle v = (Vehicle) qry.getResultList();
+		Vehicle v = qry.getResultList().get(0);
+		System.out.println(v);
 		return v;
 	}
 
