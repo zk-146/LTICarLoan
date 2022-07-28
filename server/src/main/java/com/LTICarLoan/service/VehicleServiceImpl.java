@@ -1,5 +1,27 @@
 package com.LTICarLoan.service;
 
-public class VehicleServiceImpl {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.LTICarLoan.beans.Vehicle;
+import com.LTICarLoan.dao.VehicleDao;
+
+
+@Service("vehicleService")
+public class VehicleServiceImpl implements VehicleService{
+
+	@Autowired
+	VehicleDao vehicleDao;
+	
+	@Override
+	public int addVehicle(Vehicle v) {
+		
+		return vehicleDao.addVehicle(v);
+	}
+	
+	@Override
+	public Vehicle findVehicleByUserId(int user_id) {
+		return vehicleDao.findVehicleByUserId(user_id);
+	}
 
 }
