@@ -30,7 +30,7 @@ public class LoanController {
 		}
 		
 
-		@GetMapping("/vehicle/{cid}")
+		@GetMapping("/findloan/{cid}")
 		public Loan getLoanByCarId(@PathVariable("cid") int car_id) {
 			
 			Loan l= loanService.findLoanByCarId(car_id);
