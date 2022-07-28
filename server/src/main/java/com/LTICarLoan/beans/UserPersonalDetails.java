@@ -50,5 +50,4 @@ public class UserPersonalDetails {
 	
 	@Column(name="annual_salary", length=8)
 	private int annual_salary;
-	
 }
