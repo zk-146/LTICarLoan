@@ -26,7 +26,7 @@ public class Application {
 	@Column(name = "loan_tenure")
 	private int loan_tenure;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "user_id")
 	User user;
 

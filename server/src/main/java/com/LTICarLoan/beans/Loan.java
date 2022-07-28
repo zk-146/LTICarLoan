@@ -34,7 +34,7 @@ public class Loan {
 		@Column(name="processing_fee")
 		private double processing_fee;
 		
-		@ManyToOne(cascade = CascadeType.ALL)
+		@ManyToOne
 		@JoinColumn(name="car_id")
 		Vehicle vehicle;
 
