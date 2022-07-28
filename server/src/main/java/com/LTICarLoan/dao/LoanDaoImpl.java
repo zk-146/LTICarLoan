@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.beans.Loan;
+import com.LTICarLoan.beans.Vehicle;
 
 @Repository
 public class LoanDaoImpl implements LoanDao{
@@ -20,8 +21,6 @@ public class LoanDaoImpl implements LoanDao{
 	@Override
 	@Transactional
 	public int addLoan(Loan l) {
-
-		System.out.println("Dao layer");
 		
 		em.persist(l);
 		return l.getLoan_id();
@@ -31,9 +30,9 @@ public class LoanDaoImpl implements LoanDao{
 	public Loan findLoanByCarId(int car_id) {
 
 		TypedQuery<Loan> qry = em.createQuery("Select l from Loan l join l.vehicle v where v.car_id=:car_id", Loan.class);
-
 		qry.setParameter("car_id", car_id);
-		Loan l = (Loan) qry.getResultList();
+		Loan l = qry.getResultList().get(0);
+		System.out.println(l);
 		return l;
 
 	}

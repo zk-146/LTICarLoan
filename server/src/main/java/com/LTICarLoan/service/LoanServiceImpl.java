@@ -16,7 +16,6 @@ public class LoanServiceImpl implements LoanService{
 	@Override
 	public int addLoan(Loan l) {
 
-		System.out.println("service layer");
 		return loanDao.addLoan(l);
 
 	}
