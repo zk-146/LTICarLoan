@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "loan_details")
-public class LoanDetails {
+public class Loan {
 	
 		@Id
 //		@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="EMPSEQ")
@@ -36,10 +36,10 @@ public class LoanDetails {
 		
 		@ManyToOne(cascade = CascadeType.ALL)
 		@JoinColumn(name="car_id")
-		VehicleDetails vehicleDetails;
+		Vehicle vehicleDetails;
 
-		public LoanDetails(int loan_id, String loan_type, double interest_rate, double loan_amt, int no_of_emi,
-				double processing_fee, VehicleDetails vehicleDetails) {
+		public Loan(int loan_id, String loan_type, double interest_rate, double loan_amt, int no_of_emi,
+				double processing_fee, Vehicle vehicleDetails) {
 			super();
 			this.loan_id = loan_id;
 			this.loan_type = loan_type;
@@ -50,7 +50,7 @@ public class LoanDetails {
 			this.vehicleDetails = vehicleDetails;
 		}
 
-		public LoanDetails() {
+		public Loan() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
@@ -103,11 +103,11 @@ public class LoanDetails {
 			this.processing_fee = processing_fee;
 		}
 
-		public VehicleDetails getVehicleDetails() {
+		public Vehicle getVehicleDetails() {
 			return vehicleDetails;
 		}
 
-		public void setVehicleDetails(VehicleDetails vehicleDetails) {
+		public void setVehicleDetails(Vehicle vehicleDetails) {
 			this.vehicleDetails = vehicleDetails;
 		}
 

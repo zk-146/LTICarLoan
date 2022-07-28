@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "application_details")
-public class ApplicationDetails {
+public class Application {
 	@Id
 	@Column(name = "application_id")
 	private int application_id;
@@ -28,10 +28,10 @@ public class ApplicationDetails {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	UserPersonalDetails userPersonalDetails;
+	User userPersonalDetails;
 
-	public ApplicationDetails(int application_id, String application_status, int emi_amt, int loan_amt, int no_of_emis,
-			int loan_tenure, UserPersonalDetails userPersonalDetails) {
+	public Application(int application_id, String application_status, int emi_amt, int loan_amt, int no_of_emis,
+			int loan_tenure, User userPersonalDetails) {
 		super();
 		this.application_id = application_id;
 		this.application_status = application_status;
@@ -42,7 +42,7 @@ public class ApplicationDetails {
 		this.userPersonalDetails = userPersonalDetails;
 	}
 
-	public ApplicationDetails() {
+	public Application() {
 		super();
 	}
 
@@ -94,11 +94,11 @@ public class ApplicationDetails {
 		this.loan_tenure = loan_tenure;
 	}
 
-	public UserPersonalDetails getUserPersonalDetails() {
+	public User getUserPersonalDetails() {
 		return userPersonalDetails;
 	}
 
-	public void setUserPersonalDetails(UserPersonalDetails userPersonalDetails) {
+	public void setUserPersonalDetails(User userPersonalDetails) {
 		this.userPersonalDetails = userPersonalDetails;
 	}
 
