@@ -40,7 +40,7 @@ public class ApplicationDaoImpl implements ApplicationDao {
 	@Transactional
 	public boolean updateApplicationStatus(int id, String status) {
 		Query qry = em.createQuery(
-				"update APPLICATION_DETAILS a SET a.application_status=:status where a.application_id=:id");
+				"update Application a SET a.application_status=:status where a.application_id=:id");
 		qry.setParameter("status", status);
 		qry.setParameter("id", id);
 		qry.executeUpdate();

@@ -43,7 +43,7 @@ public class ApplicationController {
 
 	// http://localhost:8090/emp-api/updatEmp/105/4512354.00
 	@PutMapping("/update-application-status/{application_id}/{status}")
-	public boolean updateEmp(@PathVariable("empNo") int application_id, @PathVariable("status") String status) throws Exception {
+	public boolean updateEmp(@PathVariable("application_id") int application_id, @PathVariable("status") String status) throws Exception {
 		boolean response = service.updateApplicationStatus(application_id, status);
 		return response;
 	}
