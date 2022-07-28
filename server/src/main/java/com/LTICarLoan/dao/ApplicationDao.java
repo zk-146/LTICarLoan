@@ -10,7 +10,10 @@ public interface ApplicationDao {
 
 	Application findApplicationById(int id);
 
+	Application findApplicationByUserId(int user_id) throws ApplicationException;
+
 	List<Application> getApplicationList();
 
 	boolean updateApplicationStatus(int id, String status) throws ApplicationException;
+
 }
