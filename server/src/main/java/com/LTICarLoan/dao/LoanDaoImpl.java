@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.beans.Loan;
 
 @Repository
@@ -29,10 +30,12 @@ public class LoanDaoImpl implements LoanDao{
 	@Override
 	public Loan findLoanByCarId(int car_id) {
 
-		TypedQuery<Loan> qry = em.createQuery("Select l from Loan l where l.car='car_id'",Loan.class);
-		Loan l = (Loan)qry.getResultList();
+		TypedQuery<Loan> qry = em.createQuery("Select l from Loan l join l.vehicle v where v.car_id=:car_id", Loan.class);
 
+		qry.setParameter("car_id", car_id);
+		Loan l = (Loan) qry.getResultList();
 		return l;
+
 	}
 
 }
