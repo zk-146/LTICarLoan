@@ -3,12 +3,9 @@ package com.LTICarLoan.beans;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +13,8 @@ import javax.persistence.Table;
 public class LoanDetails {
 	
 		@Id
-		@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="EMPSEQ")
-		@SequenceGenerator(name="EMPSEQ",sequenceName="empseq",allocationSize=1)
+//		@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="EMPSEQ")
+//		@SequenceGenerator(name="EMPSEQ",sequenceName="empseq",allocationSize=1)
 		@Column(name="loan_type_id")
 		private int loan_id;
 		
