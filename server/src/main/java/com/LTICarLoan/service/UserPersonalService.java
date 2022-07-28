@@ -1,5 +1,7 @@
 package com.LTICarLoan.service;
 
-public interface UserPersonalService {
+import com.LTICarLoan.beans.User;
 
+public interface UserPersonalService {
+	public int addUser(User u);
 }
