@@ -29,6 +29,8 @@ public class VehicleDetails {
 	@JoinColumn(name="user_id")
 	UserPersonalDetails userPersonalDetails;
 
+	
+	
 	public VehicleDetails(int car_id, String model_name, String compnay_name, double price,
 			UserPersonalDetails userPersonalDetails) {
 		super();
