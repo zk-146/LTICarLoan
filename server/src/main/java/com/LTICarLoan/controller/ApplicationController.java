@@ -43,9 +43,9 @@ public class ApplicationController {
 	}
 
 	@GetMapping(path = "/get-application-by-user_id/{user_id}")
-	public Application findApplicationByUserId(@PathVariable("user_id") int user_id) throws ApplicationException {
-		Application application = service.findApplicationByUserId(user_id);
-		return application;
+	public List<Application> findApplicationByUserId(@PathVariable("user_id") int user_id) throws ApplicationException {
+		List<Application> applications = service.findApplicationByUserId(user_id);
+		return applications;
 	}
 
 	@PutMapping("/update-application-status/{application_id}/{status}")

@@ -31,7 +31,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 	}
 
 	@Override
-	public Application findApplicationByUserId(int user_id) throws ApplicationException {
+	public List<Application> findApplicationByUserId(int user_id) throws ApplicationException {
 		return dao.findApplicationByUserId(user_id);
 	}
 

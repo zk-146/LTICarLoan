@@ -31,12 +31,15 @@ public class ApplicationDaoImpl implements ApplicationDao {
 	public Application findApplicationById(int id) {
 		return em.find(Application.class, id);
 	}
-
+	
+	
+	//nested reference
 	@Override
-	public Application findApplicationByUserId(int user_id) throws ApplicationException {
-		TypedQuery<Application> qry = em.createQuery("Select a from Application a where a.user=:user_id", Application.class);
+	public List<Application> findApplicationByUserId(int user_id) throws ApplicationException {
+		TypedQuery<Application> qry = em.createQuery("Select a from Application a join a.user u where u.user_id=:user_id", Application.class);
 		qry.setParameter("user_id", user_id);
-		Application a = (Application) qry.getResultList();
+		List<Application> a =  qry.getResultList();
+		
 		return a;
 	}
 
