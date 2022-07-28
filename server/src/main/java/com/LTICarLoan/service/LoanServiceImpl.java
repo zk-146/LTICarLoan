@@ -11,14 +11,21 @@ public class LoanServiceImpl implements LoanService{
 
 	
 	@Autowired
-	LoanDao dao;
+	LoanDao loanDao;
 	
 	@Override
 	public int addLoan(Loan l) {
 
 		System.out.println("service layer");
-		return dao.addLoan(l);
+		return loanDao.addLoan(l);
 
+	}
+
+	@Override
+	public Loan findLoanByCarId(int car_id) {
+
+		return loanDao.findLoanByCarId(car_id);
+		
 	}
 
 }
