@@ -17,6 +17,7 @@ public class UserDaoImpl implements UserDao{
 	public int addUser(User u) {
 		em.persist(u);
 		return u.getUser_id();
+		
 	}
 	
 	
