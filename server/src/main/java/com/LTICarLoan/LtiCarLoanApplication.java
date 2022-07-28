@@ -8,5 +8,4 @@ public class LtiCarLoanApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LtiCarLoanApplication.class, args);
 	}
-
 }
