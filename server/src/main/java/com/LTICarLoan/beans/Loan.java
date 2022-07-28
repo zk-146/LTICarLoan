@@ -36,10 +36,10 @@ public class Loan {
 		
 		@ManyToOne(cascade = CascadeType.ALL)
 		@JoinColumn(name="car_id")
-		Vehicle vehicleDetails;
+		Vehicle vehicle;
 
 		public Loan(int loan_id, String loan_type, double interest_rate, double loan_amt, int no_of_emi,
-				double processing_fee, Vehicle vehicleDetails) {
+				double processing_fee, Vehicle vehicle) {
 			super();
 			this.loan_id = loan_id;
 			this.loan_type = loan_type;
@@ -47,14 +47,13 @@ public class Loan {
 			this.loan_amt = loan_amt;
 			this.no_of_emi = no_of_emi;
 			this.processing_fee = processing_fee;
-			this.vehicleDetails = vehicleDetails;
+			this.vehicle = vehicle;
 		}
 
 		public Loan() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
-
+		
 		public int getLoan_id() {
 			return loan_id;
 		}
@@ -103,22 +102,19 @@ public class Loan {
 			this.processing_fee = processing_fee;
 		}
 
-		public Vehicle getVehicleDetails() {
-			return vehicleDetails;
+		public Vehicle getVehicle() {
+			return vehicle;
 		}
 
-		public void setVehicleDetails(Vehicle vehicleDetails) {
-			this.vehicleDetails = vehicleDetails;
+		public void setVehicle(Vehicle vehicle) {
+			this.vehicle = vehicle;
 		}
 
 		@Override
 		public String toString() {
-			return "LoanDetails [loan_id=" + loan_id + ", loan_type=" + loan_type + ", interest_rate=" + interest_rate
+			return "\nLoan [loan_id=" + loan_id + ", loan_type=" + loan_type + ", interest_rate=" + interest_rate
 					+ ", loan_amt=" + loan_amt + ", no_of_emi=" + no_of_emi + ", processing_fee=" + processing_fee
-					+ ", vehicleDetails=" + vehicleDetails + "]";
+					+ ", vehicle=" + vehicle + "]";
 		}
-
 		
-		
-
 }

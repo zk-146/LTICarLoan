@@ -27,16 +27,15 @@ public class Vehicle {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	User userPersonalDetails;
+	User user;
 
-	public Vehicle(int car_id, String model_name, String compnay_name, double price,
-			User userPersonalDetails) {
+	public Vehicle(int car_id, String model_name, String compnay_name, double price, User user) {
 		super();
 		this.car_id = car_id;
 		this.model_name = model_name;
 		this.compnay_name = compnay_name;
 		this.price = price;
-		this.userPersonalDetails = userPersonalDetails;
+		this.user = user;
 	}
 
 	public Vehicle() {
@@ -75,19 +74,18 @@ public class Vehicle {
 		this.price = price;
 	}
 
-	public User getUserPersonalDetails() {
-		return userPersonalDetails;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserPersonalDetails(User userPersonalDetails) {
-		this.userPersonalDetails = userPersonalDetails;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "VehicleDetails [car_id=" + car_id + ", model_name=" + model_name + ", compnay_name=" + compnay_name
-				+ ", price=" + price + ", userPersonalDetails=" + userPersonalDetails + "]";
+		return "\nVehicle [car_id=" + car_id + ", model_name=" + model_name + ", compnay_name=" + compnay_name
+				+ ", price=" + price + ", user=" + user + "]";
 	}
-	
 	
 }

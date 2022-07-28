@@ -28,10 +28,10 @@ public class Application {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
-	User userPersonalDetails;
+	User user;
 
 	public Application(int application_id, String application_status, int emi_amt, int loan_amt, int no_of_emis,
-			int loan_tenure, User userPersonalDetails) {
+			int loan_tenure, User user) {
 		super();
 		this.application_id = application_id;
 		this.application_status = application_status;
@@ -39,7 +39,7 @@ public class Application {
 		this.loan_amt = loan_amt;
 		this.no_of_emis = no_of_emis;
 		this.loan_tenure = loan_tenure;
-		this.userPersonalDetails = userPersonalDetails;
+		this.user = user;
 	}
 
 	public Application() {
@@ -94,19 +94,19 @@ public class Application {
 		this.loan_tenure = loan_tenure;
 	}
 
-	public User getUserPersonalDetails() {
-		return userPersonalDetails;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserPersonalDetails(User userPersonalDetails) {
-		this.userPersonalDetails = userPersonalDetails;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "\nApplicationDetails [application_id=" + application_id + ", application_status=" + application_status
+		return "Application [application_id=" + application_id + ", application_status=" + application_status
 				+ ", emi_amt=" + emi_amt + ", loan_amt=" + loan_amt + ", no_of_emis=" + no_of_emis + ", loan_tenure="
-				+ loan_tenure + ", userPersonalDetails=" + userPersonalDetails + "]";
+				+ loan_tenure + ", user=" + user + "]";
 	}
 
 }
