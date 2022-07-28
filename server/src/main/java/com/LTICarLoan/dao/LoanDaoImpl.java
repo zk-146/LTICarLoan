@@ -19,7 +19,7 @@ public class LoanDaoImpl implements LoanDao{
 	@Transactional
 	public int addLoan(Loan l) {
 
-		System.out.println("service layer");
+		System.out.println("Dao layer");
 		
 		em.persist(l);
 		return l.getLoan_id();

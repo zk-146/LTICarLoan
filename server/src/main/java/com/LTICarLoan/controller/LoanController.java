@@ -16,14 +16,14 @@ import com.LTICarLoan.service.LoanService;
 public class LoanController {
 	
 	@Autowired
-	LoanService service;
+	LoanService loanservice;
 	
 	//http://localhost:8090/loan-api/addloan
 
 		@PostMapping("/addloan")
 		public int addloan(@RequestBody Loan l)
 		{
-			int lId=service.addLoan(l);
+			int lId=loanservice.addLoan(l);
 			return lId;
 		}
 		
