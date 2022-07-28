@@ -12,7 +12,6 @@ import com.LTICarLoan.beans.User;
 public class UserDaoImpl implements UserDao{
 	@PersistenceContext
 	private EntityManager em;
-
 	@Override
 	@Transactional
 	public int addUser(User u) {
