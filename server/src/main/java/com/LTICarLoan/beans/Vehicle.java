@@ -25,7 +25,7 @@ public class Vehicle {
 	@Column(name="price")
 	private double price;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	User user;
 
