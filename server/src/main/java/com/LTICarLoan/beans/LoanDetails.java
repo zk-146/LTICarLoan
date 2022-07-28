@@ -26,7 +26,6 @@ public class LoanDetails {
 		
 		@Column(name="loan_amt")
 		private double loan_amt;
-		private double loan;
 
 		@Column(name="no_of_emi")
 		private int no_of_emi;
