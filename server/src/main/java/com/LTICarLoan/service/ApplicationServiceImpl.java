@@ -37,6 +37,5 @@ public class ApplicationServiceImpl implements ApplicationService {
 			throw new Error("Application doesn't exist");
 		}
 		return dao.updateApplicationStatus(id, status);			
-		
 	}
 }
