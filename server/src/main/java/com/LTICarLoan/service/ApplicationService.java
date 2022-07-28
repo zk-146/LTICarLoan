@@ -6,9 +6,11 @@ import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.exception.ApplicationException;
 
 public interface ApplicationService {
-	int addApplication(Application a);
+	int addApplication(Application a) throws ApplicationException;
 
 	Application findApplicationById(int id);
+
+	Application findApplicationByUserId(int user_id) throws ApplicationException;
 
 	List<Application> getApplicationList();
 

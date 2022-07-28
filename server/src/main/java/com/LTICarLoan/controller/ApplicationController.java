@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LTICarLoan.beans.Application;
+import com.LTICarLoan.exception.ApplicationException;
 import com.LTICarLoan.service.ApplicationService;
 
 @CrossOrigin(origins = "*")
@@ -24,7 +25,7 @@ public class ApplicationController {
 	ApplicationService service;
 
 	@PostMapping("/add-application")
-	public int addApplication(@RequestBody Application a) {
+	public int addApplication(@RequestBody Application a) throws ApplicationException {
 		int applicationId = service.addApplication(a);
 		return applicationId;
 	}
@@ -41,9 +42,15 @@ public class ApplicationController {
 		return application;
 	}
 
-	// http://localhost:8090/emp-api/updatEmp/105/4512354.00
+	@GetMapping(path = "/get-application-by-user_id/{user_id}")
+	public Application findApplicationByUserId(@PathVariable("user_id") int user_id) throws ApplicationException {
+		Application application = service.findApplicationByUserId(user_id);
+		return application;
+	}
+
 	@PutMapping("/update-application-status/{application_id}/{status}")
-	public boolean updateEmp(@PathVariable("application_id") int application_id, @PathVariable("status") String status) throws Exception {
+	public boolean updateEmp(@PathVariable("application_id") int application_id, @PathVariable("status") String status)
+			throws ApplicationException {
 		boolean response = service.updateApplicationStatus(application_id, status);
 		return response;
 	}
