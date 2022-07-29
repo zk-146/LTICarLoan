@@ -16,4 +16,27 @@ public class UserPersonalServiceImpl implements UserPersonalService{
 		return userDao.addUser(u);
 	}
 
+	@Override
+	public boolean userLogin(String email, String password) {
+		
+		return userDao.login(email, password);
+	}
+
+	@Override
+	public String signup(User user) {
+		try {
+			int user1 = userDao.addUser(user);
+			return "Sign up successful. \nYour userId is: " + user1;
+		} catch (Exception e) {
+			return "Unexpected error occured. Signup failed.";
+		}
+	}
+
+
+	
+	
+	
+	
+	
+
 }
