@@ -1,4 +1,4 @@
-<h1>Create an Account</h1>
+<!-- <h1>Create an Account</h1>
 <div id="account">
     <label>User Personal Details</label>
     <div class="element">
@@ -22,5 +22,38 @@
 </div>
 <div>
     <button id="next">Next</button>
-</div>
+</div> -->
 
+<div id="register">
+    <div id="registerForm-header">
+      <h1>Create an Account</h1>
+    </div>
+    <div id="registerForm-container">
+      <div id="registerForm-progressbar"></div>
+      <div id="registerForm-details">
+        <ng-template
+          #formDetail
+          [ngTemplateOutlet]="formDetail"
+          let-currentFormDetail="currentFormDetail"
+          [ngTemplateOutletContext]="{
+            currentFormDetail: formDetails[currentFormIndex]
+          }"
+        >
+          <p id="registerForm-details-title">{{ currentFormDetail.name }}</p>
+          <ng-container *ngFor="let data of currentFormDetail.fields">
+            <div id="registerForm-detials-row">
+              <div>
+                <p>{{ data.label }}</p>
+                <input
+                  type="{{ data.inputType }}"
+                  placeholder="{{ data.placeholder }}"
+                />
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+        <button (click)="increaseCurrentIndex()">Next</button>
+      </div>
+    </div>
+  </div>
+  
