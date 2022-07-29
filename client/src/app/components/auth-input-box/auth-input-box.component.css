@@ -1,0 +1,19 @@
+.input
+{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 27px;
+}
+
+.input
+{
+    border: 0px solid #000000;
+    border-bottom-width: 1px;
+    background-color: transparent;
+}
+.input:hover{
+    border-color: #000066;
+   background-color: #FFFFF7;
+}

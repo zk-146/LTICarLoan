@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-auth-input-box',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthInputBoxComponent implements OnInit {
 
+  
+  @Input() inputType="";
+  @Input() placeholder="";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+
