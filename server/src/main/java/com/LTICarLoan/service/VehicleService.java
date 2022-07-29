@@ -7,5 +7,7 @@ public interface VehicleService {
 	public int addVehicle(Vehicle v);
 
 	Vehicle findVehicleByUserId(int user_id);
+	
+	Vehicle findVehicleById(int id);
 
 }

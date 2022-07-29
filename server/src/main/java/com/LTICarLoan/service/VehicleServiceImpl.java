@@ -24,4 +24,10 @@ public class VehicleServiceImpl implements VehicleService{
 		return vehicleDao.findVehicleByUserId(user_id);
 	}
 
+	@Override
+	public Vehicle findVehicleById(int id) {
+		
+		return vehicleDao.findVehicleById(id);
+	}
+
 }

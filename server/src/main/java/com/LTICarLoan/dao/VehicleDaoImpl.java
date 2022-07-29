@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.LTICarLoan.beans.Loan;
 import com.LTICarLoan.beans.Vehicle;
 
 @Repository
@@ -33,5 +34,13 @@ public class VehicleDaoImpl implements VehicleDao {
 		System.out.println(v);
 		return v;
 	}
+	
+	@Override
+	public Vehicle findVehicleById(int id) {
+		
+		return em.find(Vehicle.class, id);
+		
+	}
+
 
 }
