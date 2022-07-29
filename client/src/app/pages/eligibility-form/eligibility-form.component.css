@@ -1,0 +1,54 @@
+.input{
+    box-sizing: border-box;
+    width:283.94px ;
+    /* position: absolute;
+    left: 28.96%;
+    right: 51.32%;
+    top: 50.89%;
+    bottom: 43.63%; */
+    padding: 10px 10px;
+    
+    outline: none;;
+    /* Neutral/100 */
+    
+    background: #FFFFFF;
+    /* Neutral/300 */
+    
+    border: 1px solid #EFF0F7;
+    /* Input/Default */
+    
+    box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+    border-radius: 46px;
+}
+.label{
+    /* Car Make */
+
+
+/* position: absolute;
+left: 28.96%;
+right: 65.49%;
+top: 47.79%;
+bottom: 50.55%; */
+
+/* Other/18-20 M */
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+
+/* Neutral/800 */
+
+color: #170F49;
+
+}
+.input:focus{
+    outline: 1px solid #4A3AFF;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
