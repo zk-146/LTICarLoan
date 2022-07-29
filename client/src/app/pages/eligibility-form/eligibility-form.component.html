@@ -6,7 +6,7 @@
   <div id="eligibilityForm-container">
     <div id="eligibilityForm-progressbar"></div>
     <div id="eligibilityForm-details">
-      <ng-template
+      <!-- <ng-template
         #formDetail
         [ngTemplateOutlet]="formDetail"
         let-currentFormDetail="currentFormDetail"
@@ -21,6 +21,7 @@
           <div id="eligibilityForm-detials-row">
             <div>
               <p>{{ data.label }}</p>
+              <p>{{ data.error }}</p>
               <div *ngIf="data.options; else displayTextInput">
                 <form>
                   <label
@@ -28,6 +29,7 @@
                     <input
                       type="radio"
                       name="data.placeholder"
+                      [ngClass]="{ error: data.error != '' }"
                       (change)="updateFormValue(currentFormIndex, i, 'Yes')"
                   /></label>
                   <label
@@ -35,6 +37,7 @@
                     <input
                       type="radio"
                       name="data.placeholder"
+                      [ngClass]="{ error: data.error != '' }"
                       (change)="updateFormValue(currentFormIndex, i, 'No')"
                   /></label>
                 </form>
@@ -44,6 +47,7 @@
                   type="{{ data.inputType }}"
                   placeholder="{{ data.placeholder }}"
                   value="{{ data.value }}"
+                  [ngClass]="{ error: data.error != '' }"
                   (input)="
                     updateFormValue(
                       currentFormIndex,
@@ -56,7 +60,63 @@
             </div>
           </div>
         </ng-container>
-      </ng-template>
+      </ng-template> -->
+
+      <form [formGroup]="vehicleDetails">
+        <ng-template
+          #formDetail
+          [ngTemplateOutlet]="formDetail"
+          let-currentFormDetail="currentFormDetail"
+          [ngTemplateOutletContext]="{
+            currentFormDetail: formDetails[currentFormIndex]
+          }"
+        >
+          <p id="eligibilityForm-details-title">{{ currentFormDetail.name }}</p>
+          <ng-container
+            *ngFor="let data of currentFormDetail.fields; let i = index"
+          >
+            <div id="eligibilityForm-detials-row">
+              <div>
+                <p>{{ data.label }}</p>
+                <p>{{ data.error }}</p>
+                <div *ngIf="data.options; else displayTextInput">
+                  <label
+                    >Yes
+                    <input
+                      type="radio"
+                      name="data.placeholder"
+                      [ngClass]="{ error: data.error != '' }"
+                  /></label>
+                  <!-- (change)="updateFormValue(currentFormIndex, i, 'Yes')" -->
+                  <label
+                    >No
+                    <input
+                      type="radio"
+                      name="data.placeholder"
+                      [ngClass]="{ error: data.error != '' }"
+                  /></label>
+                  <!-- (change)="updateFormValue(currentFormIndex, i, 'No')" -->
+                </div>
+                <ng-template #displayTextInput>
+                  <input
+                    type="{{ data.inputType }}"
+                    placeholder="{{ data.placeholder }}"
+                    formControlName="{{ data.value }}"
+                    [ngClass]="{ error: data.error != '' }"
+                  />
+                  <!-- (input)="
+                      updateFormValue(
+                        currentFormIndex,
+                        i,
+                        $any($event.target).value
+                      )
+                    " -->
+                </ng-template>
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+      </form>
 
       <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
         Back

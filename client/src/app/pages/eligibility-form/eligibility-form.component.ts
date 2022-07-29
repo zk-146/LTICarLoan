@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-eligibility-form',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class EligibilityFormComponent implements OnInit {
+
+  vehicleDetails!:FormGroup;
+
   formDetails = [
     {
       name: "Vehicle Details",
@@ -15,25 +19,29 @@ export class EligibilityFormComponent implements OnInit {
           label: "Car Make",
           placeholder: "Eg. Nissan",
           inputType: "text",
-          value: ''
+          value: 'carMake',
+          error: '',
         },
         {
           label: "Car Model",
           placeholder: "Eg. Nissan X39-O2",
           inputType: "text",
-          value: ''
+          value: 'carModel',
+          error: '',
         },
         {
           label: "Ex showroom Price",
           placeholder: "$77890",
           inputType: "number",
-          value: ''
+          value: 'exShowroomPrice',
+          error: '',
         },
         {
           label: "On Road Price",
           placeholder: "$80530",
           inputType: "number",
-          value: ''
+          value: 'onRoadPrice',
+          error: '',
         },
       ],
     },
@@ -44,43 +52,50 @@ export class EligibilityFormComponent implements OnInit {
           label: "First Name",
           placeholder: "Eg. John",
           inputType: "text",
-          value: ''
+          value: 'firstName',
+          error: '',
         },
         {
-          label: "Second Name",
+          label: "Last Name",
           placeholder: "Eg. Doe",
           inputType: "text",
-          value: ''
+          value: 'lastName',
+          error: '',
         },
         {
           label: "Age",
           placeholder: "Eg. 21",
           inputType: "number",
-          value: ''
+          value: 'age',
+          error: '',
         },
         {
           label: "Gender",
           placeholder: "Eg. Male",
           inputType: "text",
-          value: ''
+          value: 'gender',
+          error: '',
         },
         {
           label: "Type of employment",
           placeholder: "$80530",
           inputType: "number",
-          value: ''
+          value: 'typeOfEmployment',
+          error: '',
         },
         {
           label: "Yearly Salary",
           placeholder: "$77000",
           inputType: "number",
-          value: ''
+          value: 'yearlySalary',
+          error: '',
         },
         {
           label: "Exisitng EMI",
           placeholder: "Yes",
           inputType: "text",
-          value: '',
+          value: 'exisitingEMI',
+          error: '',
           options: true,
         },
       ],
@@ -92,13 +107,15 @@ export class EligibilityFormComponent implements OnInit {
           label: "Phone Number",
           placeholder: "Eg. 7718964516",
           inputType: "number",
-          value: ''
+          value: 'phoneNumber',
+          error: '',
         },
         {
           label: "Email",
           placeholder: "Email",
           inputType: "email",
-          value: ''
+          value: 'email',
+          error: '',
         },
       ],
     }
@@ -106,15 +123,27 @@ export class EligibilityFormComponent implements OnInit {
 
   currentFormIndex = 0;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
-  updateFormValue= (titleIndex:number, fieldIndex:number, value:any)=> {
-    this.formDetails[titleIndex].fields[fieldIndex].value = value;
-  }
+  // updateFormValue= (titleIndex:number, fieldIndex:number, value:any)=> {
+    // this.formDetails[titleIndex].fields[fieldIndex].value = value;
+    // console.log(this.vehicleDetails);
+  // }
 
   increaseCurrentIndex = () => {
-    this.currentFormIndex++;
-    console.log(this.formDetails)
+    const formDetail = this.formDetails[this.currentFormIndex].fields;
+    let proceed = true;
+    for(let i = 0; i < formDetail.length; i++) {
+      if(formDetail[i].value=="") {
+        formDetail[i].error= formDetail[i].label + " is required";
+        proceed = false;
+      }
+      else {
+        formDetail[i].error="";
+      }
+    }
+    if(proceed)
+      this.currentFormIndex++;
   }
 
   decreaseCurrentIndex = () => {
@@ -123,6 +152,20 @@ export class EligibilityFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.vehicleDetails= this.fb.group({
+      carMake:['', Validators.required],
+      carModel:['', Validators.required],
+      exShowroomPrice:['', Validators.required],
+      onRoadPrice:['', Validators.required],
+      firstName:['', Validators.required],
+      lastName:['', Validators.required],
+      age:['', Validators.required],
+      gender:['', Validators.required],
+      typeOfEmployment:['', Validators.required],
+      yearlySalary:['', Validators.required],
+      exisitingEMI:['', Validators.required],
+      phoneNumber:['', Validators.required],
+      email:['', Validators.required],
+    });
   }
-
 }
