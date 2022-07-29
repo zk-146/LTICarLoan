@@ -40,13 +40,15 @@
           }"
         >
           <p id="registerForm-details-title">{{ currentFormDetail.name }}</p>
-          <ng-container *ngFor="let data of currentFormDetail.fields">
-            <div id="registerForm-detials-row">
+          <ng-container *ngFor="let data of currentFormDetail.fields; let i = index">
+            <div id="eligibilityForm-detials-row">
               <div>
                 <p>{{ data.label }}</p>
                 <input
                   type="{{ data.inputType }}"
                   placeholder="{{ data.placeholder }}"
+                  value="{{ data.value }}"
+                  (input)="updateFormValue(currentFormIndex,i,$any($event.target).value)"
                 />
               </div>
             </div>
@@ -56,4 +58,18 @@
       </div>
     </div>
   </div>
+  
+  
+<!-- 
+  <ng-container *ngFor="let data of currentFormDetail.fields">
+    <div id="registerForm-detials-row">
+      <div>
+        <p>{{ data.label }}</p>
+        <input
+          type="{{ data.inputType }}"
+          placeholder="{{ data.placeholder }}"
+        />
+      </div>
+    </div>
+  </ng-container> -->
   

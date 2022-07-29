@@ -94,6 +94,10 @@ export class RegisterComponent implements OnInit {
   
   constructor() { }
 
+  updateFormValue= (titleIndex:any, fieldIndex:any, value:any)=> {
+    this.formDetails[titleIndex].fields[fieldIndex].value.value;
+  }
+
   increaseCurrentIndex = () => {
     this.currentFormIndex++;
   }
