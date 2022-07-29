@@ -1,4 +1,4 @@
-.input
+.auth-input
 {
 font-family: 'Poppins';
 font-style: normal;
@@ -7,13 +7,13 @@ font-size: 18px;
 line-height: 27px;
 }
 
-.input
+.auth-input
 {
     border: 0px solid #000000;
     border-bottom-width: 1px;
     background-color: transparent;
 }
-.input:hover{
+.auth-input:hover{
     border-color: #000066;
    background-color: #FFFFF7;
 }
