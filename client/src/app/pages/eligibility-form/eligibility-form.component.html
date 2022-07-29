@@ -1,1 +1,47 @@
-<p>eligibility-form works!</p>
+<div id="eligibilityForm">
+  <div id="eligibilityForm-header">
+    <h1>Check Eligibilty</h1>
+    <p>Please fill the form below to check your eligibility</p>
+  </div>
+  <div id="eligibilityForm-container">
+    <div id="eligibilityForm-progressbar"></div>
+    <div id="eligibilityForm-details">
+      <ng-template
+        #formDetail
+        [ngTemplateOutlet]="formDetail"
+        let-currentFormDetail="currentFormDetail"
+        [ngTemplateOutletContext]="{
+          currentFormDetail: formDetails[currentFormIndex]
+        }"
+      >
+        <p id="eligibilityForm-details-title">{{ currentFormDetail.name }}</p>
+        <ng-container *ngFor="let data of currentFormDetail.fields">
+          <div id="eligibilityForm-detials-row">
+            <div>
+              <p>{{ data.label }}</p>
+              <input
+                type="{{ data.inputType }}"
+                placeholder="{{ data.placeholder }}"
+              />
+            </div>
+          </div>
+        </ng-container>
+      </ng-template>
+      <button (click)="increaseCurrentIndex()">Next</button>
+      <!-- <ng-container *ngFor="let detail of formDetails; let i = index">
+        <p id="eligibilityForm-details-title">{{ detail.name }}</p>
+        <ng-container *ngFor="let data of detail.fields; let j = index">
+          <div id="eligibilityForm-detials-row">
+            <div>
+              <p>{{ data.label }}</p>
+              <input
+                type="{{ data.inputType }}"
+                placeholder="{{ data.placeholder }}"
+              />
+            </div>
+          </div>
+        </ng-container>
+      </ng-container> -->
+    </div>
+  </div>
+</div>
