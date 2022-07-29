@@ -1,0 +1,20 @@
+
+  
+  .row {
+    display: flex;
+  }
+  
+  .right {
+    padding-top: 70px;
+    flex: 30%;
+  }
+  .left {
+    padding-top: 70px;
+    flex: 70%;
+  }
+  body{
+    padding-top: 70px;
+  }
+
+  /* Clear floats after the columns */
+  

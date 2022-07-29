@@ -1,0 +1,18 @@
+
+<body>
+    
+        <div id="admin-div" [align]="'center'"> 
+            <h4>All Loan Applications</h4>
+            <div class="container" >
+                <div class="switch" >
+                    <div class="register" (click)="onClickToggle('pending')" [ngClass]="{active:toggle=='pending'}">Pending</div>
+                    <div class="register" (click)="onClickToggle('approve')" [ngClass]="{active:toggle=='approve'}">Approved</div>
+                    <div class="register" (click)="onClickToggle('rejected')" [ngClass]="{active:toggle=='rejected'}">Rejected</div>
+                </div>
+            </div>
+            
+
+        
+      </div>
+
+</body>
