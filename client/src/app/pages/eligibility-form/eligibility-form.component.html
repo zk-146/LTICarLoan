@@ -21,37 +21,58 @@
           <div id="eligibilityForm-detials-row">
             <div>
               <p>{{ data.label }}</p>
-              <input
-                type="{{ data.inputType }}"
-                placeholder="{{ data.placeholder }}"
-                value="{{ data.value }}"
-                (input)="
-                  updateFormValue(
-                    currentFormIndex,
-                    i,
-                    $any($event.target).value
-                  )
-                "
-              />
+              <div *ngIf="data.options; else displayTextInput">
+                <form>
+                  <label
+                    >Yes
+                    <input
+                      type="radio"
+                      name="data.placeholder"
+                      (change)="updateFormValue(currentFormIndex, i, 'Yes')"
+                  /></label>
+                  <label
+                    >No
+                    <input
+                      type="radio"
+                      name="data.placeholder"
+                      (change)="updateFormValue(currentFormIndex, i, 'No')"
+                  /></label>
+                </form>
+              </div>
+              <ng-template #displayTextInput>
+                <input
+                  type="{{ data.inputType }}"
+                  placeholder="{{ data.placeholder }}"
+                  value="{{ data.value }}"
+                  (input)="
+                    updateFormValue(
+                      currentFormIndex,
+                      i,
+                      $any($event.target).value
+                    )
+                  "
+                />
+              </ng-template>
             </div>
           </div>
         </ng-container>
       </ng-template>
-      <button (click)="increaseCurrentIndex()">Next</button>
-      <!-- <ng-container *ngFor="let detail of formDetails; let i = index">
-        <p id="eligibilityForm-details-title">{{ detail.name }}</p>
-        <ng-container *ngFor="let data of detail.fields; let j = index">
-          <div id="eligibilityForm-detials-row">
-            <div>
-              <p>{{ data.label }}</p>
-              <input
-                type="{{ data.inputType }}"
-                placeholder="{{ data.placeholder }}"
-              />
-            </div>
-          </div>
-        </ng-container>
-      </ng-container> -->
+
+      <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
+        Back
+      </button>
+      <button
+        *ngIf="
+          currentFormIndex < formDetails.length - 1;
+          else displayRegisterButton
+        "
+        (click)="increaseCurrentIndex()"
+      >
+        Next
+      </button>
+      <ng-template #displayRegisterButton>
+        <button>Register</button>
+      </ng-template>
     </div>
   </div>
 </div>

@@ -80,7 +80,8 @@ export class EligibilityFormComponent implements OnInit {
           label: "Exisitng EMI",
           placeholder: "Yes",
           inputType: "text",
-          value: ''
+          value: '',
+          options: true,
         },
       ],
     },
@@ -107,12 +108,17 @@ export class EligibilityFormComponent implements OnInit {
 
   constructor() { }
 
-  updateFormValue= (titleIndex:any, fieldIndex:any, value:any)=> {
-    this.formDetails[titleIndex].fields[fieldIndex].value=value;
+  updateFormValue= (titleIndex:number, fieldIndex:number, value:any)=> {
+    this.formDetails[titleIndex].fields[fieldIndex].value = value;
   }
 
   increaseCurrentIndex = () => {
     this.currentFormIndex++;
+    console.log(this.formDetails)
+  }
+
+  decreaseCurrentIndex = () => {
+    this.currentFormIndex--;
     console.log(this.formDetails)
   }
 
