@@ -1,0 +1,23 @@
+<div id="navbar">
+  <div id="navbar-left">
+    <div id="navbar-logo">
+      <img src="../../../assets/svgs/Star.svg" alt="Blue Star" />
+      <p>LTI Car Loan</p>
+    </div>
+    <div id="navbar-left-btns">
+      <p [routerLink]="['/']">Home</p>
+      <p [routerLink]="['/dashboard']" id="active">Dashboard</p>
+      <p [routerLink]="['/about-us']">About Us</p>
+      <p [routerLink]="['/emi-calculator']">EMI Calculator</p>
+      <p [routerLink]="['/apply-loan']">Apply Loan</p>
+    </div>
+  </div>
+  <div id="navbar-right">
+    <div id="navbar-logout">
+      <!-- <span class="material-icons-two-tone">logout</span> -->
+      <img src="../../../assets/svgs/Logout.svg" alt="Exit door" />
+      <p>Log out</p>
+    </div>
+    <h1 *ngIf="isAdmin">Admin</h1>
+  </div>
+</div>
