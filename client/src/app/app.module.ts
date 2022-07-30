@@ -22,6 +22,7 @@ import { EmploymentDetailsApplicationFormComponent } from './components/applicat
 import { VehicleDetailsApplicationFormComponent } from './components/application-form/vehicle-details-application-form/vehicle-details-application-form.component';
 import { LoanDetailsApplicationFormComponent } from './components/application-form/loan-details-application-form/loan-details-application-form.component';
 import { IdentityDetailsApplicationFormComponent } from './components/application-form/identity-details-application-form/identity-details-application-form.component';
+import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { IdentityDetailsApplicationFormComponent } from './components/applicatio
     VehicleDetailsApplicationFormComponent,
     LoanDetailsApplicationFormComponent,
     IdentityDetailsApplicationFormComponent,
+    EmiCalcComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,6 @@ import { IdentityDetailsApplicationFormComponent } from './components/applicatio
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-    
   ],
   exports: [ ReactiveFormsModule],
   providers: [],
