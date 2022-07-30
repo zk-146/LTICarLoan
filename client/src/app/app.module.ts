@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AuthInputBoxComponent } from './components/auth-input-box/auth-input-box.component';
 import { FormInputBoxComponent } from './components/form-input-box/form-input-box.component';
@@ -44,8 +45,9 @@ import { IdentityDetailsApplicationFormComponent } from './components/applicatio
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
-  exports: [ ReactiveFormsModule],
+  exports: [ ReactiveFormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

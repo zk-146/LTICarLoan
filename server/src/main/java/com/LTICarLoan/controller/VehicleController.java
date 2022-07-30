@@ -22,13 +22,13 @@ public class VehicleController {
 	
 	
 	// http://localhost:8090/vehicle-api/addVehicle
-	@PostMapping(path = "/addVehicle",consumes="application/json")
+	@PostMapping(path = "/add-vehicle",consumes="application/json")
 	public int addVehicle(@RequestBody Vehicle v) {
 		return vehicleService.addVehicle(v);
 	}
 	
 	// http://localhost:8090/vehicle-api/vehicle/{uid}
-	@GetMapping("/vehicle/{uid}")
+	@GetMapping("/get-vehicle/{uid}")
 	public Vehicle getVehicleByUserId(@PathVariable("uid") int user_id) {
 		
 		Vehicle v = vehicleService.findVehicleByUserId(user_id);

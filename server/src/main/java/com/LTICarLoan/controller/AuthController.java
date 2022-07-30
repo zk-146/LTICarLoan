@@ -41,7 +41,6 @@ public class AuthController {
 	@RequestMapping(value="/get-user-details", method=RequestMethod.GET)
 	public User getUserDetails(@RequestParam("id") int id) {
 			return userService.getUserDetails(id);
-		
 	}
 	
 	//http://localhost:8090/user-api/signup

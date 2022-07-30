@@ -1,3 +1,4 @@
+import { VehicleHttpClientService } from './../../services/vehicle-http-client.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -56,5 +57,4 @@ export class VehicleDetailsFormComponent implements OnInit {
       onRoadPrice:['', Validators.required]
     });
   }
-
 }

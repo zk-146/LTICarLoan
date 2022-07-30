@@ -1,3 +1,5 @@
+import { UserDetails } from './../User';
+import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -29,15 +31,34 @@ export class ContactDetailsFormComponent implements OnInit {
       },
     ],
   };
-  constructor(private fb: FormBuilder) { }
+
+  fetchedContactData = new UserDetails("", "", 0, "", "", 0, "", "", "");
+  constructor(private fb: FormBuilder, private authServ: AuthHttpClientService) { }
 
   ngOnInit(): void {
-    
     this.contactDetails=this.fb.group({
       phoneNumber:['', Validators.required],
-      email:['', Validators.required, Validators.email]
+      email:['', [Validators.required, Validators.email]]
     });
-    
+    this.getUserDetails();
+  }
+
+  getUserDetails = () => {
+    const id = 101;
+    this.authServ.getUserDetails(id).subscribe(response=> {
+      console.log(response);
+      this.fetchedContactData = response;
+
+      console.log(this.fetchedContactData.email)
+      
+      this.contactDetails=this.fb.group({
+        phoneNumber:["", Validators.required],
+        email:[this.fetchedContactData.email, [Validators.required, Validators.email]]
+      });
+
+      console.log(this.fetchedContactData, this.contactDetails);
+
+    })
   }
 
 }
