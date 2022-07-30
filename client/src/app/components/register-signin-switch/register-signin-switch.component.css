@@ -29,7 +29,7 @@ width: 50%;
 height: 33px;
 }
 
-#active {
+.active {
     background-color: lightblue;
 }
 
