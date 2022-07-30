@@ -1,3 +1,4 @@
+import { VehicleDetails } from './Vehicle';
 import { VehicleHttpClientService } from './../../services/vehicle-http-client.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
@@ -15,31 +16,24 @@ export class VehicleDetailsFormComponent implements OnInit {
     name: "Vehicle Details",
     fields: [
       {
-        label: "Car Make",
-        placeholder: "Eg. Nissan",
-        inputType: "text",
-        value: 'carMake',
-        error: '',
-      },
-      {
         label: "Car Model",
         placeholder: "Eg. Nissan X39-O2",
         inputType: "text",
-        value: 'carModel',
+        value: 'company_name',
         error: '',
       },
       {
-        label: "Ex showroom Price",
+        label: "Car Make",
+        placeholder: "Eg. Nissan",
+        inputType: "text",
+        value: 'model_name',
+        error: '',
+      },
+      {
+        label: "Price",
         placeholder: "$77890",
         inputType: "number",
-        value: 'exShowroomPrice',
-        error: '',
-      },
-      {
-        label: "On Road Price",
-        placeholder: "$80530",
-        inputType: "number",
-        value: 'onRoadPrice',
+        value: 'price',
         error: '',
       },
     ],
@@ -49,12 +43,19 @@ export class VehicleDetailsFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    
     this.vehicleDetails= this.fb.group({
-      carMake:['', Validators.required, Validators.minLength(2)],
-      carModel:['', Validators.required, Validators.minLength(2)],
-      exShowroomPrice:['', Validators.required],
-      onRoadPrice:['', Validators.required]
+      model_name:['', [Validators.required, Validators.minLength(2)]],
+      company_name:['', [Validators.required, Validators.minLength(2)]],
+      price:['', Validators.required],
     });
+  }
+
+  onInputChange = () => {
+    let vehicleData = new VehicleDetails("", "", 0, 101);
+    console.log(vehicleData, this.vehicleDetails.get('company_name')?.value)
+    vehicleData[`company_name`] = this.vehicleDetails.get(`company_name`)?.value;
+    vehicleData[`model_name`] = this.vehicleDetails.get(`model_name`)?.value;
+    vehicleData[`price`] = this.vehicleDetails.get(`price`)?.value;
+    localStorage.setItem("vehicleDetails", JSON.stringify(vehicleData));
   }
 }

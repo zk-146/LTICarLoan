@@ -22,6 +22,7 @@
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
             [ngClass]="{ error: data.error != '' }"
+            (change)="onInputChange()"
           />
         </div>
       </div>

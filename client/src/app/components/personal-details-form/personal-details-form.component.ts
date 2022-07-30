@@ -104,8 +104,20 @@ export class PersonalDetailsFormComponent implements OnInit {
       });
 
       console.log(this.fetchedPersonalData, this.personalDetails);
-
     })
+  }
+
+  onInputChange = () => {
+    let personalData = new PersonalDetails("", "", 0, "", "", 0, "");
+    console.log(personalData, this.personalDetails.get('company_name')?.value)
+    personalData[`age`] = this.personalDetails.get(`age`)?.value;
+    personalData[`exisiting_emi`] = this.personalDetails.get(`exisiting_emi`)?.value;
+    personalData[`first_name`] = this.personalDetails.get(`first_name`)?.value;
+    personalData[`last_name`] = this.personalDetails.get(`last_name`)?.value;
+    personalData[`gender`] = this.personalDetails.get(`gender`)?.value;
+    personalData[`type_of_employment`] = this.personalDetails.get(`type_of_employment`)?.value;
+    personalData[`yearly_salary`] = this.personalDetails.get(`yearly_salary`)?.value;
+    localStorage.setItem("personalDetails", JSON.stringify(personalData));
   }
 
 }

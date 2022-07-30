@@ -1,14 +1,16 @@
 export class VehicleDetails{
-    carMake:string = "";
-    carModel:string = "";
-    exShowroomPrice:number = 0;
-    onRoadPrice:number = 0;
+    model_name:string = "";
+    company_name:string = "";
+    price:number = 0;
+    user:object={ }
 
-    constructor(carMake:string, carModel:string, exShowroomPrice:number, onRoadPrice:number)
+    constructor(model_name:string, company_name:string, price:number, user:number)
     {
-        this.carMake = carMake;
-        this.carModel = carModel;
-        this.exShowroomPrice = exShowroomPrice;
-        this.onRoadPrice = onRoadPrice;
+        this.model_name = model_name;
+        this.company_name = company_name;
+        this.price = price;
+        this.user = {
+            user_id: user
+        };
     }
 }

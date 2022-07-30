@@ -19,30 +19,37 @@
         <div>
           <p>{{ data.label }}</p>
           <p>{{ data.error }}</p>
-          <!-- <div *ngIf="data.options; else displayTextInput">
-                <label
-                  >Yes
-                  <input
-                    type="radio"
-                    name="data.placeholder"
-                    [ngClass]="{ error: data.error != '' }"
-                /></label>
-                <label
-                  >No
-                  <input
-                    type="radio"
-                    name="data.placeholder"
-                    [ngClass]="{ error: data.error != '' }"
-                /></label>
-              </div> -->
-          <!-- <ng-template #displayTextInput> -->
-          <input
-            type="{{ data.inputType }}"
-            placeholder="{{ data.placeholder }}"
-            formControlName="{{ data.value }}"
-            [ngClass]="{ error: data.error != '' }"
-          />
-          <!-- </ng-template> -->
+          <div *ngIf="data.options; else displayTextInput">
+            <label
+              >Yes
+              <input
+                type="radio"
+                name="{{ data.value }}"
+                [ngClass]="{ error: data.error != '' }"
+                value="Yes"
+                formControlName="{{ data.value }}"
+                (change)="onInputChange()"
+            /></label>
+            <label
+              >No
+              <input
+                type="radio"
+                name="{{ data.value }}"
+                [ngClass]="{ error: data.error != '' }"
+                value="No"
+                formControlName="{{ data.value }}"
+                (change)="onInputChange()"
+            /></label>
+          </div>
+          <ng-template #displayTextInput>
+            <input
+              type="{{ data.inputType }}"
+              placeholder="{{ data.placeholder }}"
+              formControlName="{{ data.value }}"
+              [ngClass]="{ error: data.error != '' }"
+              (change)="onInputChange()"
+            />
+          </ng-template>
         </div>
       </div>
     </ng-container>

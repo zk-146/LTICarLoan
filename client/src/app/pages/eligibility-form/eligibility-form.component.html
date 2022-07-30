@@ -5,7 +5,7 @@
   </div>
   <div id="eligibilityForm-container">
     <div id="eligibilityForm-progressbar"></div>
-    <div id="eligibilityForm-details">
+    <form id="eligibilityForm-details" (ngSubmit)="onSubmit()">
       <app-vehicle-details-form
         [currentFormIndex]="currentFormIndex"
       ></app-vehicle-details-form>
@@ -17,18 +17,23 @@
       <app-contact-details-form [currentFormIndex]="currentFormIndex">
       </app-contact-details-form>
 
-      <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
+      <button
+        *ngIf="currentFormIndex > 0"
+        (click)="decreaseCurrentIndex()"
+        type="button"
+      >
         Back
       </button>
       <button
         *ngIf="currentFormIndex < 2; else displayRegisterButton"
         (click)="increaseCurrentIndex()"
+        type="button"
       >
         Next
       </button>
       <ng-template #displayRegisterButton>
-        <button>Register</button>
+        <button type="submit">Register</button>
       </ng-template>
-    </div>
+    </form>
   </div>
 </div>

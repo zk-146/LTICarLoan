@@ -1,3 +1,4 @@
+import { VehicleDetails } from './../../components/vehicle-details-form/Vehicle';
 import { VehicleHttpClientService } from './../../services/vehicle-http-client.service';
 import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { EligibilityFormHttpClientService } from './../../services/eligibility-form-http-client.service';
@@ -13,11 +14,6 @@ export class EligibilityFormComponent implements OnInit {
   currentFormIndex = 0;
 
   constructor(private eligibilityFormServ:EligibilityFormHttpClientService, private authServ: AuthHttpClientService, private vehicleDetailServ: VehicleHttpClientService) { }
-
-  // updateFormValue= (titleIndex:number, fieldIndex:number, value:any)=> {
-    // this.formDetails[titleIndex].fields[fieldIndex].value = value;
-    // console.log(this.vehicleDetails);
-  // }
 
   // increaseCurrentIndex = (formDetails:any) => {
   increaseCurrentIndex = () => {
@@ -40,28 +36,21 @@ export class EligibilityFormComponent implements OnInit {
     this.currentFormIndex--;
   }
 
+  onSubmit() {
+    const vehicleData = localStorage.getItem("vehicleDetails");
+    console.log(JSON.parse(vehicleData || ""));
+    this.addVehicle();
+  }
+
+
   ngOnInit(): void {
-    this.getUserDetails();
   }
 
-  onSubmit = () => {
-    // this.addVehicle();
-  }
-
-  personalDetails:any;
-  contactDetails:any;
-
-  getUserDetails() {
-    const id = parseInt(localStorage.getItem("userId")|| "") || 101;
-    this.authServ.getUserDetails(id).subscribe(response=> {
-      this.personalDetails = response;
-      this.contactDetails = response;
-    })
-  }
   
   addVehicle() {
-    const vehicle = localStorage.getItem("vehileDetails");
-    this.vehicleDetailServ.addVehicle(vehicle).subscribe(response=> {
+    let vehicleData = localStorage.getItem("vehicleDetails");
+    vehicleData = JSON.parse(vehicleData || "");
+    this.vehicleDetailServ.addVehicle(vehicleData).subscribe(response=> {
       // this.vehicleDetails = response;
       console.log(response)
     })
