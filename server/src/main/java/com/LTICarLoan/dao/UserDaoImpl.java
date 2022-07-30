@@ -37,6 +37,21 @@ public class UserDaoImpl implements UserDao{
 		}
 		return true;
 	}
+	@Override
+	public User getUserDetails(int id) {
+		String jpql = "select u from User u where u.user_id=:id";
+		TypedQuery<User> query = em.createQuery(jpql, User.class);
+		
+		query.setParameter("id", id);
+
+		try {
+			User user = query.getResultList().get(0);
+			user.setPassword("");
+			return user;
+		} catch(Exception e) {
+			throw new Error("An error occurred while fetching user details");
+		}
+	}
 	
 
 	

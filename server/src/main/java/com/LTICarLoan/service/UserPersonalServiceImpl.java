@@ -1,5 +1,7 @@
 package com.LTICarLoan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +34,13 @@ public class UserPersonalServiceImpl implements UserPersonalService{
 		}
 	}
 
-
-	
-	
-	
-	
-	
-
+	@Override
+	public User getUserDetails(int id) {
+		try {
+			User user = userDao.getUserDetails(id);
+			return user;
+		} catch(Exception e) {
+			throw new Error("An error occurred while fetching the user data");
+		}
+	}
 }
