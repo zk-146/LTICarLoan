@@ -8,6 +8,8 @@ import { FormInputBoxComponent } from './components/form-input-box/form-input-bo
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
+import { EmiCalcComponent } from './emi-calc/emi-calc.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-f
     LoginComponent,
     SignupComponent,
     EligibilityFormComponent,
+    EmiCalcComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
