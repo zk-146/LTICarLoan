@@ -1,0 +1,8 @@
+#eligibilityForm {
+    margin-top: 80px;
+}
+
+.error {
+    color: red;
+    background-color: red;
+}

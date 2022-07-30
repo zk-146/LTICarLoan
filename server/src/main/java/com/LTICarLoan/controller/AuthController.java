@@ -1,5 +1,7 @@
 package com.LTICarLoan.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,6 +34,14 @@ public class AuthController {
 	public boolean userLogin(@RequestParam("email") String email,@RequestParam("password")String password) {
 
 		return userService.userLogin(email, password);
+	}
+	
+//	@RequestMapping(value="/")
+	
+	@RequestMapping(value="/get-user-details", method=RequestMethod.GET)
+	public User getUserDetails(@RequestParam("id") int id) {
+			return userService.getUserDetails(id);
+		
 	}
 	
 	//http://localhost:8090/user-api/signup

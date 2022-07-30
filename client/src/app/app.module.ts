@@ -11,8 +11,17 @@ import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-f
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactDetailsFormComponent } from './components/contact-details-form/contact-details-form.component';
+import { VehicleDetailsFormComponent } from './components/vehicle-details-form/vehicle-details-form.component';
+import { PersonalDetailsFormComponent } from './components/personal-details-form/personal-details-form.component';
+import { ApplicationFormComponent } from './pages/application-form/application-form.component';
+import { PersonalDetailsApplicationFormComponent } from './components/application-form/personal-details-application-form/personal-details-application-form.component';
+import { EmploymentDetailsApplicationFormComponent } from './components/application-form/employment-details-application-form/employment-details-application-form.component';
+import { VehicleDetailsApplicationFormComponent } from './components/application-form/vehicle-details-application-form/vehicle-details-application-form.component';
+import { LoanDetailsApplicationFormComponent } from './components/application-form/loan-details-application-form/loan-details-application-form.component';
+import { IdentityDetailsApplicationFormComponent } from './components/application-form/identity-details-application-form/identity-details-application-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +34,15 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
+    ContactDetailsFormComponent,
+    VehicleDetailsFormComponent,
+    PersonalDetailsFormComponent,
+    ApplicationFormComponent,
+    PersonalDetailsApplicationFormComponent,
+    EmploymentDetailsApplicationFormComponent,
+    VehicleDetailsApplicationFormComponent,
+    LoanDetailsApplicationFormComponent,
+    IdentityDetailsApplicationFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +52,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
+  exports: [ ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

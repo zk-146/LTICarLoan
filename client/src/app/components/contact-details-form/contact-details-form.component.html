@@ -1,0 +1,30 @@
+<form
+  *ngIf="currentFormIndex === 2"
+  [formGroup]="contactDetails"
+  [class.error]="!contactDetails.valid && contactDetails.touched"
+>
+  <ng-template
+    #contactDetail
+    [ngTemplateOutlet]="contactDetail"
+    let-contactFormDetail="contactFormDetail"
+    [ngTemplateOutletContext]="{
+      contactFormDetail: contactDetailsObject
+    }"
+  >
+    <p id="eligibilityForm-details-title">{{ contactFormDetail.name }}</p>
+    <ng-container *ngFor="let data of contactFormDetail.fields">
+      <div id="eligibilityForm-detials-row">
+        <div>
+          <p>{{ data.label }}</p>
+          <p>{{ data.error }}</p>
+          <input
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{ error: data.error != '' }"
+          />
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</form>

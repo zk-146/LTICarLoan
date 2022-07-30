@@ -1,0 +1,50 @@
+<form
+  *ngIf="currentFormIndex === 4"
+  [formGroup]="identityDetails"
+  [class.error]="!identityDetails.valid && identityDetails.touched"
+>
+  <ng-template
+    #identityDetail
+    [ngTemplateOutlet]="identityDetail"
+    let-identityFormDetail="identityFormDetail"
+    [ngTemplateOutletContext]="{
+      identityFormDetail: identityDetailsObject
+    }"
+  >
+    <p id="eligibilityForm-details-title">
+      {{ identityFormDetail.name }}
+    </p>
+    <ng-container *ngFor="let data of identityFormDetail.fields">
+      <div id="eligibilityForm-detials-row">
+        <div>
+          <p>{{ data.label }}</p>
+          <p>{{ data.error }}</p>
+          <!-- <div *ngIf="data.options; else displayTextInput">
+                <label
+                  >Yes
+                  <input
+                    type="radio"
+                    name="data.placeholder"
+                    [ngClass]="{ error: data.error != '' }"
+                /></label>
+                <label
+                  >No
+                  <input
+                    type="radio"
+                    name="data.placeholder"
+                    [ngClass]="{ error: data.error != '' }"
+                /></label>
+              </div> -->
+          <!-- <ng-template #displayTextInput> -->
+          <input
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{ error: data.error != '' }"
+          />
+          <!-- </ng-template> -->
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</form>
