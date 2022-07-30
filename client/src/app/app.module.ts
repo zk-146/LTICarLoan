@@ -14,6 +14,8 @@ import { AddressDetailsComponent } from './components/address-details/address-de
 import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
 import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -33,8 +35,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
+  exports: [  ReactiveFormsModule, HttpClientModule, ],
   providers: [],
   bootstrap: [AppComponent]
 })
