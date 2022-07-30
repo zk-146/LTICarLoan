@@ -38,7 +38,7 @@ public class AuthController {
 	
 //	@RequestMapping(value="/")
 	
-	@RequestMapping(value="/getUserDetails", method=RequestMethod.GET)
+	@RequestMapping(value="/get-user-details", method=RequestMethod.GET)
 	public User getUserDetails(@RequestParam("id") int id) {
 			return userService.getUserDetails(id);
 		
