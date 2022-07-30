@@ -23,6 +23,10 @@ import { VehicleDetailsApplicationFormComponent } from './components/application
 import { LoanDetailsApplicationFormComponent } from './components/application-form/loan-details-application-form/loan-details-application-form.component';
 import { IdentityDetailsApplicationFormComponent } from './components/application-form/identity-details-application-form/identity-details-application-form.component';
 import { EmiCalcComponent } from './emi-calc/emi-calc.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { AddressDetailsComponent } from './components/address-details/address-details.component';
+import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
+import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +49,10 @@ import { EmiCalcComponent } from './emi-calc/emi-calc.component';
     LoanDetailsApplicationFormComponent,
     IdentityDetailsApplicationFormComponent,
     EmiCalcComponent,
+    RegisterComponent,
+    AddressDetailsComponent,
+    EmploymentDetailsComponent,
+    UserPersonalDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,7 @@ import { EmiCalcComponent } from './emi-calc/emi-calc.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  exports: [ ReactiveFormsModule],
+  exports: [  ReactiveFormsModule, HttpClientModule, ],
   providers: [],
   bootstrap: [AppComponent]
 })

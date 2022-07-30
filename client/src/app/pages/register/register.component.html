@@ -1,0 +1,33 @@
+<div id="registerForm">
+    <div id="registerForm-header">
+      <h1>Create an Account</h1>
+    </div>
+    <div id="registerForm-container">
+      <div id="registerForm-progressbar"></div>
+      <div id="registerForm-details">
+        <app-user-personal-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-user-personal-details>
+  
+        <app-address-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-address-details>
+  
+        <app-employment-details [currentFormIndex]="currentFormIndex">
+        </app-employment-details>
+  
+        <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
+          Back
+        </button>
+        <button
+          *ngIf="currentFormIndex < 2; else displayRegisterButton"
+          (click)="increaseCurrentIndex()"
+        >
+          Next
+        </button>
+        <ng-template #displayRegisterButton>
+          <button>Register</button>
+        </ng-template>
+      </div>
+    </div>
+  </div>

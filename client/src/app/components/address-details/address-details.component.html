@@ -1,0 +1,32 @@
+<form
+  *ngIf="currentFormIndex === 1"
+  [formGroup]="addressDetails"
+  [class.error]="!addressDetails.valid && addressDetails.touched"
+>
+  <ng-template
+    #addressDetail
+    [ngTemplateOutlet]="addressDetail"
+    let-addressFormDetail="addressFormDetail"
+    [ngTemplateOutletContext]="{
+        addressFormDetail: addressFormDetailsObject
+    }"
+  >
+    <p id="registerForm-details-title">
+      {{ addressFormDetail.name }}
+    </p>
+    <ng-container *ngFor="let data of addressFormDetail.fields">
+      <div id="registerForm-detials-row">
+        <div>
+          <p>{{ data.label }}</p>
+          <p>{{ data.error }}</p>
+          <input
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{ error: data.error != '' }"
+          />
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</form>
