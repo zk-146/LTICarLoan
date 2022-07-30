@@ -3,15 +3,19 @@ package com.LTICarLoan.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "admin_details")
 public class Admin {
 	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="ADMINSEQ")
+	@SequenceGenerator(name="ADMINSEQ",sequenceName="ADMINSEQ", allocationSize=1)
 	@Column(name = "admin_id")
-//	@Seq
 	private int admin_id;
 
 	@Column(name = "username", length = 10)

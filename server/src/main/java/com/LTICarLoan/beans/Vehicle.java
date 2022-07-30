@@ -3,16 +3,20 @@ package com.LTICarLoan.beans;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="vehicle_details")
 public class Vehicle {
-	
 	@Id
+	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="VEHICLESEQ")
+	@SequenceGenerator(name="VEHICLESEQ",sequenceName="VEHICLESEQ", allocationSize=1)
 	@Column(name="car_id")
 	private int car_id;
 	
@@ -87,5 +91,4 @@ public class Vehicle {
 		return "\nVehicle [car_id=" + car_id + ", model_name=" + model_name + ", company_name=" + company_name
 				+ ", price=" + price + ", user=" + user + "]";
 	}
-	
 }
