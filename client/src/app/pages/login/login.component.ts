@@ -1,5 +1,5 @@
+import { LoginFormHttpClientService } from './../../services/login-form-http-client.service';
 import { Component, OnInit } from '@angular/core';
-import { LoginFormHttpClientService } from 'src/app/services/login-form-http-client.service';
 
 @Component({
   selector: 'app-login',
@@ -13,5 +13,4 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginServ.userLogin("Jay@gmail.com" , "Jay123").subscribe(response=>console.log(response))
   }
-
 }

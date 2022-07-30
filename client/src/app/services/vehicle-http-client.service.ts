@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { VehicleDetails } from './../components/vehicle-details-form/Vehicle';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
