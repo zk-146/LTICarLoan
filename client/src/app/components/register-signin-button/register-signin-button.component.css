@@ -14,6 +14,8 @@ border-radius: 100px;
 
 }
 
+
+
 .register{
     padding: 5px 12px;
     border-radius: 50px;
@@ -29,21 +31,10 @@ width: 50%;
 height: 33px;
 }
 
-.active {
-    background-color: lightblue;
+.purple{
+    background-color: black;
 }
 
-.signin{
-    padding: 5px 12px;
-    border-radius: 50px;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.3s ease;
-    font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 22px;
-line-height: 33px;
-width: 50%;
-height: 33px;
+.active{
+    background-color: #6F6C90;
 }

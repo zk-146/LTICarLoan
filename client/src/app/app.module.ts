@@ -8,7 +8,7 @@ import { FormInputBoxComponent } from './components/form-input-box/form-input-bo
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
-import { RegisterSigninSwitchComponent } from './components/register-signin-switch/register-signin-switch.component';
+import { RegisterSigninButtonComponent } from './components/register-signin-button/register-signin-button.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { RegisterSigninSwitchComponent } from './components/register-signin-swit
     LoginComponent,
     SignupComponent,
     EligibilityFormComponent,
-    RegisterSigninSwitchComponent,
+    RegisterSigninButtonComponent,
   ],
   imports: [
     BrowserModule,
