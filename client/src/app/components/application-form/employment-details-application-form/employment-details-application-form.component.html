@@ -1,0 +1,50 @@
+<form
+  *ngIf="currentFormIndex === 1"
+  [formGroup]="employmentDetails"
+  [class.error]="!employmentDetails.valid && employmentDetails.touched"
+>
+  <ng-template
+    #employmentDetail
+    [ngTemplateOutlet]="employmentDetail"
+    let-employmentFormDetail="employmentFormDetail"
+    [ngTemplateOutletContext]="{
+      employmentFormDetail: employmentDetailsObject
+    }"
+  >
+    <p id="eligibilityForm-details-title">
+      {{ employmentFormDetail.name }}
+    </p>
+    <ng-container *ngFor="let data of employmentFormDetail.fields">
+      <div id="eligibilityForm-detials-row">
+        <div>
+          <p>{{ data.label }}</p>
+          <p>{{ data.error }}</p>
+          <div *ngIf="data.options; else displayTextInput">
+            <label
+              >Yes
+              <input
+                type="radio"
+                name="data.placeholder"
+                [ngClass]="{ error: data.error != '' }"
+            /></label>
+            <label
+              >No
+              <input
+                type="radio"
+                name="data.placeholder"
+                [ngClass]="{ error: data.error != '' }"
+            /></label>
+          </div>
+          <ng-template #displayTextInput>
+            <input
+              type="{{ data.inputType }}"
+              placeholder="{{ data.placeholder }}"
+              formControlName="{{ data.value }}"
+              [ngClass]="{ error: data.error != '' }"
+            />
+          </ng-template>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</form>

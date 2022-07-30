@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-eligibility-form',
-  templateUrl: './eligibility-form.component.html',
-  styleUrls: ['./eligibility-form.component.css']
+  selector: 'app-application-form',
+  templateUrl: './application-form.component.html',
+  styleUrls: ['./application-form.component.css']
 })
 
-export class EligibilityFormComponent implements OnInit {
+export class ApplicationFormComponent implements OnInit {
   currentFormIndex = 0;
 
   constructor() { }
 
-  // updateFormValue= (titleIndex:number, fieldIndex:number, value:any)=> {
-    // this.formDetails[titleIndex].fields[fieldIndex].value = value;
-    // console.log(this.vehicleDetails);
-  // }
+  ngOnInit(): void {
+  }
 
-  // increaseCurrentIndex = (formDetails:any) => {
   increaseCurrentIndex = () => {
     let proceed = true;
     // for(let i = 0; i < formDetails!.length; i++) {
@@ -37,6 +34,4 @@ export class EligibilityFormComponent implements OnInit {
     this.currentFormIndex--;
   }
 
-  ngOnInit(): void {
-  }
 }

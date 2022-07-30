@@ -1,0 +1,31 @@
+<div class="application-form">
+  <app-personal-details-application-form
+    [currentFormIndex]="currentFormIndex"
+  ></app-personal-details-application-form>
+  <app-employment-details-application-form
+    [currentFormIndex]="currentFormIndex"
+  >
+  </app-employment-details-application-form>
+  <app-vehicle-details-application-form
+    [currentFormIndex]="currentFormIndex"
+  ></app-vehicle-details-application-form>
+  <app-loan-details-application-form
+    [currentFormIndex]="currentFormIndex"
+  ></app-loan-details-application-form>
+  <app-identity-details-application-form
+    [currentFormIndex]="currentFormIndex"
+  ></app-identity-details-application-form>
+
+  <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
+    Back
+  </button>
+  <button
+    *ngIf="currentFormIndex < 4; else displayRegisterButton"
+    (click)="increaseCurrentIndex()"
+  >
+    Next
+  </button>
+  <ng-template #displayRegisterButton>
+    <button>Register</button>
+  </ng-template>
+</div>
