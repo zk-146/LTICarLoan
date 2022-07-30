@@ -11,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class EligibilityFormComponent implements OnInit {
-  currentFormIndex = 0;
+  currentFormIndex:number = 0;
+  formAlreadyFilled:boolean = false;
+  formSuccess:boolean = false;
 
-  constructor(private eligibilityFormServ:EligibilityFormHttpClientService, private authServ: AuthHttpClientService, private vehicleDetailServ: VehicleHttpClientService) { }
+  constructor(private vehicleDetailServ: VehicleHttpClientService) { }
 
   // increaseCurrentIndex = (formDetails:any) => {
   increaseCurrentIndex = () => {
@@ -37,26 +39,27 @@ export class EligibilityFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const vehicleData = localStorage.getItem("vehicleDetails");
-    console.log(JSON.parse(vehicleData || ""));
     this.addVehicle();
   }
 
-
   ngOnInit(): void {
+    this.getVehicle();
   }
 
-  
+  getVehicle(): void {
+    this.vehicleDetailServ.getVehicle(101).subscribe(response=> {
+      console.log(response);
+      if(response)
+        this.formAlreadyFilled=true;
+    })
+  }
+
   addVehicle() {
     let vehicleData = localStorage.getItem("vehicleDetails");
     vehicleData = JSON.parse(vehicleData || "");
     this.vehicleDetailServ.addVehicle(vehicleData).subscribe(response=> {
-      // this.vehicleDetails = response;
-      console.log(response)
+      if(response)
+        this.formSuccess=true;
     })
   }
-
-  // getVehicleDetails(id=:number) {
-  //   this.
-  // }
 }

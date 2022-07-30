@@ -15,4 +15,9 @@ export class VehicleHttpClientService {
     console.log("VEHICLE IS BEING ADDED", vehicle);
     return this.httpSer.post<any>(this.baseUrl+'/add-vehicle',vehicle);
   }
+  
+  public getVehicle(user_id:number){
+    console.log("VEHICLE IS BEING FETCHED", user_id);
+    return this.httpSer.get<any>(this.baseUrl+'/get-vehicle/'+user_id);
+  }
 }

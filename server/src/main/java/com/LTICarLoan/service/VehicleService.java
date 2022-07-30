@@ -4,7 +4,7 @@ import com.LTICarLoan.beans.Vehicle;
 
 public interface VehicleService {
 	
-	public int addVehicle(Vehicle v);
+	public boolean addVehicle(Vehicle v);
 
 	Vehicle findVehicleByUserId(int user_id);
 	

@@ -14,7 +14,7 @@ public class VehicleServiceImpl implements VehicleService{
 	VehicleDao vehicleDao;
 	
 	@Override
-	public int addVehicle(Vehicle v) {
+	public boolean addVehicle(Vehicle v) {
 		
 		return vehicleDao.addVehicle(v);
 	}

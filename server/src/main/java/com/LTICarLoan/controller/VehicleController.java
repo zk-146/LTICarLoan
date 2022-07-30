@@ -23,7 +23,7 @@ public class VehicleController {
 	
 	// http://localhost:8090/vehicle-api/addVehicle
 	@PostMapping(path = "/add-vehicle",consumes="application/json")
-	public int addVehicle(@RequestBody Vehicle v) {
+	public boolean addVehicle(@RequestBody Vehicle v) {
 		System.out.println(v);
 		return vehicleService.addVehicle(v);
 	}
