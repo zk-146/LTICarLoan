@@ -10,6 +10,9 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactDetailsFormComponent } from './components/contact-details-form/contact-details-form.component';
+import { VehicleDetailsFormComponent } from './components/vehicle-details-form/vehicle-details-form.component';
+import { PersonalDetailsFormComponent } from './components/personal-details-form/personal-details-form.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SignupComponent,
     EligibilityFormComponent,
     NavbarComponent,
+    ContactDetailsFormComponent,
+    VehicleDetailsFormComponent,
+    PersonalDetailsFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,4 +37,5 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
