@@ -21,6 +21,8 @@ import { VehicleDetailsApplicationFormComponent } from './components/application
 import { LoanDetailsApplicationFormComponent } from './components/application-form/loan-details-application-form/loan-details-application-form.component';
 import { IdentityDetailsApplicationFormComponent } from './components/application-form/identity-details-application-form/identity-details-application-form.component';
 
+import { EmiCalcComponent } from './emi-calc/emi-calc.component';
+import { HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +41,7 @@ import { IdentityDetailsApplicationFormComponent } from './components/applicatio
     VehicleDetailsApplicationFormComponent,
     LoanDetailsApplicationFormComponent,
     IdentityDetailsApplicationFormComponent,
+    EmiCalcComponent,
   ],
   imports: [
     BrowserModule,
