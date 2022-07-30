@@ -4,14 +4,65 @@
         <div class="right" [align]="'center'"> 
             <h1>User Details</h1>
             <div>
-
+                <Table>
+                    <thead>
+                        <tr>
+                            <th>Application Id</th>                                
+                            <th>EMI Amount</th>
+                            <th>Loan Amount</th>
+                            <th>No of Emis</th>
+                            <th>Application Status</th>
+                            
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        <tr *ngFor = "let u of userData ;" align="center">
+                            <td> {{u.user_id}}</td>
+                            <td> {{u.first_name}}</td>
+                            <td> {{u.last_name}}</td>
+                            <td> {{u.email}}</td>
+                            <td> {{u.password}}</td>
+                            
+                        </tr>
+        
+                        
+                    </tbody>
+                </Table>                
 
             </div>
         </div>
         <div class="left" [align]="'center'">
             <h1>Past Loan Application</h1> 
             <div>
-                
+                <div>
+                    <Table>
+                        <thead>
+                            <tr>
+                                <th>Application Id</th>                                
+                                <th>EMI Amount</th>
+                                <th>Loan Amount</th>
+                                <th>No of Emis</th>
+                                <th>Application Status</th>
+                                
+                            </tr>
+                        </thead>
+            
+                        <tbody>
+                            <tr *ngFor = "let a of applicationList ;" align="center">
+                                <td> {{a.application_id}}</td>
+                                <td> {{a.emi_amt}}</td>
+                                <td> {{a.loan_amt}}</td>
+                                <td> {{a.no_of_emis}}</td>
+                                <td> {{a.application_status}}</td>
+                                
+                            </tr>
+            
+                            
+                        </tbody>
+                    </Table>
+            
+                  </div>
             </div>
         </div>
       </div>
