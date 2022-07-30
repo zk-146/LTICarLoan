@@ -17,23 +17,6 @@ onClickToggle(clickedBtn:string){
 }
 
 
-// status = 'Enable'; 
-
-// enableDisableRule() {
-//     this.toggle = !this.toggle;
-//     this.status = this.toggle ? 'Enable' : 'Disable';
-// }
-
-// approve_toggle = true;
-// approve_status = 'Enable'; 
-
-// enableDisableApproveRule() {
-//     this.approve_toggle = !this.approve_toggle;
-//     this.approve_status = this.approve_toggle ? 'Enable' : 'Disable';
-// }
-
-
-
   ngOnInit(): void {
   }
 
