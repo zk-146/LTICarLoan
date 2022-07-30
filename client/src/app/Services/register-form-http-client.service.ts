@@ -11,7 +11,7 @@ export class RegisterFormHttpClientService {
   baseUrl="http://localhost:8090/user-api";
   constructor(private http: HttpClient) { }
 
-  public addEmp(r: Register){
+  public addUser(r: Register){
     return this.http.post<any>(this.baseUrl+'/addUser', r);
   }
 
