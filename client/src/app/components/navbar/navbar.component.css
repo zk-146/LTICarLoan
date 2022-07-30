@@ -3,6 +3,7 @@
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 2px 4px 8px rgba(0, 0, 0, .1);
     display: flex;
+    background-color: #fff;
     justify-content: space-between;
     position: fixed;
     overflow: hidden;
