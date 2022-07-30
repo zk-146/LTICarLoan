@@ -10,6 +10,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UserPersonalDetailsComponent } from './pages/register/user-personal-details/user-personal-details.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegisterComponent } from './pages/register/register.component';
     EligibilityFormComponent,
     NavbarComponent,
     RegisterComponent,
+    UserPersonalDetailsComponent,
   ],
   imports: [
     BrowserModule,
