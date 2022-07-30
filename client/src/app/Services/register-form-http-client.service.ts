@@ -14,7 +14,5 @@ export class RegisterFormHttpClientService {
   public addUser(r: Register){
     return this.http.post<any>(this.baseUrl+'/addUser', r);
   }
-
-
-
+  
 }
