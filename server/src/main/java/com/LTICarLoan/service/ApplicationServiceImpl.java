@@ -49,4 +49,10 @@ public class ApplicationServiceImpl implements ApplicationService {
 		return dao.updateApplicationStatus(id, status);
 	}
 
+	@Override
+	public List<Application> findApplicationByStatus(String application_status) throws ApplicationException {
+		
+		return dao.findApplicationByStatus(application_status);
+	}
+
 }

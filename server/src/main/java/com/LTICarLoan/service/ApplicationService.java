@@ -15,4 +15,7 @@ public interface ApplicationService {
 	List<Application> getApplicationList();
 
 	boolean updateApplicationStatus(int id, String status) throws ApplicationException;
+	
+	List<Application> findApplicationByStatus(String application_status) throws ApplicationException;
+
 }

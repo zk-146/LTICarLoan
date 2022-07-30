@@ -1,18 +1,40 @@
-
-<body>
-    
+<body>   
         <div id="admin-div" [align]="'center'"> 
             <h4>All Loan Applications</h4>
             <div class="container" >
                 <div class="switch" >
                     <div class="register" (click)="onClickToggle('pending')" [ngClass]="{active:toggle=='pending'}">Pending</div>
-                    <div class="register" (click)="onClickToggle('approve')" [ngClass]="{active:toggle=='approve'}">Approved</div>
+                    <div class="register" (click)="onClickToggle('approved')" [ngClass]="{active:toggle=='approved'}">Approved</div>
                     <div class="register" (click)="onClickToggle('rejected')" [ngClass]="{active:toggle=='rejected'}">Rejected</div>
                 </div>
             </div>
-            
-
-        
       </div>
+      <div>
+        <Table>
+            <thead>
+                <tr>
+                    <th>Application Id</th>
+                    <th>Application Status</th>
+                    <th>EMI Amount</th>
+                    <th>Loan Amount</th>
+                    <th>No of Emis</th>
+                    <th>User Id</th>
+                </tr>
+            </thead>
 
-</body>
+            <tbody>
+                <tr *ngFor = "let a of applicationList ;">
+                    <td> {{a.application_id}}</td>
+                    <td> {{a.application_status}}</td>
+                    <td> {{a.emi_amt}}</td>
+                    <td> {{a.loan_amt}}</td>
+                    <td> {{a.no_of_emis}}</td>
+                    <td> {{a.user.user_id}}</td>
+                </tr>
+
+                
+            </tbody>
+        </Table>
+
+      </div>
+    </body> 

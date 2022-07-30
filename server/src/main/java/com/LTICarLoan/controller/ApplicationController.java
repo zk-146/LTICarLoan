@@ -54,5 +54,11 @@ public class ApplicationController {
 		boolean response = service.updateApplicationStatus(application_id, status);
 		return response;
 	}
+	
+	@GetMapping(path = "/get-application-by-status/{application_status}")
+	public List<Application> finApplicationByStatus(@PathVariable("application_status") String application_status) throws ApplicationException {
+		List<Application> applications = service.findApplicationByStatus(application_status);
+		return applications;
+	}
 
 }

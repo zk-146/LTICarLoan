@@ -59,4 +59,12 @@ public class ApplicationDaoImpl implements ApplicationDao {
 		qry.executeUpdate();
 		return true;
 	}
+	@Override
+	public List<Application> findApplicationByStatus(String application_status) throws ApplicationException {
+		TypedQuery<Application> qry = em.createQuery("Select a from Application a where a.application_status=:application_status ", Application.class);
+		qry.setParameter("application_status", application_status);
+		List<Application> a =  qry.getResultList();
+		
+		return a;
+	}
 }
