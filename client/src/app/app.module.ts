@@ -10,7 +10,11 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { UserPersonalDetailsComponent } from './pages/register/user-personal-details/user-personal-details.component';
+import { AddressDetailsComponent } from './components/address-details/address-details.component';
+import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
+import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +26,14 @@ import { UserPersonalDetailsComponent } from './pages/register/user-personal-det
     EligibilityFormComponent,
     NavbarComponent,
     RegisterComponent,
+    AddressDetailsComponent,
+    EmploymentDetailsComponent,
     UserPersonalDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

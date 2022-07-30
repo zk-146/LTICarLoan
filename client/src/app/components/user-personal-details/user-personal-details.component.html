@@ -1,0 +1,29 @@
+<form
+  *ngIf= "currentFormIndex === 0"
+  [formGroup]="userPersonalDetails"
+  [class.error]="!userPersonalDetails.valid && userPersonalDetails.touched"
+>
+  <ng-template
+    #userPersonalDetail
+    [ngTemplateOutlet]="userPersonalDetail"
+    let-userPersonalFormDetail="userPersonalFormDetail"
+    [ngTemplateOutletContext]="{
+        userPersonalFormDetail: userPersonalDetailsObject
+    }"
+  >
+    <p id="registerForm-details-title">{{ userPersonalFormDetail.name }}</p>
+    <ng-container *ngFor="let data of userPersonalFormDetail.fields">
+      <div id="registerForm-detials-row">
+        <div>
+            <p>{{ data.label }}</p>
+            <p>{{ data.error }}</p>
+            <input
+              type="{{ data.inputType }}"
+              placeholder="{{ data.placeholder }}"
+              [ngClass]="{ error: data.error != '' }"
+            />
+          </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</form>

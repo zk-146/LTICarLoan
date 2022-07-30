@@ -1,45 +1,26 @@
-<app-user-personal-details></app-user-personal-details>
-
-
-
-<!-- <div id="register">
+<div id="registerForm">
     <div id="registerForm-header">
       <h1>Create an Account</h1>
     </div>
     <div id="registerForm-container">
       <div id="registerForm-progressbar"></div>
       <div id="registerForm-details">
-        <ng-template
-          #formDetail
-          [ngTemplateOutlet]="formDetail"
-          let-currentFormDetail="currentFormDetail"
-          [ngTemplateOutletContext]="{
-            currentFormDetail: formDetails[currentFormIndex]
-          }"
-        >
-          <p id="registerForm-details-title">{{ currentFormDetail.name }}</p>
-          <ng-container *ngFor="let data of currentFormDetail.fields; let i = index">
-            <div id="eligibilityForm-detials-row">
-              <div>
-                <p>{{ data.label }}</p>
-                <input
-                  type="{{ data.inputType }}"
-                  placeholder="{{ data.placeholder }}"
-                  value="{{ data.value }}"
-                  (input)="updateFormValue(currentFormIndex,i,$any($event.target).value)"
-                />
-              </div>
-            </div>
-          </ng-container>
-        </ng-template>
+        <app-user-personal-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-user-personal-details>
+  
+        <app-address-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-address-details>
+  
+        <app-employment-details [currentFormIndex]="currentFormIndex">
+        </app-employment-details>
+  
         <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
           Back
         </button>
         <button
-          *ngIf="
-            currentFormIndex < formDetails.length - 1;
-            else displayRegisterButton
-          "
+          *ngIf="currentFormIndex < 2; else displayRegisterButton"
           (click)="increaseCurrentIndex()"
         >
           Next
@@ -50,8 +31,3 @@
       </div>
     </div>
   </div>
-  
-
-
-
- -->
