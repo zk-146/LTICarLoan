@@ -1,5 +1,7 @@
 package com.LTICarLoan.service;
 
-public interface AdminService {
+import com.LTICarLoan.beans.Admin;
 
+public interface AdminService {
+	Admin adminLogin(String username, String password);
 }

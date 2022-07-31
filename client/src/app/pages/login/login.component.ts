@@ -8,11 +8,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginAsAdmin:boolean = false;
 
 
   loginForm!:FormGroup;
 
-  constructor(private fb:FormBuilder ) { }
+  constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService ) { }
 
   ngOnInit(): void {
 
@@ -21,6 +22,23 @@ export class LoginComponent implements OnInit {
       password:['',Validators.required,Validators.min(4),Validators.max(8)]
     })
 
+  }
+
+  onLoginClick = () => {
+    this.loginServ.userLogin("khanzaid1015@gmail.com" , "password@123", this.loginAsAdmin).subscribe(response=>{
+        console.log(response);
+        localStorage.setItem('user_data', JSON.stringify(response));
+        if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');
+        else localStorage.setItem('isAdmin', 'false')
+        
+        this.ngOnInit();
+      }
+    )
+  }
+
+  changeLoginToAdmin = (isChecked:any) => {
+    console.log(isChecked.value)
+    this.loginAsAdmin = isChecked.value==="on" ? true:false;
   }
 
   public onSubmit(){

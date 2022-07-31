@@ -12,8 +12,8 @@
       <p [routerLink]="['/eligibility-form']">Apply Loan</p>
     </div>
   </div>
-  <div id="navbar-right">
-    <div id="navbar-logout">
+  <div *ngIf="userLoggedIn" id="navbar-right">
+    <div (click)="logout()" id="navbar-logout">
       <!-- <span class="material-icons-two-tone">logout</span> -->
       <img src="../../../assets/svgs/Logout.svg" alt="Exit door" />
       <p>Log out</p>

@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AuthInputBoxComponent } from './components/auth-input-box/auth-input-box.component';
 import { FormInputBoxComponent } from './components/form-input-box/form-input-box.component';
-import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -22,13 +21,16 @@ import { EmploymentDetailsApplicationFormComponent } from './components/applicat
 import { VehicleDetailsApplicationFormComponent } from './components/application-form/vehicle-details-application-form/vehicle-details-application-form.component';
 import { LoanDetailsApplicationFormComponent } from './components/application-form/loan-details-application-form/loan-details-application-form.component';
 import { IdentityDetailsApplicationFormComponent } from './components/application-form/identity-details-application-form/identity-details-application-form.component';
-import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AddressDetailsComponent } from './components/address-details/address-details.component';
 import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
 import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
 import { ApplicationStatusUpdateComponent } from './pages/application-status-update/application-status-update.component';
 
+
+import { EmiCalcComponent } from './emi-calc/emi-calc.component';
+import { HttpClient } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { ApplicationStatusUpdateComponent } from './pages/application-status-upd
     EmploymentDetailsComponent,
     UserPersonalDetailsComponent,
     ApplicationStatusUpdateComponent,
+    EmiCalcComponent,
   ],
   imports: [
     BrowserModule,

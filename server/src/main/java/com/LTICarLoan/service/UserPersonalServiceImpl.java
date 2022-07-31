@@ -19,7 +19,7 @@ public class UserPersonalServiceImpl implements UserPersonalService{
 	}
 
 	@Override
-	public boolean userLogin(String email, String password) {
+	public User userLogin(String email, String password) {
 		
 		return userDao.login(email, password);
 	}
