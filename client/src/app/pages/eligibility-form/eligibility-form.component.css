@@ -121,6 +121,13 @@
     color: #fff;
 }
 
+.separator {
+    width: 440px;
+    height: 2px;
+    margin: 20px 0;
+    background-color: #EFF0F7;
+}
+
 .btn {
     background: #4A3AFF;
     padding: 10px 40px;
