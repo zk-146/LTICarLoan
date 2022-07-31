@@ -65,20 +65,20 @@
     align-items: center;
     justify-content: space-between;
 }
-#navbar-logout {
+#navbar-logout, #navbar-login {
     display: flex;
     cursor: pointer;
 }
 
-#navbar-logout:hover {
+#navbar-logout:hover, #navbar-login:hover {
     color: #4A3AFF;
 }
 
-#navbar-logout > img {
+#navbar-logout > img, #navbar-login > img {
     width: 20px;
 }
 
-#navbar-logout > p {
+#navbar-logout > p, #navbar-login > p {
     border-radius: 12px;
     font-weight: 500;
     padding: 5px 0;
@@ -86,7 +86,7 @@
     margin-right: 20px;
 }
 
-#navbar-logout > p:hover {
+#navbar-logout > p:hover, #navbar-login > p:hover {
     color: #4A3AFF;
 }
 
