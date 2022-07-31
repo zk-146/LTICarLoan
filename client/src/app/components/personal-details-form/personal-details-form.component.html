@@ -1,4 +1,5 @@
 <form
+  class="personal-details-form"
   *ngIf="currentFormIndex === 1"
   [formGroup]="personalDetails"
   [class.error]="!personalDetails.valid && personalDetails.touched"
@@ -11,13 +12,13 @@
       personalFormDetail: personalDetailsObject
     }"
   >
-    <p id="eligibilityForm-details-title">
+    <h4 id="eligibilityForm-details-title">
       {{ personalFormDetail.name }}
-    </p>
+    </h4>
     <ng-container *ngFor="let data of personalFormDetail.fields">
-      <div id="eligibilityForm-detials-row">
+      <div class="eligibilityForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <div *ngIf="data.options; else displayTextInput">
             <label
@@ -43,6 +44,8 @@
           </div>
           <ng-template #displayTextInput>
             <input
+              class="form-input"
+              [attr.for]="data.value"
               type="{{ data.inputType }}"
               placeholder="{{ data.placeholder }}"
               formControlName="{{ data.value }}"

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-input-box.component.css']
 })
 export class FormInputBoxComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

@@ -4,9 +4,12 @@
     <p>Please fill the form below to check your eligibility</p>
   </div>
   <div id="eligibilityForm-container">
-    <div *ngIf="formAlreadyFilled; else displayEligibilityForm">
-      <p>Form Already filled</p>
-      <button [routerLink]="['/loan-offer']">
+    <div
+      id="form-filled"
+      *ngIf="formAlreadyFilled; else displayEligibilityForm"
+    >
+      <p>You have already filled eligibility form</p>
+      <button class="btn" [routerLink]="['/loan-offer']">
         Select from Loan Offers
       </button>
     </div>
@@ -24,31 +27,44 @@
         <app-contact-details-form [currentFormIndex]="currentFormIndex">
         </app-contact-details-form>
 
-        <div *ngIf="formSuccess; else displayButtons">
-          {{
-            formSuccess
-              ? "Congratulations! You are eligible for car loan, proceed next"
-              : "You are not eligible for a Car Loan"
-          }}
+        <div id="form-success" *ngIf="formSuccess; else displayButtons">
+          <p>
+            {{
+              formSuccess
+                ? "Congratulations! You are eligible for car loan, proceed next"
+                : "You are not eligible for a Car Loan"
+            }}
+          </p>
+          <button *ngIf="formSuccess" class="btn" [routerLink]="['/loan-offer']">
+            Select from Loan Offers
+          </button>
         </div>
         <ng-template #displayButtons>
-          <button
-            *ngIf="currentFormIndex > 0"
-            (click)="decreaseCurrentIndex()"
-            type="button"
-          >
-            Back
-          </button>
-          <button
-            *ngIf="currentFormIndex < 2; else displayRegisterButton"
-            (click)="increaseCurrentIndex()"
-            type="button"
-          >
-            Next
-          </button>
-          <ng-template #displayRegisterButton>
-            <button type="submit">Register</button>
-          </ng-template>
+          <div id="form-button-container">
+            <button
+              *ngIf="currentFormIndex > 0"
+              (click)="decreaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="prev-btn"
+            >
+              Previous Step
+            </button>
+            <button
+              *ngIf="currentFormIndex < 2; else displayRegisterButton"
+              (click)="increaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="next-btn"
+            >
+              Next Step
+            </button>
+            <ng-template #displayRegisterButton>
+              <button type="submit" class="btn" id="register-btn">
+                Apply for loan
+              </button>
+            </ng-template>
+          </div>
         </ng-template>
       </form>
     </ng-template>
@@ -80,8 +96,6 @@ text=[inputType]
 placeholder=Eg.Nissan
 />
 </div> -->
-    
-
 
 <!-- 
 div {
