@@ -21,4 +21,11 @@ export class ApplicationHttpClientService {
   public getApplicationByUserId(){
     return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id"+"/112");
   }
+  public getApplicationByUserId1(application_id:Number){
+    return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id/"+application_id);
+  }
+  public updateApplication(application_id:Number,application_status:string){
+    return this.httSer.put(this.baseUrl+"update-application-status/"+application_id+"/"+application_status,{});
+  }
+  
 }

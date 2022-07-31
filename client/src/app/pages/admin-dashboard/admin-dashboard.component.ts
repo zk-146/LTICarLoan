@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplicationHttpClientService } from 'app/Services/application-http-client.service';
 import { Application } from './Application';
 
@@ -11,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
 
   applicationList:Application[]=[];
 
-  constructor(private applSer:ApplicationHttpClientService) { }
+  constructor(private applSer:ApplicationHttpClientService,private router:Router) { }
 
 toggle = "pending";
 
@@ -46,4 +47,9 @@ onClickToggle(clickedBtn:string){
     )
   }
 
+  updateStatus(a:Application):void{
+    localStorage.removeItem("a.application_id");
+    localStorage.setItem("a.application_id",JSON.stringify(a.application_id));
+    this.router.navigate(['application-status-update'])  
+  }
 }

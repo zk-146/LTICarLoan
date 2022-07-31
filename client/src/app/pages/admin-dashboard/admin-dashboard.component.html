@@ -30,6 +30,7 @@
                     <td> {{a.loan_amt}}</td>
                     <td> {{a.no_of_emis}}</td>
                     <td> {{a.user.user_id}}</td>
+                    <button [type]="'submit'" (click)="updateStatus(a)">Update Status</button>
                 </tr>
 
                 
