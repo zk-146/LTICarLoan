@@ -8,21 +8,19 @@ import { ApplicationHttpClientService } from 'app/Services/application-http-clie
   styleUrls: ['./application-status-update.component.css']
 })
 export class ApplicationStatusUpdateComponent implements OnInit {
-
-
-  applicationData:any;
+  applicationData:any = JSON.parse(localStorage.getItem("application_data") || "{}");
 
   constructor(private appliSer:ApplicationHttpClientService,private router:Router) { }
 
   toggle = "pending";
 
-onClickToggle(clickedBtn:string){
-  
-  this.toggle=clickedBtn;
-  console.log(this.toggle);
-  this.updateApplication();
-  
-}
+  onClickToggle(clickedBtn:string){
+    
+    this.toggle=clickedBtn;
+    console.log(this.toggle);
+    this.updateApplication();
+    
+  }
 
   ngOnInit(): void {
     if(localStorage.getItem("a.application_id")!=null){
@@ -39,7 +37,7 @@ onClickToggle(clickedBtn:string){
         response=>{
           console.log(this.toggle);
           console.log(response);
-          this.applicationData=response;
+          // this.applicationData=response;
         }
       );
   }

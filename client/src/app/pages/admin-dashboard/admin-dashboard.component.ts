@@ -50,6 +50,13 @@ onClickToggle(clickedBtn:string){
   updateStatus(a:Application):void{
     localStorage.removeItem("a.application_id");
     localStorage.setItem("a.application_id",JSON.stringify(a.application_id));
+    localStorage.removeItem("application_data");
+    let applicationData = {};
+    this.applSer.getApplicationByUserId1(a.user.user_id).subscribe(response=> {
+      // applicationData = response[0];
+      localStorage.setItem("application_data", JSON.stringify(response[0]));
+      console.log(response[0]);
+    })
     this.router.navigate(['application-status-update'])  
   }
 }

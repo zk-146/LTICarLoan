@@ -23,7 +23,7 @@
             </thead>
 
             <tbody>
-                <tr *ngFor = "let a of applicationList ;" align="center">
+                <tr *ngFor = "let a of applicationList;" align="center">
                     <td> {{a.application_id}}</td>
                     <td> {{a.application_status}}</td>
                     <td> {{a.emi_amt}}</td>
@@ -32,8 +32,6 @@
                     <td> {{a.user.user_id}}</td>
                     <button [type]="'submit'" (click)="updateStatus(a)">Update Status</button>
                 </tr>
-
-                
             </tbody>
         </Table>
 
