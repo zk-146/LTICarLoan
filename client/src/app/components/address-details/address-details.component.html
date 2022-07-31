@@ -1,4 +1,5 @@
 <form
+class="address-details-form"
   *ngIf="currentFormIndex === 1"
   [formGroup]="addressDetails"
   [class.error]="!addressDetails.valid && addressDetails.touched"
@@ -20,10 +21,13 @@
           <p>{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <input
-            type="{{ data.inputType }}"
-            placeholder="{{ data.placeholder }}"
-            formControlName="{{ data.value }}"
-            [ngClass]="{ error: data.error != '' }"
+          class="form-input"
+          [attr.for]="data.value"
+          type="{{ data.inputType }}"
+          placeholder="{{ data.placeholder }}"
+          formControlName="{{ data.value }}"
+          [ngClass]="{ error: data.error != '' }"
+          (change)="onInputChange()"
           />
         </div>
       </div>

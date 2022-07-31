@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addVehicle() {
+  addUserPersonal() {
     let userPersonalData = localStorage.getItem("userPersonalDetails");
     userPersonalData = JSON.parse(userPersonalData || "");
     this.userPersonalDetailServ.addUserPersonal(userPersonalData).subscribe(response=> {

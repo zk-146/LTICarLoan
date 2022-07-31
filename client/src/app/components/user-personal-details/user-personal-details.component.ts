@@ -38,6 +38,13 @@ export class UserPersonalDetailsComponent implements OnInit {
           error: '',
         },
         {
+          label: "Phone Number",
+          placeholder: "Ph. No.",
+          inputType: "text",
+          value: 'phone',
+          error: '',
+        },
+        {
           label: "Password",
           placeholder: "password",
           inputType: "text",
@@ -69,6 +76,7 @@ export class UserPersonalDetailsComponent implements OnInit {
       firstName:['', Validators.required, Validators.minLength(2)],
       lastName:['', Validators.required, Validators.minLength(2)],
       email:['', Validators.required],
+      phone:['', Validators.required],
       password:['', Validators.required],
       age:['', Validators.required],
       gender:['', Validators.required]
@@ -76,13 +84,14 @@ export class UserPersonalDetailsComponent implements OnInit {
   }
 
   onInputChange = () => {
-    let userPersonalData = new UserPersonalDetails("", "", 0, 101);
+    let userPersonalData = new UserPersonalDetails("","","","",0,0,"",101)
 
     console.log(userPersonalData, this.userPersonalDetails.get('firstName')?.value)
 
     userPersonalData[`firstName`] = this.userPersonalDetails.get(`firstName`)?.value;
     userPersonalData[`lastName`] = this.userPersonalDetails.get(`lastName`)?.value;
     userPersonalData[`email`] = this.userPersonalDetails.get(`email`)?.value;
+    userPersonalData[`phone`] = this.userPersonalDetails.get(`phone`)?.value;
     userPersonalData[`password`] = this.userPersonalDetails.get(`password`)?.value;
     userPersonalData[`age`] = this.userPersonalDetails.get(`age`)?.value;
     userPersonalData[`gender`] = this.userPersonalDetails.get(`gender`)?.value;

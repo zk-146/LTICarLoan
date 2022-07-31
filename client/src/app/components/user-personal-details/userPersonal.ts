@@ -2,6 +2,7 @@ export class UserPersonalDetails{
     firstName:string = "";
     lastName:string = "";
     email:string = "";
+    phone:string="";
     password:number = 0;
     age:number = 0;
     gender:string = "";
@@ -11,6 +12,7 @@ export class UserPersonalDetails{
     firstName:string,
     lastName:string,
     email:string,
+    phone:string,
     password:number,
     age:number,
     gender:string,
@@ -19,6 +21,7 @@ export class UserPersonalDetails{
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.phone = phone;
         this.password = password;
         this.age = age;
         this.gender = gender;
