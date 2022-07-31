@@ -1,4 +1,5 @@
 <form
+  class="contact-details-form"
   *ngIf="currentFormIndex === 2"
   [formGroup]="contactDetails"
   [class.error]="!contactDetails.valid && contactDetails.touched"
@@ -13,15 +14,18 @@
   >
     <p id="eligibilityForm-details-title">{{ contactFormDetail.name }}</p>
     <ng-container *ngFor="let data of contactFormDetail.fields">
-      <div id="eligibilityForm-detials-row">
+      <div class="eligibilityForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <input
+            class="form-input"
+            [attr.for]="data.value"
             type="{{ data.inputType }}"
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
             [ngClass]="{ error: data.error != '' }"
+            (change)="onInputChange()"
           />
         </div>
       </div>

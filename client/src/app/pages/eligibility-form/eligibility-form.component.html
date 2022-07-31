@@ -4,32 +4,88 @@
     <p>Please fill the form below to check your eligibility</p>
   </div>
   <div id="eligibilityForm-container">
-    <div id="eligibilityForm-progressbar"></div>
-    <div id="eligibilityForm-details">
-      <app-vehicle-details-form
-        [currentFormIndex]="currentFormIndex"
-      ></app-vehicle-details-form>
-
-      <app-personal-details-form
-        [currentFormIndex]="currentFormIndex"
-      ></app-personal-details-form>
-
-      <app-contact-details-form [currentFormIndex]="currentFormIndex">
-      </app-contact-details-form>
-
-      <button *ngIf="currentFormIndex > 0" (click)="decreaseCurrentIndex()">
-        Back
+    <div
+      id="form-filled"
+      *ngIf="formAlreadyFilled; else displayEligibilityForm"
+    >
+      <p>You have already filled eligibility form</p>
+      <button class="btn" [routerLink]="['/loan-offer']">
+        Select from Loan Offers
       </button>
-      <button
-        *ngIf="currentFormIndex < 2; else displayRegisterButton"
-        (click)="increaseCurrentIndex()"
-      >
-        Next
-      </button>
-      <ng-template #displayRegisterButton>
-        <button>Register</button>
-      </ng-template>
     </div>
+    <ng-template #displayEligibilityForm>
+      <div id="eligibilityForm-progressbar">
+        <div *ngFor="let number of [1, 2, 3]" id="progressbar-container">
+          <p
+            class="progressbar-circle"
+            [ngClass]="{ active: number <= currentFormIndex + 1 }"
+          >
+            {{ number }}
+          </p>
+          <div
+            class="progressbar-line"
+            [ngClass]="{ active: number <= currentFormIndex, hidden: number === 3 }"
+          ></div>
+        </div>
+      </div>
+      <div class="separator"></div>
+      <form id="eligibilityForm-details" (ngSubmit)="onSubmit()">
+        <app-vehicle-details-form
+          [currentFormIndex]="currentFormIndex"
+        ></app-vehicle-details-form>
+
+        <app-personal-details-form
+          [currentFormIndex]="currentFormIndex"
+        ></app-personal-details-form>
+
+        <app-contact-details-form [currentFormIndex]="currentFormIndex">
+        </app-contact-details-form>
+
+        <div id="form-success" *ngIf="formSuccess; else displayButtons">
+          <p>
+            {{
+              formSuccess
+                ? "Congratulations! You are eligible for car loan, proceed next"
+                : "You are not eligible for a Car Loan"
+            }}
+          </p>
+          <button
+            *ngIf="formSuccess"
+            class="btn"
+            [routerLink]="['/loan-offer']"
+          >
+            Select from Loan Offers
+          </button>
+        </div>
+        <ng-template #displayButtons>
+          <div id="form-button-container">
+            <button
+              *ngIf="currentFormIndex > 0"
+              (click)="decreaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="prev-btn"
+            >
+              Previous Step
+            </button>
+            <button
+              *ngIf="currentFormIndex < 2; else displayRegisterButton"
+              (click)="increaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="next-btn"
+            >
+              Next Step
+            </button>
+            <ng-template #displayRegisterButton>
+              <button type="submit" class="btn" id="register-btn">
+                Apply for loan
+              </button>
+            </ng-template>
+          </div>
+        </ng-template>
+      </form>
+    </ng-template>
   </div>
 </div>
 <!-- 

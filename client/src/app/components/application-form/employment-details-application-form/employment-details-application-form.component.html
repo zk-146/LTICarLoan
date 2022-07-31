@@ -26,6 +26,7 @@
                 type="radio"
                 name="data.placeholder"
                 [ngClass]="{ error: data.error != '' }"
+                readonly
             /></label>
             <label
               >No
@@ -33,6 +34,7 @@
                 type="radio"
                 name="data.placeholder"
                 [ngClass]="{ error: data.error != '' }"
+                readonly
             /></label>
           </div>
           <ng-template #displayTextInput>
@@ -41,6 +43,7 @@
               placeholder="{{ data.placeholder }}"
               formControlName="{{ data.value }}"
               [ngClass]="{ error: data.error != '' }"
+              readonly
             />
           </ng-template>
         </div>

@@ -20,27 +20,28 @@ public class VehicleDaoImpl implements VehicleDao {
 
 	@Override
 	@Transactional
-	public int addVehicle(Vehicle v) {
+	public boolean addVehicle(Vehicle v) {
 		em.persist(v);
-		return v.getCar_id();
+		if (v.getCar_id() > 100)
+			return true;
+		return false;
 	}
 
-	
 	@Override
 	public Vehicle findVehicleByUserId(int user_id) {
-		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id", Vehicle.class);
+		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id",
+				Vehicle.class);
 		qry.setParameter("user_id", user_id);
 		Vehicle v = qry.getResultList().get(0);
 		System.out.println(v);
 		return v;
 	}
-	
+
 	@Override
 	public Vehicle findVehicleById(int id) {
-		
-		return em.find(Vehicle.class, id);
-		
-	}
 
+		return em.find(Vehicle.class, id);
+
+	}
 
 }
