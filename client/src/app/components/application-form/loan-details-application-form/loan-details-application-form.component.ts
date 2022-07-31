@@ -6,6 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './loan-details-application-form.component.html',
   styleUrls: ['./loan-details-application-form.component.css']
 })
+
 export class LoanDetailsApplicationFormComponent implements OnInit {
   loanDetails!:FormGroup;
   @Input() currentFormIndex=0;

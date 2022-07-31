@@ -16,14 +16,14 @@ export class VehicleDetailsFormComponent implements OnInit {
     name: "Vehicle Details",
     fields: [
       {
-        label: "Car Model",
+        label: "Company Name",
         placeholder: "Eg. Nissan X39-O2",
         inputType: "text",
         value: 'company_name',
         error: '',
       },
       {
-        label: "Car Make",
+        label: "Model Name",
         placeholder: "Eg. Nissan",
         inputType: "text",
         value: 'model_name',
@@ -52,10 +52,13 @@ export class VehicleDetailsFormComponent implements OnInit {
 
   onInputChange = () => {
     let vehicleData = new VehicleDetails("", "", 0, 101);
+
     console.log(vehicleData, this.vehicleDetails.get('company_name')?.value)
+
     vehicleData[`company_name`] = this.vehicleDetails.get(`company_name`)?.value;
     vehicleData[`model_name`] = this.vehicleDetails.get(`model_name`)?.value;
     vehicleData[`price`] = this.vehicleDetails.get(`price`)?.value;
+    
     localStorage.setItem("vehicleDetails", JSON.stringify(vehicleData));
   }
 }

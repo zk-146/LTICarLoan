@@ -8,6 +8,10 @@ export class UserDetails{
     exisiting_emi:string="";
     phone:string="";
     email:string="";
+    address:string="";
+    state:string="";
+    city:string="";
+    pincode:number=0;
 
     constructor(
         first_name: string,
@@ -19,6 +23,10 @@ export class UserDetails{
         exisiting_emi: string,
         phone:string,
         email:string,
+        address:string,
+        state:string,
+        city:string,
+        pincode:number,
     )
     {
         this.first_name= first_name;
@@ -30,5 +38,9 @@ export class UserDetails{
         this.exisiting_emi= exisiting_emi;
         this.phone = phone;
         this.email = email;
+        this.address = address;
+        this.state = state;
+        this.city = city;
+        this.pincode = pincode;
     }
 }

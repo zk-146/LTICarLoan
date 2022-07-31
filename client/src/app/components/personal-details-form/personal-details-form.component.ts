@@ -70,7 +70,7 @@ export class PersonalDetailsFormComponent implements OnInit {
     ],
   };
 
-  fetchedPersonalData= new UserDetails("", "", 0, "", "", 0, "", "", "");
+  fetchedPersonalData= new UserDetails("", "", 0, "", "", 0, "", "", "", "", "", "", 0);
 
   constructor(private fb: FormBuilder, private authServ: AuthHttpClientService) { }
 

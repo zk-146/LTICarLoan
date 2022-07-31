@@ -33,7 +33,7 @@ export class ContactDetailsFormComponent implements OnInit {
     ],
   };
 
-  fetchedContactData = new UserDetails("", "", 0, "", "", 0, "", "", "");
+  fetchedContactData = new UserDetails("", "", 0, "", "", 0, "", "", "", "", "", "", 0);
   constructor(private fb: FormBuilder, private authServ: AuthHttpClientService) { }
 
   ngOnInit(): void {

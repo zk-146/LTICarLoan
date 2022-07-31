@@ -1,5 +1,6 @@
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
+import { VehicleHttpClientService } from 'app/services/vehicle-http-client.service';
 
 @Component({
   selector: 'app-vehicle-details-application-form',
@@ -15,46 +16,50 @@ export class VehicleDetailsApplicationFormComponent implements OnInit {
     name: "Vehicle Details",
     fields: [
       {
-        label: "Car Make",
-        placeholder: "Eg. Nissan",
-        inputType: "text",
-        value: 'carMake',
-        error: '',
-      },
-      {
         label: "Car Model",
         placeholder: "Eg. Nissan X39-O2",
         inputType: "text",
-        value: 'carModel',
+        value: 'company_name',
         error: '',
       },
       {
-        label: "Ex showroom Price",
+        label: "Car Make",
+        placeholder: "Eg. Nissan",
+        inputType: "text",
+        value: 'model_name',
+        error: '',
+      },
+      {
+        label: "Price",
         placeholder: "$77890",
         inputType: "number",
-        value: 'exShowroomPrice',
-        error: '',
-      },
-      {
-        label: "On Road Price",
-        placeholder: "$80530",
-        inputType: "number",
-        value: 'onRoadPrice',
+        value: 'price',
         error: '',
       },
     ],
   };
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private vehicleDetailServ: VehicleHttpClientService) { }
 
   ngOnInit(): void {
     this.vehicleDetails=this.fb.group({
-      carMake:['', Validators.required],
-      carModel:['', Validators.required],
-      exShowroomPrice:['', Validators.required],
-      onRoadPrice:['', Validators.required],
+      company_name:['', Validators.required],
+      model_name:['', Validators.required],
+      price:['', Validators.required],
     });
+    this.getVehicle();
   }
-
+  
+  getVehicle(): void {
+    this.vehicleDetailServ.getVehicle(101).subscribe(response=> {
+      console.log(response);
+      if(response)
+        this.vehicleDetails=this.fb.group({
+          company_name:[response.company_name, Validators.required],
+          model_name:[response.model_name, Validators.required],
+          price:[response.price, Validators.required],
+        });
+    })
+  }
 
 }

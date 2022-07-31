@@ -1,5 +1,7 @@
+import { AuthHttpClientService } from './../../../services/auth-http-client.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
+import { UserDetails } from 'app/components/User';
 
 @Component({
   selector: 'app-personal-details-application-form',
@@ -17,14 +19,14 @@ export class PersonalDetailsApplicationFormComponent implements OnInit {
         label: "First Name",
         placeholder: "Eg. John",
         inputType: "text",
-        value: 'firstName',
+        value: 'first_name',
         error: '',
       },
       {
         label: "Last Name",
         placeholder: "Eg. Doe",
         inputType: "text",
-        value: 'lastName',
+        value: 'last_name',
         error: '',
       },
       {
@@ -38,7 +40,7 @@ export class PersonalDetailsApplicationFormComponent implements OnInit {
         label: "Mobile",
         placeholder: "Eg. 7718964516",
         inputType: "number",
-        value: 'mobile',
+        value: 'phone',
         error: '',
       },
       {
@@ -80,29 +82,55 @@ export class PersonalDetailsApplicationFormComponent implements OnInit {
         label: "Zip code",
         placeholder: "400022",
         inputType: "number",
-        value: 'zipcode',
+        value: 'pincode',
         error: '',
       },
     ],
   };
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private authServ: AuthHttpClientService) { }
 
   ngOnInit(): void {
     
     this.personalDetails=this.fb.group({
-      firstName:['', Validators.required],
-      lastName:['', Validators.required],
+      first_name:['', Validators.required],
+      last_name:['', Validators.required],
       age:['', Validators.required],
-      mobile:['', Validators.required],
+      phone:['', Validators.required],
       gender:['', Validators.required],
       email:['', Validators.required],
       address:['', Validators.required],
       state:['', Validators.required],
       city:['', Validators.required],
-      zipcode:['', Validators.required],
+      pincode:['', Validators.required],
     });
-    
+
+    this.getUserDetails();
+  }
+
+  fetchedPersonalData= new UserDetails("", "", 0, "", "", 0, "", "", "", "", "", "", 0);
+
+  getUserDetails = () => {
+    const id = 101;
+    this.authServ.getUserDetails(id).subscribe(response=> {
+      console.log(response);
+      this.fetchedPersonalData = response;
+      
+      this.personalDetails=this.fb.group({
+        first_name: [this.fetchedPersonalData.first_name, Validators.required],
+        last_name: [this.fetchedPersonalData.last_name, Validators.required],
+        phone: [this.fetchedPersonalData.phone, Validators.required],
+        email: [this.fetchedPersonalData.email, Validators.required],
+        age: [this.fetchedPersonalData.age, Validators.required],
+        gender: [this.fetchedPersonalData.gender, Validators.required],
+        address: [this.fetchedPersonalData.address, Validators.required],
+        state: [this.fetchedPersonalData.state, Validators.required],
+        city: [this.fetchedPersonalData.city, Validators.required],
+        pincode: [this.fetchedPersonalData.pincode, Validators.required],
+      });
+
+      console.log(this.fetchedPersonalData, this.personalDetails);
+    })
   }
 
 }
