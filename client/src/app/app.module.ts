@@ -12,7 +12,6 @@ import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-f
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactDetailsFormComponent } from './components/contact-details-form/contact-details-form.component';
 import { VehicleDetailsFormComponent } from './components/vehicle-details-form/vehicle-details-form.component';
@@ -28,7 +27,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AddressDetailsComponent } from './components/address-details/address-details.component';
 import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
 import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
-import { HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
