@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserpersonalHttpClientService } from 'app/Services/userpersonal-http-client.service';
 
 @Component({
   selector: 'app-register',
@@ -8,11 +9,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  userPersonalDetails!:FormGroup;
+  currentFormIndex:number = 0;
+  formSuccess:boolean = false;
 
-  currentFormIndex = 0;
-
-  constructor(private fb: FormBuilder) { }
+  constructor(private userPersonalDetailServ: UserpersonalHttpClientService) { }
 
   increaseCurrentIndex = () => {
     let proceed = true;
@@ -20,11 +20,45 @@ export class RegisterComponent implements OnInit {
       this.currentFormIndex++;
 
   }
-
   decreaseCurrentIndex = () => {
     this.currentFormIndex--;
   }
-  
+
+  onSubmit() {
+    this.addUserPersonal();
+  }
+
   ngOnInit(): void {
   }
+
+  addVehicle() {
+    let userPersonalData = localStorage.getItem("userPersonalDetails");
+    userPersonalData = JSON.parse(userPersonalData || "");
+    this.userPersonalDetailServ.addUserPersonal(userPersonalData).subscribe(response=> {
+      if(response)
+        this.formSuccess=true;
+    })
+  }
+
+
 }
+//   userPersonalDetails!:FormGroup;
+
+//   currentFormIndex = 0;
+
+//   constructor(private fb: FormBuilder) { }
+
+//   increaseCurrentIndex = () => {
+//     let proceed = true;
+//     if(proceed)
+//       this.currentFormIndex++;
+
+//   }
+
+//   decreaseCurrentIndex = () => {
+//     this.currentFormIndex--;
+//   }
+  
+//   ngOnInit(): void {
+//   }
+// }
