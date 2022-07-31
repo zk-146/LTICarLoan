@@ -29,7 +29,7 @@ public class AuthController {
 	
 	//http://localhost:8090/user-api/login?email={email}&password={password}
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public boolean userLogin(@RequestParam("email") String email,@RequestParam("password")String password) {
+	public User userLogin(@RequestParam("email") String email,@RequestParam("password")String password) {
 
 		return userService.userLogin(email, password);
 	}
