@@ -11,7 +11,7 @@ import { UserDetails } from './UserDetails';
 })
 export class UserDashboardComponent implements OnInit {
 
-  userData:any;
+  userData:any = JSON.parse(localStorage.getItem("user_data")|| "");
 
   applicationList:Application[]=[];
   constructor(private applSer:ApplicationHttpClientService, private userDetSer:UserDetailsHttpClientServiceService) { }
