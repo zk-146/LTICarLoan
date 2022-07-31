@@ -80,6 +80,47 @@
     font-weight: 600;
 }
 
+#eligibilityForm-progressbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+#progressbar-container {
+    display: flex;
+    align-items: center;
+}
+
+.progressbar-circle {
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background: #EFF0F7;
+    color: #949494;
+    transition: all 250ms linear;
+}
+
+.hidden {
+    display: none;
+}
+
+.progressbar-line {
+    height: 5px;
+    background: #EFF0F7;
+    width: 70px;
+    margin: 0 10px;
+    border-radius: 100px;
+    transition: all 250ms linear;
+}
+
+.active {
+    background: #4A3AFF;
+    color: #fff;
+}
+
 .btn {
     background: #4A3AFF;
     padding: 10px 40px;
