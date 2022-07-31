@@ -22,20 +22,23 @@ public class UserDaoImpl implements UserDao{
 		
 	}
 	@Override
-	public boolean login(String email, String password) {
+	public User login(String email, String password) {
 		String jpql = "select u from User u where u.email=:Email and u.password=:pwd";
 
 		TypedQuery<User> query = em.createQuery(jpql, User.class);
 		query.setParameter("Email", email);
 		query.setParameter("pwd", password);
+		User user = query.getResultList().get(0);
+		return user;
+		
 
-		User user=null;
-		try {
-			user = query.getResultList().get(0);
-		} catch (Exception e) {
-			return false;
-		}
-		return true;
+//		User user=null;
+//		try {
+//			user = query.getResultList().get(0);
+//		} catch (Exception e) {
+//			return false;
+//		}
+//		return true;
 	}
 	
 

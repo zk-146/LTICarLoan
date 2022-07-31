@@ -5,11 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInputBoxComponent } from './components/auth-input-box/auth-input-box.component';
 import { FormInputBoxComponent } from './components/form-input-box/form-input-box.component';
-import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-form.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { EmiCalcComponent } from './emi-calc/emi-calc.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +22,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     SignupComponent,
     EligibilityFormComponent,
     NavbarComponent,
+    EmiCalcComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
