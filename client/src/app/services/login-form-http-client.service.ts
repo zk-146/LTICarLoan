@@ -11,7 +11,9 @@ export class LoginFormHttpClientService {
   constructor(private http: HttpClient) { }
 
   
-  public userLogin(email:string,password:string ){
-    return this.http.post<any>(this.baseUrl+'/login' +"?email=Jay@gmail.com&password=Jay123",{});
+  public userLogin(email:string,password:string, loginAsAdmin:boolean ){
+    let loginPath = '/login'
+    if(loginAsAdmin) loginPath = '/admin-login'
+    return this.http.post<any>(this.baseUrl+ loginPath +`?email=${email}&password=${password}`,{});
   }
 }
