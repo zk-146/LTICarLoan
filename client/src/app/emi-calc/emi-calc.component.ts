@@ -12,10 +12,8 @@ export class EmiCalcComponent implements OnInit {
   TotalAmount: number=0;
   emi: number = 0;
   cal() {
-    var Amount =(Number(this.loanAmount)*(this.interest/100)*(((Math.pow(1+(this.interest/100),this.tenure))/ ((Math.pow(1+(this.interest/100),this.tenure))-1))));
+    var Amount =(Number(this.loanAmount)*(this.interest/(100*12))*(((Math.pow(1+(this.interest/(100*12)),this.tenure))/ ((Math.pow(1+(this.interest/(100*12)),this.tenure))-1))));
     this.emi = Math.ceil(Amount);
-
-
   }
 
   constructor() { }

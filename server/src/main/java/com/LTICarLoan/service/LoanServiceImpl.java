@@ -37,7 +37,7 @@ public class LoanServiceImpl implements LoanService {
 		qry.setParameter("user_id", user_id);
 		Vehicle v = (Vehicle) qry.getResultList().get(0);
 
-		double emi = v.getPrice() * 0.00625 * ((Math.pow((1 + 0.00625), 48)) / (Math.pow((1 + 0.00625), 48) - 1));
+		double emi = v.getPrice() * (7.5/1200) * ((Math.pow((1 + (7.5/1200)), 48)) / (Math.pow((1 + (7.5/1200)), 48) - 1));
 
 		Loan loanData = new Loan("Four Wheeler Loan", 7.5, emi * 48, 48, (.01 * v.getPrice()), v);
 
