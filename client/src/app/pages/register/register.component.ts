@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserpersonalHttpClientService } from 'app/Services/userpersonal-http-client.service';
+import { UserpersonalHttpClientService } from '../../Services/userpersonal-http-client.service';
 
 @Component({
   selector: 'app-register',

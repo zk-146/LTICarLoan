@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserpersonalHttpClientService {
-  baseUrl:string="http://localhost:8090/userpersonal-api";
+  baseUrl:string="http://localhost:8090//user-api";
 
 
   constructor(private httpSer: HttpClient) { }
@@ -14,7 +14,7 @@ export class UserpersonalHttpClientService {
 
   public addUserPersonal(userpersonal:any){
     console.log("userpersonal IS BEING ADDED", userpersonal);
-    return this.httpSer.post<any>(this.baseUrl+'/add-userpersonal',userpersonal);
+    return this.httpSer.post<any>(this.baseUrl+'/addUser',userpersonal);
   }
 
 
