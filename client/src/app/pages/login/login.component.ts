@@ -15,6 +15,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService ) { }
 
+  toggle = "register";
+
+onClickToggle(clickedBtn:string){
+  this.toggle=clickedBtn;
+  
+}
+
   ngOnInit(): void {
 
     this.loginForm=this.fb.group({

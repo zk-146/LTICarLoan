@@ -28,7 +28,115 @@
     transform: translate(-50%, -50%);
     
   }
+
+  .right_centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-60%, -50%);
+    
+  }
+
+  .loginBtn{
+/* position: absolute; */
+width: 465px;
+height: 50px;
+left: 819px;
+top: 457px;
+
+background: #4A3AFF;
+border-radius: 100px;
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 600;
+font-size: 22px;
+line-height: 16px;
+text-transform: uppercase;
+color: #FFFFFF;
+  }
   
-  /* Style the image inside the centered container, if needed */
+  .auth-input
+  {
+  font-family: 'Poppins';
+  width: 465px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  outline: none;
+  }
   
+  .auth-input
+  {
+      border: 0px solid #000000;
+      border-bottom-width: 1px;
+      background-color: transparent;
+
+  }
+  .auth-input:hover{
+      border-color: #000066;
+     background-color: #FFFFF7;
+  }  
   
+  .header{
+width: 225px;
+height: 45px;
+left: 819px;
+top: 228px;
+font-family: 'Poppins';
+src:url(assets\Fonts\Poppins-Font-2\Poppins-Bold.ttf) format("truetype");
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 45px;
+color: #4A3AFF;
+  }
+
+  .container{
+    box-sizing: border-box;
+    width: 466px;
+height: 43px;
+background: #F7F7FB;
+border: 1px solid #A0A3BD;
+border-radius: 100px;
+}
+
+.switch{
+    display: flex;
+    border-bottom: 1px;
+    justify-content: space-between;
+
+}
+
+
+
+.register{
+    padding: 5px 12px;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 33px;
+width: 50%;
+height: 33px;
+}
+
+.purple{
+    background-color: black;
+}
+
+.active{
+    background-color: #4A3AFF;
+    color:#fff;
+}
+
+
+.loginBtn:hover {
+  color: #4A3AFF;
+  background-color: #fff;
+}
