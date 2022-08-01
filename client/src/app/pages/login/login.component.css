@@ -84,8 +84,8 @@ width: 225px;
 height: 45px;
 left: 819px;
 top: 228px;
-font-family: 'Poppins';
-src:url(assets\Fonts\Poppins-Font-2\Poppins-Bold.ttf) format("truetype");
+/* font-family: 'Poppins';
+src:url(assets\Fonts\Poppins-Font-2\Poppins-Bold.ttf) format("truetype"); */
 font-style: normal;
 font-weight: 500;
 font-size: 30px;
