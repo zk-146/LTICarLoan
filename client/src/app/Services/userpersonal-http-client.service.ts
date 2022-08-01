@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserpersonalHttpClientService {
-  baseUrl:string="http://localhost:8090//user-api";
+  baseUrl:string="http://localhost:8090/user-api";
 
 
   constructor(private httpSer: HttpClient) { }
