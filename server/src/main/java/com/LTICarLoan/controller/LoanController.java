@@ -24,14 +24,13 @@ public class LoanController {
 	@Autowired
 	LoanService loanService;
 	
-
 	//http://localhost:8090/loan-api/addloan
 
 		@PostMapping("/addloan")
-		public int addloan(@RequestBody Loan l)
+		public boolean addloan(@RequestBody Loan l, @RequestBody int user_id)
 		{
-			int lId=loanService.addLoan(l);
-			return lId;
+			boolean userEligible=loanService.addLoan(l, user_id);
+			return userEligible;
 		}
 		
 		//http://localhost:8090/loan-api/getloanbyid/1001

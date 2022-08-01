@@ -16,8 +16,9 @@ export class EligibilityFormComponent implements OnInit {
   currentFormIndex:number = 0;
   formAlreadyFilled:boolean = false;
   formSuccess:boolean = false;
+  formSubmitted: boolean = false;
 
-  constructor(private vehicleDetailServ: VehicleHttpClientService) { }
+  constructor(private vehicleDetailServ: VehicleHttpClientService, private eligibilityForm: EligibilityFormHttpClientService) { }
 
   // increaseCurrentIndex = (formDetails:any) => {
   increaseCurrentIndex = () => {
@@ -42,6 +43,8 @@ export class EligibilityFormComponent implements OnInit {
 
   onSubmit() {
     this.addVehicle();
+    this.addEligibiltyForm();
+    this.formSubmitted = true;
   }
 
   ngOnInit(): void {
@@ -49,7 +52,7 @@ export class EligibilityFormComponent implements OnInit {
   }
 
   getVehicle(): void {
-    this.vehicleDetailServ.getVehicle(108).subscribe(response=> {
+    this.vehicleDetailServ.getVehicle(116).subscribe(response=> {
       console.log(response);
       if(response)
         this.formAlreadyFilled=true;
@@ -61,7 +64,16 @@ export class EligibilityFormComponent implements OnInit {
     vehicleData = JSON.parse(vehicleData || "");
     this.vehicleDetailServ.addVehicle(vehicleData).subscribe(response=> {
       if(response)
-        this.formSuccess=true;
+        this.formSuccess=false;
+    })
+  }
+
+  addEligibiltyForm() {
+    this.eligibilityForm.addEligibilityForm().subscribe(response=> {
+      console.log("RESPONSE" , response);
+      if(response)
+        this.formSuccess = true;
+      else this.formSuccess = false;
     })
   }
 }

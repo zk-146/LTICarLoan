@@ -12,7 +12,7 @@ export class UserDetailsHttpClientServiceService {
   constructor(private userHttpSer:HttpClient) { }
 
   public getUserById(){
-    return this.userHttpSer.get<UserDetails[]>("http://localhost:8090/user-api/get-user-details?id=112");
+    return this.userHttpSer.get<UserDetails[]>("http://localhost:8090/user-api/get-user-details?id=116");
   }
 
 }

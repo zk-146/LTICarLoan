@@ -6,7 +6,12 @@
     </div>
     <div id="navbar-left-btns">
       <p [routerLink]="['/']">Home</p>
-      <p [routerLink]="['/user-dashboard']" id="active">Dashboard</p>
+      <p
+        [routerLink]="isAdmin ? ['/admin-dashboard'] : ['/user-dashboard']"
+        id="active"
+      >
+        Dashboard
+      </p>
       <p [routerLink]="['/about-us']">About Us</p>
       <p [routerLink]="['/emi-calculator']">EMI Calculator</p>
       <p [routerLink]="['/eligibility-form']">Apply Loan</p>

@@ -37,7 +37,6 @@ public class AuthController {
 	// http://localhost:8090/user-api/login?email={email}&password={password}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public User userLogin(@RequestParam("email") String email, @RequestParam("password") String password) {
-
 		return userService.userLogin(email, password);
 	}
 	
@@ -48,8 +47,6 @@ public class AuthController {
 			return userService.getUserDetails(id);
 	}
 	
-	//http://localhost:8090/user-api/signup
-	@RequestMapping(value = "/signup",method = RequestMethod.POST)
 
 	@RequestMapping(value = "/admin-login", method = RequestMethod.POST)
 	public Admin adminLogin(@RequestParam("email") String username, @RequestParam("password") String password) {

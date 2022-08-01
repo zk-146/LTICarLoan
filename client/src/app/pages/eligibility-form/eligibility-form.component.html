@@ -24,7 +24,10 @@
           </p>
           <div
             class="progressbar-line"
-            [ngClass]="{ active: number <= currentFormIndex, hidden: number === 3 }"
+            [ngClass]="{
+              active: number <= currentFormIndex,
+              hidden: number === 3
+            }"
           ></div>
         </div>
       </div>
@@ -41,7 +44,7 @@
         <app-contact-details-form [currentFormIndex]="currentFormIndex">
         </app-contact-details-form>
 
-        <div id="form-success" *ngIf="formSuccess; else displayButtons">
+        <div id="form-success" *ngIf="formSubmitted; else displayButtons">
           <p>
             {{
               formSuccess

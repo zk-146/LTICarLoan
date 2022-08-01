@@ -30,4 +30,11 @@ public class VehicleServiceImpl implements VehicleService{
 		return vehicleDao.findVehicleById(id);
 	}
 
+	@Override
+	public boolean deleteVehicleById(int id) {
+		return vehicleDao.deleteVehicleById(id);
+	}
+	
+	
+
 }
