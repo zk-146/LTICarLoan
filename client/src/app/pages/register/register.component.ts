@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   addUserData() {
     
     let userPersonalData = JSON.parse(localStorage.getItem("UserPersonalDetails")|| "");
-    let addressData = JSON.parse(localStorage.getItem("AddressDetails")|| "");
+    let addressData = JSON.parse(localStorage.getItem("addressDetails")|| "");
     let employmentData = JSON.parse(localStorage.getItem("employmentDetails")|| "");
     let userData = {...userPersonalData, ...addressData, ...employmentData};
 
