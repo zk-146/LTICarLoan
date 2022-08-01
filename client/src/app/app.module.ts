@@ -25,7 +25,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AddressDetailsComponent } from './components/address-details/address-details.component';
 import { EmploymentDetailsComponent } from './components/employment-details/employment-details.component';
 import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
-import { ApplicationStatusUpdateComponent } from './pages/application-status-update/application-status-update.component';
 
 
 import { EmiCalcComponent } from './emi-calc/emi-calc.component';
@@ -56,7 +55,6 @@ import { LoginComponent } from './pages/login/login.component';
     AddressDetailsComponent,
     EmploymentDetailsComponent,
     UserPersonalDetailsComponent,
-    ApplicationStatusUpdateComponent,
     EmiCalcComponent,
   ],
   imports: [
