@@ -29,14 +29,15 @@ export class LoanOfferComponent implements OnInit {
 
   addApplication() {
     let userDetails = JSON.parse(localStorage.getItem("user_data")||"");
+    let loanDetails = JSON.parse(localStorage.getItem("loan_details") || "");
     let applicationData = {
         application_status: "pending",
-        emi_amt: 10000,
-        loan_amt: 100000,
-        no_of_emis: 10,
-        loan_tenure: 10,
+        emi_amt: loanDetails.loan_amt / loanDetails.no_of_emi,
+        loan_amt: loanDetails.loan_amt,
+        no_of_emis: loanDetails.no_of_emi,
+        loan_tenure: loanDetails.no_of_emi,
         user: {
-            user_id:userDetails.user_id
+            user_id: userDetails.user_id
         }
     }
     this.applicationServ.addApplication(applicationData).subscribe(response=> {
