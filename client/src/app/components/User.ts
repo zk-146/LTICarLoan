@@ -4,7 +4,7 @@ export class UserDetails{
     age:number=0;
     gender:string="";
     type_of_employment:string="";
-    yearly_salary:number=0;
+    annual_salary:number=0;
     exisiting_emi:string="";
     phone:string="";
     email:string="";
@@ -19,7 +19,7 @@ export class UserDetails{
         age: number,
         gender: string,
         type_of_employment: string,
-        yearly_salary: number,
+        annual_salary: number,
         exisiting_emi: string,
         phone:string,
         email:string,
@@ -34,7 +34,7 @@ export class UserDetails{
         this.age= age;
         this.gender= gender;
         this.type_of_employment= type_of_employment;
-        this.yearly_salary= yearly_salary;
+        this.annual_salary= annual_salary;
         this.exisiting_emi= exisiting_emi;
         this.phone = phone;
         this.email = email;

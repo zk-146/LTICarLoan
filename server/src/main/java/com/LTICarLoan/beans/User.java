@@ -60,7 +60,7 @@ public class User {
 	@Column(name = "annual_salary", length = 8)
 	private int annual_salary;
 
-	public User(int user_id, String first_name, String last_name, String email, String password, int age,
+	public User(int user_id, String first_name, String last_name, String email, String phone, String password, int age,
 			String gender, String address, String city, String state, String nationality, int pincode,
 			String type_of_employment, int annual_salary) {
 		super();
@@ -68,6 +68,7 @@ public class User {
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.email = email;
+		this.phone = phone;
 		this.password = password;
 		this.age = age;
 		this.gender = gender;
@@ -114,6 +115,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getPassword() {
@@ -198,10 +207,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "\nUserPersonalDetails [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name
-				+ ", email=" + email + ", password=" + password + ", age=" + age + ", gender=" + gender + ", address="
-				+ address + ", city=" + city + ", state=" + state + ", nationality=" + nationality + ", pincode="
-				+ pincode + ", type_of_employment=" + type_of_employment + ", annual_salary=" + annual_salary + "]";
+		return "\nUser [user_id=" + user_id + ", first_name=" + first_name + ", last_name=" + last_name + ", email="
+				+ email + ", phone=" + phone + ", password=" + password + ", age=" + age + ", gender=" + gender
+				+ ", address=" + address + ", city=" + city + ", state=" + state + ", nationality=" + nationality
+				+ ", pincode=" + pincode + ", type_of_employment=" + type_of_employment + ", annual_salary="
+				+ annual_salary + "]";
 	}
 
+	
 }

@@ -58,6 +58,7 @@ public class AuthController {
 	// http://localhost:8090/user-api/signup
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@RequestBody User user) {
+		System.out.println(user);
 		String message = userService.signup(user);
 		return message;
 	}

@@ -1,3 +1,4 @@
+import { RegisterComponent } from './pages/register/register.component';
 import { ApplicationFormComponent } from './pages/application-form/application-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +12,7 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
-  {path:"signup",component:SignupComponent},
+  {path:"register",component:RegisterComponent},
   {path:"eligibility-form",component:EligibilityFormComponent},
   {path:"emi-calculator",component:EmiCalcComponent},
   {path:"admin-dashboard",component:AdminDashboardComponent},

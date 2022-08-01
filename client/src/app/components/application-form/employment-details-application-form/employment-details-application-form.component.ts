@@ -1,3 +1,5 @@
+import { AuthHttpClientService } from './../../../services/auth-http-client.service';
+import { EmploymentDetails } from 'app/components/employment-details/EmploymentDetails';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -17,36 +19,49 @@ export class EmploymentDetailsApplicationFormComponent implements OnInit {
         label: "Type Of Employment",
         placeholder: "",
         inputType: "text",
-        value: 'typeOfEmployment',
+        value: 'type_of_employment',
         error: '',
       },
       {
         label: "Annual Salary",
         placeholder: "",
         inputType: "text",
-        value: 'annualSalary',
+        value: 'annual_salary',
         error: '',
       },
       {
         label: "Existing EMI",
         placeholder: "Yes or No",
         inputType: "radio",
-        value: 'existingEMI',
+        value: 'existing_EMI',
         error: '',
         options: true,
       },
     ],
   };
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private userServ: AuthHttpClientService) { }
+
+  employmentData = new EmploymentDetails("", 0);
 
   ngOnInit(): void {
     this.employmentDetails=this.fb.group({
-      typeOfEmployment:['', Validators.required],
-      annualSalary:['', Validators.required],
-      existingEMI:['', Validators.required],
+      type_of_employment:['', Validators.required],
+      annual_salary:['', Validators.required],
+      existing_EMI:['', Validators.required],
     });
+
+    this.userServ.getUserDetails().subscribe(response=> {
+      this.employmentDetails=this.fb.group({
+        type_of_employment:[response.type_of_employment, Validators.required],
+        annual_salary:[response.annual_salary, Validators.required],
+        existing_EMI:['', Validators.required],
+      });
+    });
+    
   }
+
+
 
 
 }

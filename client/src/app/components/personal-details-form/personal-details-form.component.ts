@@ -56,7 +56,7 @@ export class PersonalDetailsFormComponent implements OnInit {
         label: "Yearly Salary",
         placeholder: "$77000",
         inputType: "number",
-        value: 'yearly_salary',
+        value: 'annual_salary',
         error: '',
       },
       {
@@ -81,7 +81,7 @@ export class PersonalDetailsFormComponent implements OnInit {
       age: [this.fetchedPersonalData.age, Validators.required],
       gender: [this.fetchedPersonalData.gender, Validators.required],
       type_of_employment: [this.fetchedPersonalData.type_of_employment, Validators.required],
-      yearly_salary: [this.fetchedPersonalData.yearly_salary, Validators.required],
+      annual_salary: [this.fetchedPersonalData.annual_salary, Validators.required],
       exisiting_emi: [this.fetchedPersonalData.exisiting_emi, Validators.required],
     });
     this.getUserDetails();
@@ -89,7 +89,7 @@ export class PersonalDetailsFormComponent implements OnInit {
   
   getUserDetails = () => {
     let user = JSON.parse(localStorage.getItem("user_data")|| "");
-    this.authServ.getUserDetails(user.user_id).subscribe(response=> {
+    this.authServ.getUserDetails().subscribe(response=> {
       console.log(response);
       this.fetchedPersonalData = response;
       
@@ -99,7 +99,7 @@ export class PersonalDetailsFormComponent implements OnInit {
         age: [this.fetchedPersonalData.age, Validators.required],
         gender: [this.fetchedPersonalData.gender, Validators.required],
         type_of_employment: [this.fetchedPersonalData.type_of_employment, Validators.required],
-        yearly_salary: [this.fetchedPersonalData.yearly_salary, Validators.required],
+        annual_salary: [this.fetchedPersonalData.annual_salary, Validators.required],
         exisiting_emi: [this.fetchedPersonalData.exisiting_emi, Validators.required],
       });
 
@@ -116,7 +116,7 @@ export class PersonalDetailsFormComponent implements OnInit {
     personalData[`last_name`] = this.personalDetails.get(`last_name`)?.value;
     personalData[`gender`] = this.personalDetails.get(`gender`)?.value;
     personalData[`type_of_employment`] = this.personalDetails.get(`type_of_employment`)?.value;
-    personalData[`yearly_salary`] = this.personalDetails.get(`yearly_salary`)?.value;
+    personalData[`annual_salary`] = this.personalDetails.get(`annual_salary`)?.value;
     localStorage.setItem("personalDetails", JSON.stringify(personalData));
   }
 

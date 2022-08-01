@@ -20,7 +20,7 @@ export class ContactDetailsFormComponent implements OnInit {
         label: "Phone Number",
         placeholder: "Eg. 7718964516",
         inputType: "number",
-        value: 'phone_number',
+        value: 'phone',
         error: '',
       },
       {
@@ -38,7 +38,7 @@ export class ContactDetailsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactDetails=this.fb.group({
-      phone_number:['', Validators.required],
+      phone:['', Validators.required],
       email:['', [Validators.required, Validators.email]]
     });
     this.getUserDetails();
@@ -46,14 +46,15 @@ export class ContactDetailsFormComponent implements OnInit {
 
   getUserDetails = () => {
     let user = JSON.parse(localStorage.getItem("user_data")|| "");
-    this.authServ.getUserDetails(user.user_id).subscribe(response=> {
+    this.authServ.getUserDetails().subscribe(response=> {
       console.log(response);
       this.fetchedContactData = response;
 
-      console.log(this.fetchedContactData.email)
+      console.log(this.fetchedContactData.email, "this.fetchedContactData.phone", this.fetchedContactData.phone)
+    console.log("this.fetchedContactData",this.fetchedContactData);
       
       this.contactDetails=this.fb.group({
-        phone_number:["", Validators.required],
+        phone:[this.fetchedContactData.phone, Validators.required],
         email:[this.fetchedContactData.email, [Validators.required, Validators.email]]
       });
 
@@ -65,7 +66,7 @@ export class ContactDetailsFormComponent implements OnInit {
   onInputChange = () => {
     let contactData = new ContactDetails("", "");
     console.log(contactData, this.contactDetails.get('company_name')?.value)
-    contactData[`phone_number`] = this.contactDetails.get(`phone_number`)?.value;
+    contactData[`phone`] = this.contactDetails.get(`phone`)?.value;
     contactData[`email`] = this.contactDetails.get(`email`)?.value;
     localStorage.setItem("contactDetails", JSON.stringify(contactData));
   }

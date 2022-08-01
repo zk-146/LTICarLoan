@@ -112,7 +112,7 @@ export class PersonalDetailsApplicationFormComponent implements OnInit {
 
   getUserDetails = () => {
     let user = JSON.parse(localStorage.getItem("user_data")|| "");
-    this.authServ.getUserDetails(user.user_id).subscribe(response=> {
+    this.authServ.getUserDetails().subscribe(response=> {
       console.log(response);
       this.fetchedPersonalData = response;
       

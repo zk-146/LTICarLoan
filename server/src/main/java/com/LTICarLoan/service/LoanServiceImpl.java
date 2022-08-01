@@ -39,7 +39,7 @@ public class LoanServiceImpl implements LoanService {
 
 		double emi = v.getPrice() * 0.00625 * ((Math.pow((1 + 0.00625), 48)) / (Math.pow((1 + 0.00625), 48) - 1));
 
-		Loan loanData = new Loan("Four Wheeler Loan", 7.5, emi * 48, 48, ((1 / 100) * v.getPrice()), v);
+		Loan loanData = new Loan("Four Wheeler Loan", 7.5, emi * 48, 48, (.01 * v.getPrice()), v);
 
 		System.out.println(v);
 		System.out.println(user);

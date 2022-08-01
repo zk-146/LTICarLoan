@@ -1,13 +1,13 @@
 export class ContactDetails{
-    phone_number:string="";
+    phone:string="";
     email:string="";
 
     constructor(
-        phone_number: string,
+        phone: string,
         email: string,
     )
     {
-        this.phone_number= phone_number;
+        this.phone= phone;
         this.email= email;
     }
 }
