@@ -1,4 +1,4 @@
-import { UserDetails } from './../User';
+import { UserDetails } from '../User';
 import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
