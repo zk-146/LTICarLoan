@@ -1,4 +1,5 @@
 <form
+  class="application-details-form"
   *ngIf="currentFormIndex === 2"
   [formGroup]="vehicleDetails"
   [class.error]="!vehicleDetails.valid && vehicleDetails.touched"
@@ -17,7 +18,7 @@
     <ng-container *ngFor="let data of vehicleFormDetail.fields">
       <div id="eligibilityForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <!-- <div *ngIf="data.options; else displayTextInput">
                 <label
@@ -42,6 +43,7 @@
             formControlName="{{ data.value }}"
             [ngClass]="{ error: data.error != '' }"
             readonly
+            class="form-input"
           />
           <!-- </ng-template> -->
         </div>

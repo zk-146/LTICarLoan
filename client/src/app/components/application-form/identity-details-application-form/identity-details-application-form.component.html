@@ -17,7 +17,7 @@
     <ng-container *ngFor="let data of identityFormDetail.fields">
       <div id="eligibilityForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <!-- <div *ngIf="data.options; else displayTextInput">
                 <label
@@ -41,6 +41,7 @@
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
             [ngClass]="{ error: data.error != '' }"
+            class="form-input"
           />
           <!-- </ng-template> -->
         </div>
