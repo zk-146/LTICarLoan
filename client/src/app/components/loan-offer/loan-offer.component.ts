@@ -28,6 +28,7 @@ export class LoanOfferComponent implements OnInit {
   }
 
   addApplication() {
+    let userDetails = JSON.parse(localStorage.getItem("user_data")||"");
     let applicationData = {
         application_status: "pending",
         emi_amt: 10000,
@@ -35,7 +36,7 @@ export class LoanOfferComponent implements OnInit {
         no_of_emis: 10,
         loan_tenure: 10,
         user: {
-            user_id:108
+            user_id:userDetails.user_id
         }
     }
     this.applicationServ.addApplication(applicationData).subscribe(response=> {

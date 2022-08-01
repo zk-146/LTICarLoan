@@ -19,7 +19,8 @@ export class ApplicationHttpClientService {
     return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-status/"+status);
   }
   public getApplicationByUserId(){
-    return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id"+"/112");
+    let userDetails = JSON.parse(localStorage.getItem("user_data")|| "");
+    return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id/" + userDetails.user_id);
   }
   public getApplicationByUserId1(application_id:Number){
     return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id/"+application_id);
@@ -28,7 +29,8 @@ export class ApplicationHttpClientService {
     return this.httSer.put(this.baseUrl+"update-application-status/"+application_id+"/"+application_status,{});
   }
   public addApplication(applicationData:any){
-    return this.httSer.post(this.baseUrl+"add-application/",{applicationData});
+    console.log(applicationData)
+    return this.httSer.post(this.baseUrl+"add-application/",applicationData);
   }
   
 }

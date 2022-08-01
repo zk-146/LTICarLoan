@@ -1,4 +1,7 @@
+import { Router } from '@angular/router';
+import { ApplicationHttpClientService } from './../../services/application-http-client.service';
 import { Component, OnInit } from '@angular/core';
+import { ApplicationForm } from './ApplicationForm';
 
 @Component({
   selector: 'app-application-form',
@@ -9,9 +12,10 @@ import { Component, OnInit } from '@angular/core';
 export class ApplicationFormComponent implements OnInit {
   currentFormIndex = 0;
 
-  constructor() { }
+  constructor(private applicationServ: ApplicationHttpClientService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getApplicationForm();
   }
 
   increaseCurrentIndex = () => {
@@ -28,6 +32,22 @@ export class ApplicationFormComponent implements OnInit {
     if(proceed)
       this.currentFormIndex++;
 
+  }
+
+  submitApplicationForm = () => {
+    let loanDetails = JSON.parse(localStorage.getItem("loan_details")|| "");
+    console.log(loanDetails);
+    let userDetails = JSON.parse(localStorage.getItem("user_data")|| "");
+    let applicationData = new ApplicationForm(loanDetails.loan_amt/48, loanDetails.no_of_emi, loanDetails.loan_amt, loanDetails.loan_tenure, "pending", userDetails.user_id);
+    console.log("APPLICATIONDATA", applicationData);
+    this.applicationServ.addApplication(applicationData).subscribe(response => console.log(response));
+    this.router.navigate(['user-dashboard']);
+  }
+
+  getApplicationForm = () => {
+    this.applicationServ.getApplicationByUserId().subscribe(response => {
+      console.log(response)
+    });
   }
 
   decreaseCurrentIndex = () => {
