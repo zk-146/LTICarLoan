@@ -12,9 +12,9 @@ export class UserpersonalHttpClientService {
   constructor(private httpSer: HttpClient) { }
 
 
-  public addUserPersonal(userpersonal:any){
-    console.log("userpersonal IS BEING ADDED", userpersonal);
-    return this.httpSer.post<any>(this.baseUrl+'/addUser',userpersonal);
+  public addUserData(userData:any){
+    console.log("userpersonal IS BEING ADDED");
+    return this.httpSer.post<any>(this.baseUrl+'/addUser',userData);
   }
 
 

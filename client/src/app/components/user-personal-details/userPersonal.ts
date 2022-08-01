@@ -1,6 +1,6 @@
 export class UserPersonalDetails{
-    firstName:string = "";
-    lastName:string = "";
+    first_name:string = "";
+    last_name:string = "";
     email:string = "";
     phone:string="";
     password:number = 0;
@@ -9,8 +9,8 @@ export class UserPersonalDetails{
     user:object={ }
 
     constructor(
-    firstName:string,
-    lastName:string,
+        first_name:string,
+        last_name:string,
     email:string,
     phone:string,
     password:number,
@@ -18,8 +18,8 @@ export class UserPersonalDetails{
     gender:string,
     user:number)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.phone = phone;
         this.password = password;

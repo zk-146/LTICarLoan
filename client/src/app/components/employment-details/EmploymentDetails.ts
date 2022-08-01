@@ -1,13 +1,13 @@
 export class EmploymentDetails{
-    typeofemp:string="";
-    annualsal:number=0;
+    type_of_employment:string="";
+    annual_salary:number=0;
 
     constructor(
-        typeofemp: string,
-        annualsal: number,
+        type_of_employment: string,
+        annual_salary: number,
     )
     {
-        this.typeofemp= typeofemp;
-        this.annualsal= annualsal;
+        this.type_of_employment= type_of_employment;
+        this.annual_salary= annual_salary;
     }
 }
