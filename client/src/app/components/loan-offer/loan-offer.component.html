@@ -1,29 +1,20 @@
 <h3 id="title">Your Loan Quotes</h3>
 <div class="first-container">
-    <div class="label">Product Type</div>
+  <div class="label">Vehile Type: {{ loanDetails.loan_type }}</div>
 </div>
 <div class="second-container">
-    <div class="label">EMI</div>
+  <div class="label">Loan Amount: {{ loanDetails.loan_amt }}</div>
 </div>
 <div class="third-container">
-    <div class="label">Loan Amount</div>
-    
+  <div class="label">EMI: {{ loanDetails.loan_amt / 48 }}</div>
 </div>
 <div class="fourth-container">
-    <div class="label">Interest Rate</div>
-    
+  <div class="label">Interest Rate: {{ loanDetails.interest_rate }}</div>
 </div>
 <div class="fifth-container">
-    <div class="label">Loan type id</div>
-    
+  <div class="label">Processing Fee: {{ loanDetails.processing_fee }}</div>
 </div>
-<div class="sixth-container">
-    <div class="label">Car ID</div>
-    
-</div>
-    <button type="submit" class="btn" id="apply-now">
-      Apply Now
-    </button>
-    <button type="submit" class="btn" id="emi-scheduler">
-        EMI SCHEDULER
-      </button>
+<button type="submit" class="btn" id="apply-now" (click)="addApplication()">
+  Apply Now
+</button>
+<button type="submit" class="btn" id="emi-scheduler">EMI SCHEDULER</button>

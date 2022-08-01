@@ -13,6 +13,6 @@ export class EligibilityFormHttpClientService {
   public addEligibilityForm() {
     const user_id = JSON.parse(localStorage.getItem("user_data") || "");
     console.log(user_id);
-    return this.httpSer.post<any>(this.baseUrl+'/add-loan/' + 116, {});
+    return this.httpSer.post<any>(this.baseUrl+'/add-loan/' + user_id.user_id, {});
   }
 }

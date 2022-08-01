@@ -23,7 +23,7 @@ public class LoanServiceImpl implements LoanService {
 
 	@Autowired
 	LoanDao loanDao;
-	
+
 	@Autowired
 	VehicleDao vehicleDao;
 
@@ -31,7 +31,6 @@ public class LoanServiceImpl implements LoanService {
 	public boolean addLoan(Loan l, int user_id) {
 		Query qry = em.createQuery("Select u from User u where u.user_id=:user_id");
 		qry.setParameter("user_id", user_id);
-		System.out.println(user_id);
 		User user = (User) qry.getResultList().get(0);
 
 		qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id");
@@ -45,7 +44,8 @@ public class LoanServiceImpl implements LoanService {
 		System.out.println(v);
 		System.out.println(user);
 		System.out.println(loanData);
-		System.out.println(user.getAnnual_salary() / 65 * 100 + " " + v.getPrice() + " " + (user.getAnnual_salary() / 65 * 100 >= v.getPrice()));
+		System.out.println(user.getAnnual_salary() / 65 * 100 + " " + v.getPrice() + " "
+				+ (user.getAnnual_salary() / 65 * 100 >= v.getPrice()));
 		if (user.getAnnual_salary() / 65 * 100 >= v.getPrice()) {
 			System.out.println("YOU ARE ELIGIBLE FOR A LOAN---" + user.getAnnual_salary() / 65 * 100);
 			loanDao.addLoan(loanData);
@@ -67,4 +67,8 @@ public class LoanServiceImpl implements LoanService {
 		return loanDao.findLoanByCarId(car_id);
 	}
 
+	@Override
+	public Loan findLoanByUserId(int user_id) {
+		return loanDao.findLoanByUserId(user_id);
+	}
 }

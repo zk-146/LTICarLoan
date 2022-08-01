@@ -12,4 +12,6 @@ public interface LoanService {
 
 	List<Loan> findLoanByCarId(int car_id);
 
+	Loan findLoanByUserId(int user_id);
+
 }

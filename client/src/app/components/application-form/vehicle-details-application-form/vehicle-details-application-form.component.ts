@@ -51,7 +51,8 @@ export class VehicleDetailsApplicationFormComponent implements OnInit {
   }
   
   getVehicle(): void {
-    this.vehicleDetailServ.getVehicle(116).subscribe(response=> {
+    let user = JSON.parse(localStorage.getItem("user_data")|| "");
+    this.vehicleDetailServ.getVehicle(user.user_id).subscribe(response=> {
       console.log(response);
       if(response)
         this.vehicleDetails=this.fb.group({

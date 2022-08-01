@@ -43,7 +43,9 @@ export class EligibilityFormComponent implements OnInit {
 
   onSubmit() {
     this.addVehicle();
-    this.addEligibiltyForm();
+    setTimeout(()=> {
+      this.addEligibiltyForm();
+    }, 2000)
     this.formSubmitted = true;
   }
 
@@ -52,7 +54,8 @@ export class EligibilityFormComponent implements OnInit {
   }
 
   getVehicle(): void {
-    this.vehicleDetailServ.getVehicle(116).subscribe(response=> {
+    let user = JSON.parse(localStorage.getItem("user_data")|| "");
+    this.vehicleDetailServ.getVehicle(user.user_id).subscribe(response=> {
       console.log(response);
       if(response)
         this.formAlreadyFilled=true;

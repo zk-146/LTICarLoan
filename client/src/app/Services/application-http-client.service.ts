@@ -27,5 +27,8 @@ export class ApplicationHttpClientService {
   public updateApplication(application_id:Number,application_status:string){
     return this.httSer.put(this.baseUrl+"update-application-status/"+application_id+"/"+application_status,{});
   }
+  public addApplication(applicationData:any){
+    return this.httSer.post(this.baseUrl+"add-application/",{applicationData});
+  }
   
 }

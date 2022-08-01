@@ -45,8 +45,8 @@ export class ContactDetailsFormComponent implements OnInit {
   }
 
   getUserDetails = () => {
-    const id = 116
-    this.authServ.getUserDetails(id).subscribe(response=> {
+    let user = JSON.parse(localStorage.getItem("user_data")|| "");
+    this.authServ.getUserDetails(user.user_id).subscribe(response=> {
       console.log(response);
       this.fetchedContactData = response;
 

@@ -35,6 +35,4 @@ public class VehicleServiceImpl implements VehicleService{
 		return vehicleDao.deleteVehicleById(id);
 	}
 	
-	
-
 }
