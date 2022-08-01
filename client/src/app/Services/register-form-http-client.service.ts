@@ -8,13 +8,11 @@ import { Register } from 'app/pages/register/Register';
 })
 export class RegisterFormHttpClientService {
 
-  baseUrl="http://localhost:8090/user-api";
+  baseUrl:string="http://localhost:8090/user-api";
   constructor(private http: HttpClient) { }
 
-  public addEmp(r: Register){
+  public addRegister(r: Register){
     return this.http.post<any>(this.baseUrl+'/addUser', r);
   }
-
-
-
+  
 }

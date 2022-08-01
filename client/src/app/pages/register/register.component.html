@@ -4,7 +4,71 @@
     </div>
     <div id="registerForm-container">
       <div id="registerForm-progressbar"></div>
-      <div id="registerForm-details">
+      <div *ngFor="let number of [1, 2, 3]" id="progressbar-container">
+        <p
+          class="progressbar-circle"
+          [ngClass]="{ active: number <= currentFormIndex + 1 }"
+        >
+          {{ number }}
+        </p>
+        <div
+          class="progressbar-line"
+          [ngClass]="{ active: number <= currentFormIndex, hidden: number === 3 }"
+        ></div>
+      </div>
+      <div class="separator"></div>
+      <form id="registerForm-details" (ngSubmit)="onSubmit()">
+        <app-user-personal-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-user-personal-details>
+  
+        <app-address-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-address-details>
+  
+        <app-employment-details [currentFormIndex]="currentFormIndex">
+        </app-employment-details>
+
+        <div id="form-success" *ngIf="formSuccess; else displayButtons">
+          <p>
+            {{
+              formSuccess
+                ? "You have been Registered Successfully"
+                : "Registration Unsuccessful"
+            }}
+          </p>
+
+        </div>
+        <ng-template #displayButtons>
+          <div id="form-button-container">
+            <button
+              *ngIf="currentFormIndex > 0"
+              (click)="decreaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="prev-btn"
+            >
+              Previous Step
+            </button>
+            <button
+              *ngIf="currentFormIndex < 2; else displayRegisterButton"
+              (click)="increaseCurrentIndex()"
+              type="button"
+              class="btn"
+              id="next-btn"
+            >
+              Next Step
+            </button>
+            <ng-template #displayRegisterButton>
+              <button type="submit" class="btn" id="register-btn">
+                REGISTER
+              </button>
+            </ng-template>
+          </div>
+        </ng-template>
+
+
+      <!-- <div id="registerForm-details">
         <app-user-personal-details
           [currentFormIndex]="currentFormIndex"
         ></app-user-personal-details>
@@ -28,6 +92,6 @@
         <ng-template #displayRegisterButton>
           <button>Register</button>
         </ng-template>
-      </div>
+      </div> -->
     </div>
   </div>

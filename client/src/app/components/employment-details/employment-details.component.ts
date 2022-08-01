@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { EmploymentDetails } from './EmploymentDetails';
 
 @Component({
   selector: 'app-employment-details',
@@ -41,4 +42,11 @@ export class EmploymentDetailsComponent implements OnInit {
     });
   }
 
+  onInputChange = () => {
+    let employmentData = new EmploymentDetails("", 0);
+    console.log(employmentData, this.employmentDetails.get('typeofemp')?.value)
+    employmentData[`typeofemp`] = this.employmentDetails.get(`typeofemp`)?.value;
+    employmentData[`annualsal`] = this.employmentDetails.get(`annualsal`)?.value;
+    localStorage.setItem("employmentDetails", JSON.stringify(employmentData));
+  }
 }
