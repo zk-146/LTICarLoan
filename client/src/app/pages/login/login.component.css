@@ -1,3 +1,11 @@
+.login-form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .split {
     height: 100%;
     width: 50%;
@@ -37,10 +45,16 @@
     
   }
 
+  .element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .loginBtn{
 /* position: absolute; */
-width: 465px;
-height: 50px;
+width: 455px;
+height: 35px;
 left: 819px;
 top: 457px;
 transition: all 150ms linear;
@@ -50,7 +64,7 @@ border: none;
 font-family: 'DM Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 22px;
+font-size: 18px;
 line-height: 16px;
 text-transform: uppercase;
 color: #FFFFFF;
@@ -159,4 +173,17 @@ border-radius: 100px;
 
 #new-user > p:hover {
   color: #5c5c5c;
+}
+
+.login-admin {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.login-admin > input {
+  margin-left: 10px;
+  text-align: center;
 }

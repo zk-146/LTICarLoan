@@ -1,4 +1,4 @@
-<body>
+<body class="login-form">
   <div class="split left">
     <div class="centered">
       <img class="adminLogin" src="assets\svgs\adminLogin.svg" width="" />
@@ -7,24 +7,6 @@
 
   <div class="split right">
     <div class="right_centered">
-      <!-- <div class="container">
-        <div class="switch">
-          <div
-            class="register"
-            (click)="onClickToggle('register')"
-            [ngClass]="{ active: toggle == 'register' }"
-          >
-            REGISTER
-          </div>
-          <div
-            class="register"
-            (click)="onClickToggle('signin')"
-            [ngClass]="{ active: toggle == 'signin' }"
-          >
-            SIGN IN
-          </div>
-        </div>
-      </div> -->
       <br />
       <h1 class="header">Welcome Back</h1>
 
@@ -34,6 +16,7 @@
           <input
             class="auth-input"
             text="[inputType]"
+            type="email"
             formControlName="email"
             placeholder="Email"
           />
@@ -43,12 +26,13 @@
           <input
             class="auth-input"
             text="[inputType]"
+            type="password"
             formControlName="password"
             placeholder="Password"
           />
         </div>
         <br />
-        <label
+        <label class="login-admin"
           >Login as admin<input
             type="checkbox"
             (change)="changeLoginToAdmin($event.target)"

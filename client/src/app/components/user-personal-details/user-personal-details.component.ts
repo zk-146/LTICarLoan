@@ -31,10 +31,17 @@ export class UserPersonalDetailsComponent implements OnInit {
           error: '',
         },
         {
-          label: "Email ID",
+          label: "Email Id",
           placeholder: "johndoe@example.com",
           inputType: "email",
           value: 'email',
+          error: '',
+        },
+        {
+          label: "Password",
+          placeholder: "Password",
+          inputType: "password",
+          value: 'password',
           error: '',
         },
         {
@@ -42,13 +49,6 @@ export class UserPersonalDetailsComponent implements OnInit {
           placeholder: "9988998844",
           inputType: "text",
           value: 'phone',
-          error: '',
-        },
-        {
-          label: "Password",
-          placeholder: "Password",
-          inputType: "text",
-          value: 'password',
           error: '',
         },
         {
