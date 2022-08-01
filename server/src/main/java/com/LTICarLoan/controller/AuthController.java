@@ -48,8 +48,6 @@ public class AuthController {
 			return userService.getUserDetails(id);
 	}
 	
-	//http://localhost:8090/user-api/signup
-	@RequestMapping(value = "/signup",method = RequestMethod.POST)
 
 	@RequestMapping(value = "/admin-login", method = RequestMethod.POST)
 	public Admin adminLogin(@RequestParam("email") String username, @RequestParam("password") String password) {

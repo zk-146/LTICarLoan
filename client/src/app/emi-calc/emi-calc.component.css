@@ -1,0 +1,193 @@
+.title{
+position: relative;
+bottom: 200px;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 34px;
+line-height: 46px;
+color: #000000;
+}
+.container{
+    box-sizing: border-box;
+    /* position: absolute;
+    width: 698px;
+    height: 564px;
+    left: 94px;
+    top: 822px; */
+    background: #FFFFFF;
+    border: 1px solid #EFF0F7;
+    box-shadow: 0px 5px 16px rgba(8, 15, 52, 0.06);
+    border-radius: 34px;
+}
+.Flabel{
+    position: absolute;
+    left: 10%;
+    right: 58.08%;
+    top: 37.51%;
+    bottom: 61.63%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #170F49;
+}
+.Finput{
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    right: 48.47%;
+    top: 42.1%;
+    bottom: 53.06%;
+    background: #FFFFFF;
+    border: 1px solid #EFF0F7;
+    box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+    border-radius: 46px;
+}
+.Slabel{
+    position: absolute;
+    left: 10%;
+    right: 57.82%;
+    top: 49.66%;
+    bottom: 55.49%;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #170F49;
+}
+
+.Sinput{
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    right: 48.47%;
+    top: 54.2%;
+    bottom: 40.96%;
+    background: #FFFFFF;
+    border: 1px solid #EFF0F7;
+    box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+    border-radius: 46px;
+}
+
+.Tlabel{
+    position: absolute;
+    left: 10.01%;
+    right: 81.66%;
+    top: 60.76%;
+    bottom: 49.38%;   
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    color: #170F49;
+ }
+
+.Tinput{
+    box-sizing: border-box;
+    position: absolute;
+    left: 10%;
+    right: 48.47%;
+    top: 66.31%;
+    bottom: 28.85%;
+    background: #FFFFFF;
+    border: 1px solid #EFF0F7;
+    box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+    border-radius: 46px;
+}
+
+.calc{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px 21px;
+    gap: 8px;
+    position: absolute;
+    left: 25.03%;
+    right: 63.58%;
+    top: 74.66%;
+    bottom: 41.72%;
+    background: #4A3AFF;
+    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+    border-radius: 56px;
+}
+
+.emi{
+    position: fixed;
+    top: 380px;
+    right: 680px; 
+    padding: 15px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 62px;
+    letter-spacing: 2px;
+    color: #000000;
+    background-color: rgba(74, 58, 255, 0.2);
+    border-radius: 34px;
+}
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  /* Control the left side */
+  .left {
+    left: 0;
+  }
+  /* Control the right side */
+  .right {
+    right: 0;
+  }
+  .centered {
+    position: absolute;
+    top: 55%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+  }
+
+  .img{
+    position: fixed;
+    top: 510px;
+    right: 680px;
+  }
+  /* .abt{
+    
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 35px;
+    color: #000000;
+  }
+  .img2{
+    position: fixed;
+    top: 100px;
+    right: 400px;
+    
+
+  }
+  .abtTitle{
+    position: fixed;
+    top: 100px;
+    right: 400px;
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 34px;
+line-height: 46px;
+
+
+
+color: #000000;
+
+  } */
