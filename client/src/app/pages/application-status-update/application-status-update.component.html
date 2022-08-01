@@ -14,7 +14,10 @@
           <th>EMI Amount</th>
           <th>Loan Amount</th>
           <th>No of Emis</th>
-          <th>User Id</th>
+          <th>First Name Id</th>
+          <th>Last Name Id</th>
+          <th>Email Id</th>
+          <th>Type of Employment</th>
         </tr>
       </thead>
 
@@ -26,6 +29,12 @@
           <td>{{ applicationData.loan_amt }}</td>
           <td>{{ applicationData.no_of_emis }}</td>
           <td>{{ applicationData?.user?.user_id }}</td>
+          <td>{{ applicationData?.user?.first_name }}</td>
+          <td>{{ applicationData?.user?.last_name }}</td>
+          <td>{{ applicationData?.user?.email }}</td>
+          <td>{{ applicationData?.user?.type_of_employment }}</td>
+          <td>{{ applicationData?.user?.annual_salary }}</td>
+
         </tr>
       </tbody>
     </Table>
