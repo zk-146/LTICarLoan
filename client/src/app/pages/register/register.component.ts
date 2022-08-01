@@ -36,9 +36,6 @@ export class RegisterComponent implements OnInit {
     let userPersonalData = localStorage.getItem("UserPersonalDetails");
     console.log(userPersonalData);
     userPersonalData = JSON.parse(userPersonalData || "");
-
-    
-
     this.userPersonalDetailServ.addUserPersonal(userPersonalData).subscribe(response=> {
       if(response)
         this.formSuccess=true;
