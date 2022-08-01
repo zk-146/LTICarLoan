@@ -1,4 +1,4 @@
-export class typeofemp{
+export class EmploymentDetails{
     typeofemp:string="";
     annualsal:number=0;
 
