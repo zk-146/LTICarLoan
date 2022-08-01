@@ -68,10 +68,9 @@
 }
 #navbar-logout, #navbar-login {
     display: flex;
-    cursor: pointer;
 }
 
-#navbar-logout:hover, #navbar-login:hover {
+#navbar-logout:hover, #navbar-login > p :hover {
     color: #4A3AFF;
 }
 
@@ -86,6 +85,7 @@
     white-space: nowrap;
     margin-right: 20px;
     transition: all 150ms linear;
+    cursor: pointer;
 }
 
 #navbar-logout > p:hover, #navbar-login > p:hover {

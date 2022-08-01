@@ -18,15 +18,21 @@
     </div>
   </div>
   <div id="navbar-right">
-    <div *ngIf="userLoggedIn" (click)="logout()" id="navbar-logout">
+    <div
+      [routerLink]="['/login']"
+      *ngIf="userLoggedIn"
+      (click)="logout()"
+      id="navbar-logout"
+    >
       <!-- <span class="material-icons-two-tone">logout</span> -->
       <img src="../../../assets/svgs/Logout.svg" alt="Exit door" />
       <p>Log out</p>
     </div>
-    <div *ngIf="!userLoggedIn" [routerLink]="'login'" id="navbar-login">
+    <div *ngIf="!userLoggedIn" id="navbar-login">
       <!-- <span class="material-icons-two-tone">logout</span> -->
-      <img src="../../../assets/svgs/Logout.svg" alt="Enter door" />
-      <p>Sign in/Register</p>
+      <!-- <img src="../../../assets/svgs/Logout.svg" alt="Enter door" /> -->
+      <p [routerLink]="'login'">Sign in</p>
+      <p [routerLink]="'register'">Register</p>
     </div>
     <h1 *ngIf="isAdmin && userLoggedIn">Admin</h1>
   </div>
