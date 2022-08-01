@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.LTICarLoan.beans.User;
+import com.LTICarLoan.exception.AuthException;
 
 @Repository
 public class UserDaoImpl implements UserDao{
@@ -16,13 +17,13 @@ public class UserDaoImpl implements UserDao{
 	private EntityManager em;
 	@Override
 	@Transactional
-	public int addUser(User u) {
+	public int addUser(User u) throws AuthException{
 		em.persist(u);
 		return u.getUser_id();
 		
 	}
 	@Override
-	public User login(String email, String password) {
+	public User login(String email, String password)throws AuthException{
 		String jpql = "select u from User u where u.email=:Email and u.password=:pwd";
 
 		TypedQuery<User> query = em.createQuery(jpql, User.class);
@@ -31,14 +32,6 @@ public class UserDaoImpl implements UserDao{
 		User user = query.getResultList().get(0);
 		return user;
 		
-
-//		User user=null;
-//		try {
-//			user = query.getResultList().get(0);
-//		} catch (Exception e) {
-//			return false;
-//		}
-//		return true;
 	}
 	
 

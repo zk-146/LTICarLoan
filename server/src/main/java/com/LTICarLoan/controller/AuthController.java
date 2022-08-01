@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LTICarLoan.beans.User;
+import com.LTICarLoan.exception.AuthException;
 import com.LTICarLoan.service.UserPersonalService;
 
 @CrossOrigin(origins="*")
@@ -23,20 +24,20 @@ public class AuthController {
 	
 	//http://localhost:8090/user-api/addUser
 	@PostMapping(path = "/addUser",consumes="application/json")
-	public int addUser(@RequestBody User u) {
+	public int addUser(@RequestBody User u)throws AuthException {
 		return userService.addUser(u);
 	}
 	
 	//http://localhost:8090/user-api/login?email={email}&password={password}
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public User userLogin(@RequestParam("email") String email,@RequestParam("password")String password) {
+	public User userLogin(@RequestParam("email") String email,@RequestParam("password")String password)throws AuthException {
 
 		return userService.userLogin(email, password);
 	}
 	
 	//http://localhost:8090/user-api/signup
 	@RequestMapping(value = "/signup",method = RequestMethod.POST)
-	public String signup(@RequestBody User user) {
+	public String signup(@RequestBody User user)throws AuthException {
 		String message=userService.signup(user);
 		return message;
 	}
