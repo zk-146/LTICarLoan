@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginFormHttpClientService } from './../../services/login-form-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!:FormGroup;
 
-  constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService ) { }
+  constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.loginServ.userLogin("khanzaid1015@gmail.com" , "password@123", this.loginAsAdmin).subscribe(response=>{
         console.log(response);
         localStorage.setItem('user_data', JSON.stringify(response));
+        this.router.navigate(['user-dashboard']);
         if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');
         else localStorage.setItem('isAdmin', 'false')
         

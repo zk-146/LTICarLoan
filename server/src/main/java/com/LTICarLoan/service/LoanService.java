@@ -6,10 +6,12 @@ import com.LTICarLoan.beans.Loan;
 
 public interface LoanService {
 
-	public int addLoan(Loan l);
+	public boolean addLoan(Loan l, int user_id);
 	
 	Loan findLoanById(int id);
 
 	List<Loan> findLoanByCarId(int car_id);
+
+	Loan findLoanByUserId(int user_id);
 
 }

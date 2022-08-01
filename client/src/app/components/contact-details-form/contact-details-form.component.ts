@@ -1,4 +1,4 @@
-import { UserDetails } from './../User';
+import { UserDetails } from '../User';
 import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
@@ -45,8 +45,8 @@ export class ContactDetailsFormComponent implements OnInit {
   }
 
   getUserDetails = () => {
-    const id = 101;
-    this.authServ.getUserDetails(id).subscribe(response=> {
+    let user = JSON.parse(localStorage.getItem("user_data")|| "");
+    this.authServ.getUserDetails(user.user_id).subscribe(response=> {
       console.log(response);
       this.fetchedContactData = response;
 

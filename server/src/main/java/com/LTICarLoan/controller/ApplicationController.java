@@ -26,6 +26,7 @@ public class ApplicationController {
 
 	@PostMapping("/add-application")
 	public int addApplication(@RequestBody Application a) throws ApplicationException {
+		System.out.println(a + " aaa ");
 		int applicationId = service.addApplication(a);
 		return applicationId;
 	}

@@ -9,5 +9,6 @@ public interface VehicleService {
 	Vehicle findVehicleByUserId(int user_id);
 	
 	Vehicle findVehicleById(int id);
-
+	
+	public boolean deleteVehicleById(int id);
 }

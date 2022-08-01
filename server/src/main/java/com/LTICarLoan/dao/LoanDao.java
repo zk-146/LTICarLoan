@@ -12,5 +12,7 @@ public interface LoanDao {
 
 	List<Loan> findLoanByCarId(int car_id) ;
 
+	Loan findLoanByUserId(int user_id);
+
 
 }

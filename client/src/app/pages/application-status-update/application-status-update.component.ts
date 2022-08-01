@@ -1,6 +1,6 @@
+import { ApplicationHttpClientService } from './../../services/application-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApplicationHttpClientService } from 'app/Services/application-http-client.service';
 
 @Component({
   selector: 'app-application-status-update',

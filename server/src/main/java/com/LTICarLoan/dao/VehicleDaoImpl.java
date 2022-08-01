@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -42,6 +43,15 @@ public class VehicleDaoImpl implements VehicleDao {
 
 		return em.find(Vehicle.class, id);
 
+	}
+
+	@Override
+	public boolean deleteVehicleById(int id) {
+		Query qry = em.createQuery("delete from Vehicle v join v.user u where u.user_id=:user_id");
+		qry.setParameter("user_id", id);
+		int successful = qry.executeUpdate();
+		if(successful == 1) return true;
+		return false;
 	}
 
 }

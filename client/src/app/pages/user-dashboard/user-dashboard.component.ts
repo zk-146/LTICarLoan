@@ -1,6 +1,6 @@
+import { UserDetailsHttpClientServiceService } from './../../services/user-details-http-client-service.service';
+import { ApplicationHttpClientService } from './../../services/application-http-client.service';
 import { Component, OnInit } from '@angular/core';
-import { ApplicationHttpClientService } from 'app/Services/application-http-client.service';
-import { UserDetailsHttpClientServiceService } from 'app/Services/user-details-http-client-service.service';
 import { Application } from '../admin-dashboard/Application';
 import { UserDetails } from './UserDetails';
 

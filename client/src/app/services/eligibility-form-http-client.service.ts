@@ -5,11 +5,14 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EligibilityFormHttpClientService {
-  baseUrl:string="http://localhost:8090/eligibility-form-api";
+  baseUrl:string="http://localhost:8090/eligibility-api";
   constructor(private httpSer: HttpClient) { }
   
-  public addEligibilityForm(eligForm:EligibilityForm){
-    return this.httpSer.post<any>(this.baseUrl+'/addeligForm', eligForm);
+  public addEligibilityForm() {
+    const user_id = JSON.parse(localStorage.getItem("user_data") || "");
+    console.log(user_id);
+    return this.httpSer.post<any>(this.baseUrl+'/add-loan/' + user_id.user_id, {});
   }
 }

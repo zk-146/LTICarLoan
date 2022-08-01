@@ -51,7 +51,8 @@ export class VehicleDetailsFormComponent implements OnInit {
   }
 
   onInputChange = () => {
-    let vehicleData = new VehicleDetails("", "", 0, 101);
+    let user = JSON.parse(localStorage.getItem("user_data")|| "");
+    let vehicleData = new VehicleDetails("", "", 0, user.user_id);
 
     console.log(vehicleData, this.vehicleDetails.get('company_name')?.value)
 
