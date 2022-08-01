@@ -1,4 +1,6 @@
+<!-- class="employment-details-form" -->
 <form
+  class="application-details-form"
   *ngIf="currentFormIndex === 1"
   [formGroup]="employmentDetails"
   [class.error]="!employmentDetails.valid && employmentDetails.touched"
@@ -17,7 +19,7 @@
     <ng-container *ngFor="let data of employmentFormDetail.fields">
       <div id="eligibilityForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <div *ngIf="data.options; else displayTextInput">
             <label
@@ -40,6 +42,7 @@
           <ng-template #displayTextInput>
             <input
               type="{{ data.inputType }}"
+              class="form-input"
               placeholder="{{ data.placeholder }}"
               formControlName="{{ data.value }}"
               [ngClass]="{ error: data.error != '' }"

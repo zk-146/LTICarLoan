@@ -11,6 +11,9 @@ import { ApplicationForm } from './ApplicationForm';
 
 export class ApplicationFormComponent implements OnInit {
   currentFormIndex = 0;
+  formAlreadyFilled:boolean = false;
+  formSuccess:boolean = false;
+  formSubmitted:boolean = false;
 
   constructor(private applicationServ: ApplicationHttpClientService, private router: Router) { }
 
@@ -41,12 +44,15 @@ export class ApplicationFormComponent implements OnInit {
     let applicationData = new ApplicationForm(loanDetails.loan_amt/48, loanDetails.no_of_emi, loanDetails.loan_amt, loanDetails.loan_tenure, "pending", userDetails.user_id);
     console.log("APPLICATIONDATA", applicationData);
     this.applicationServ.addApplication(applicationData).subscribe(response => console.log(response));
+    this.formSubmitted = true;
+    this.formSuccess = true;
     this.router.navigate(['user-dashboard']);
   }
 
   getApplicationForm = () => {
     this.applicationServ.getApplicationByUserId().subscribe(response => {
       console.log(response)
+      this.formAlreadyFilled = true;
     });
   }
 
