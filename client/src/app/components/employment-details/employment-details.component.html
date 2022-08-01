@@ -1,5 +1,5 @@
 <form
-class="employment-details-form"
+  class="employment-details-form"
   *ngIf="currentFormIndex === 2"
   [formGroup]="employmentDetails"
   [class.error]="!employmentDetails.valid && employmentDetails.touched"
@@ -9,23 +9,23 @@ class="employment-details-form"
     [ngTemplateOutlet]="employmentDetail"
     let-employmentFormDetail="employmentFormDetail"
     [ngTemplateOutletContext]="{
-        employmentFormDetail: employmentDetailsObject
+      employmentFormDetail: employmentDetailsObject
     }"
   >
     <p id="registerForm-details-title">{{ employmentFormDetail.name }}</p>
     <ng-container *ngFor="let data of employmentFormDetail.fields">
       <div id="registerForm-detials-row">
         <div>
-          <p>{{ data.label }}</p>
+          <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
           <input
-          class="form-input"
-          [attr.for]="data.value"
-          type="{{ data.inputType }}"
-          placeholder="{{ data.placeholder }}"
-          formControlName="{{ data.value }}"
-          [ngClass]="{ error: data.error != '' }"
-          (change)="onInputChange()"
+            class="form-input"
+            [attr.for]="data.value"
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{ error: data.error != '' }"
+            (change)="onInputChange()"
           />
         </div>
       </div>

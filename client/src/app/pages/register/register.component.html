@@ -3,18 +3,22 @@
     <h1>Create an Account</h1>
   </div>
   <div id="registerForm-container">
-    <div id="registerForm-progressbar"></div>
-    <div *ngFor="let number of [1, 2, 3]" id="progressbar-container">
-      <p
-        class="progressbar-circle"
-        [ngClass]="{ active: number <= currentFormIndex + 1 }"
-      >
-        {{ number }}
-      </p>
-      <div
-        class="progressbar-line"
-        [ngClass]="{ active: number <= currentFormIndex, hidden: number === 3 }"
-      ></div>
+    <div id="registerForm-progressbar">
+      <div *ngFor="let number of [1, 2, 3]" id="progressbar-container">
+        <p
+          class="progressbar-circle"
+          [ngClass]="{ active: number <= currentFormIndex + 1 }"
+        >
+          {{ number }}
+        </p>
+        <div
+          class="progressbar-line"
+          [ngClass]="{
+            active: number <= currentFormIndex,
+            hidden: number === 3
+          }"
+        ></div>
+      </div>
     </div>
     <div class="separator"></div>
     <form id="registerForm-details" (ngSubmit)="onSubmit()">
@@ -60,7 +64,7 @@
           </button>
           <ng-template #displayRegisterButton>
             <button type="submit" class="btn" id="register-btn">
-              REGISTER
+              Register
             </button>
           </ng-template>
         </div>

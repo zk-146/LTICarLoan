@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './employment-details-application-form.component.html',
   styleUrls: ['./employment-details-application-form.component.css']
 })
+
 export class EmploymentDetailsApplicationFormComponent implements OnInit {
   employmentDetails!:FormGroup;
   @Input() currentFormIndex = 1;

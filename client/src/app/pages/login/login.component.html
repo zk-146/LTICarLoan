@@ -7,17 +7,29 @@
 
   <div class="split right">
     <div class="right_centered">
-      <div class="container" >
-        <div class="switch" >
-            <div class="register" (click)="onClickToggle('register')" [ngClass]="{active:toggle=='register'}">REGISTER</div>
-            <div class="register" (click)="onClickToggle('signin')" [ngClass]="{active:toggle=='signin'}">SIGN IN</div>
+      <!-- <div class="container">
+        <div class="switch">
+          <div
+            class="register"
+            (click)="onClickToggle('register')"
+            [ngClass]="{ active: toggle == 'register' }"
+          >
+            REGISTER
+          </div>
+          <div
+            class="register"
+            (click)="onClickToggle('signin')"
+            [ngClass]="{ active: toggle == 'signin' }"
+          >
+            SIGN IN
+          </div>
         </div>
-    </div>
-    <br>
+      </div> -->
+      <br />
       <h1 class="header">Welcome Back</h1>
 
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <br>
+        <br />
         <div class="element">
           <input
             class="auth-input"
@@ -26,7 +38,7 @@
             placeholder="Email"
           />
         </div>
-        <br>
+        <br />
         <div class="element">
           <input
             class="auth-input"
@@ -35,17 +47,23 @@
             placeholder="Password"
           />
         </div>
-        <br>
+        <br />
         <label
           >Login as admin<input
             type="checkbox"
             (change)="changeLoginToAdmin($event.target)"
         /></label>
-        <br>
-        <br>
+        <br />
+        <br />
         <div class="element">
-        <button class="loginBtn"(click)="onLoginClick()" id="next">Login</button>
-      </div>
+          <button class="loginBtn" (click)="onLoginClick()" id="next">
+            Login
+          </button>
+        </div>
+        <div id="new-user">
+          New User?
+          <p [routerLink]="['/register']">Create an account</p>
+        </div>
       </form>
     </div>
   </div>
