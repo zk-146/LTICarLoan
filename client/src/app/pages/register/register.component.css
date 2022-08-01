@@ -59,7 +59,7 @@
     text-align: center;
     margin: 30px 0 20px 0;
 }
-/* #registerForm-progressbar {
+#registerForm-progressbar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,8 +67,8 @@
 }
 
 #progressbar-container {
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 }
 
 .progressbar-circle {
@@ -80,7 +80,7 @@
     background: #EFF0F7;
     color: #949494;
     transition: all 250ms linear;
-} */
+}
 
 .hidden {
     display: none;
