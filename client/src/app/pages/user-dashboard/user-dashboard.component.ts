@@ -22,7 +22,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   getApplicationByUserId(){
-    this.applSer.getApplicationByUserId(this.userData.user_id).subscribe(
+    this.applSer.getApplicationByUserId().subscribe(
       response=>{
         this.applicationList=response;
 
