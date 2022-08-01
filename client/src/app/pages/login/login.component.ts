@@ -32,7 +32,7 @@ onClickToggle(clickedBtn:string){
   }
 
   onLoginClick = () => {
-    this.loginServ.userLogin("khanzaid1015@gmail.com" , "password@123", this.loginAsAdmin).subscribe(response=>{
+    this.loginServ.userLogin(this.loginForm.get(`email`)?.value, this.loginForm.get(`password`)?.value, this.loginAsAdmin).subscribe(response=>{
         console.log(response);
         localStorage.setItem('user_data', JSON.stringify(response));
         if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');

@@ -105,7 +105,6 @@ statusToggle = "pending";
 
   updateApplication(i:number){
     console.log(this.applicationList[i]);
-    if(localStorage.getItem("a.application_id")!=null){
 
       let application_id = this.applicationList[i].application_id;
       console.log(application_id);
@@ -123,6 +122,5 @@ statusToggle = "pending";
           this.applicationData=response;
         }
       );
-  }
   }
 }
