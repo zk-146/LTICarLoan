@@ -31,6 +31,7 @@ import { ApplicationStatusUpdateComponent } from './pages/application-status-upd
 import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { HttpClient } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
+import { LoanOfferComponent } from './components/loan-offer/loan-offer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { LoginComponent } from './pages/login/login.component';
     UserPersonalDetailsComponent,
     ApplicationStatusUpdateComponent,
     EmiCalcComponent,
+    LoanOfferComponent,
   ],
   imports: [
     BrowserModule,
