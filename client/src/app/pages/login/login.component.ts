@@ -16,6 +16,13 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService, private router: Router ) { }
 
+  toggle = "signin";
+
+onClickToggle(clickedBtn:string){
+  this.toggle=clickedBtn;
+  
+}
+
   ngOnInit(): void {
 
     this.loginForm=this.fb.group({
@@ -26,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLoginClick = () => {
-    this.loginServ.userLogin("khanzaid1015@gmail.com" , "password@123", this.loginAsAdmin).subscribe(response=>{
+    this.loginServ.userLogin(this.loginForm.get(`email`)?.value, this.loginForm.get(`password`)?.value, this.loginAsAdmin).subscribe(response=>{
         console.log(response);
         localStorage.setItem('user_data', JSON.stringify(response));
         this.router.navigate(['user-dashboard']);

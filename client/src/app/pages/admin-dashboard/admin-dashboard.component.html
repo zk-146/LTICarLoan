@@ -19,18 +19,44 @@
                     <th>Loan Amount</th>
                     <th>No of Emis</th>
                     <th>User Id</th>
+                    <th>First Name Id</th>
+                    <th>Last Name Id</th>
+                    <th>Email Id</th>
+                    <th>Type of Employment</th>
+                    <th>Annual Salary</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor = "let a of applicationList;" align="center">
+                <tr *ngFor = "let a of applicationList; let i=index;" align="center" >
                     <td> {{a.application_id}}</td>
                     <td> {{a.application_status}}</td>
                     <td> {{a.emi_amt}}</td>
                     <td> {{a.loan_amt}}</td>
                     <td> {{a.no_of_emis}}</td>
                     <td> {{a.user.user_id}}</td>
-                    <button [type]="'submit'" (click)="updateStatus(a)">Update Status</button>
+                    <td>{{ a.user.first_name }}</td>
+                    <td>{{ a.user.last_name }}</td>
+                    <td>{{ a.user.email }}</td>
+                    <td>{{ a.user.type_of_employment }}</td>
+                    <td>{{ a.user.annual_salary }}</td>
+                    <!-- <button [type]="'submit'" (click)="updateStatus(a)">Update Status</button> -->
+                    <div *ngIf="toggle=='pending'"> <td><button
+                        class="" 
+                        (click)="onClickStatusToggle('approved',i)"
+                        [ngClass]="{ active: statusToggle == 'approved' }"
+                      >
+                        Approve
+                                      </button></td>
+                                      <td><button
+                        class=""
+                        (click)="onClickStatusToggle('rejected',i)"
+                        [ngClass]="{ active: statusToggle == 'rejected' }"
+                      >
+                        Reject
+                      </button></td></div>
+
+                   
                 </tr>
             </tbody>
         </Table>
