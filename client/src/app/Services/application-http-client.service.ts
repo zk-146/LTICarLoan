@@ -18,8 +18,8 @@ export class ApplicationHttpClientService {
   public getApplicationListByStatus(status:String){
     return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-status/"+status);
   }
-  public getApplicationByUserId(){
-    return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id"+"/112");
+  public getApplicationByUserId(user_id:Number){
+    return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id/"+user_id);
   }
   public getApplicationByUserId1(application_id:Number){
     return this.httSer.get<Application[]>(this.baseUrl+"get-application-by-user_id/"+application_id);
