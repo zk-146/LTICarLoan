@@ -27,6 +27,7 @@ import { EmploymentDetailsComponent } from './components/employment-details/empl
 import { UserPersonalDetailsComponent } from './components/user-personal-details/user-personal-details.component';
 
 
+
 import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { HttpClient } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';

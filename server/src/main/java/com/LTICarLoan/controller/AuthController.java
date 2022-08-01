@@ -31,7 +31,9 @@ public class AuthController {
 	// http://localhost:8090/user-api/addUser
 	@PostMapping(path = "/addUser", consumes = "application/json")
 	public int addUser(@RequestBody User u) {
+		System.out.println("Controller"+u);
 		return userService.addUser(u);
+//		return 0;
 	}
 
 	// http://localhost:8090/user-api/login?email={email}&password={password}

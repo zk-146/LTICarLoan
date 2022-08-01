@@ -76,7 +76,7 @@ export class AddressDetailsComponent implements OnInit {
     addressData[`nationality`] = this.addressDetails.get(`nationality`)?.value;
     addressData[`pincode`] = this.addressDetails.get(`pincode`)?.value;
 
-    localStorage.setItem("AddressDetails", JSON.stringify(addressData));
+    localStorage.setItem("addressDetails", JSON.stringify(addressData));
   }
 
 }

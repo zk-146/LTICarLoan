@@ -1,6 +1,9 @@
 import { UserpersonalHttpClientService } from './../../services/userpersonal-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddressDetails } from 'app/components/address-details/AddressDetails';
+import { EmploymentDetails } from 'app/components/employment-details/EmploymentDetails';
+import { UserPersonalDetails } from 'app/components/user-personal-details/userPersonal';
 
 @Component({
   selector: 'app-register',
@@ -25,16 +28,23 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this.addUserPersonal();
+    this.addUserData();
   }
 
   ngOnInit(): void {
   }
 
-  addUserPersonal() {
-    let userPersonalData = localStorage.getItem("userPersonalDetails");
-    userPersonalData = JSON.parse(userPersonalData || "");
-    this.userPersonalDetailServ.addUserPersonal(userPersonalData).subscribe(response=> {
+  addUserData() {
+    
+    let userPersonalData = JSON.parse(localStorage.getItem("UserPersonalDetails")|| "");
+    let addressData = JSON.parse(localStorage.getItem("addressDetails")|| "");
+    let employmentData = JSON.parse(localStorage.getItem("employmentDetails")|| "");
+    let userData = {...userPersonalData, ...addressData, ...employmentData};
+
+
+    console.log(userData);
+    // userData = JSON.parse(userData || "");
+    this.userPersonalDetailServ.addUserData(userData).subscribe(response=> {
       if(response)
         this.formSuccess=true;
     })

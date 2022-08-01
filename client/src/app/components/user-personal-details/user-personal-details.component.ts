@@ -20,14 +20,14 @@ export class UserPersonalDetailsComponent implements OnInit {
           label: "First Name",
           placeholder: "firstName",
           inputType: "text",
-          value: 'firstName',
+          value: 'first_name',
           error: '',
         },
         {
           label: "Last Name",
           placeholder: "lastName",
           inputType: "text",
-          value: 'lastName',
+          value: 'last_name',
           error: '',
         },
         {
@@ -73,8 +73,8 @@ export class UserPersonalDetailsComponent implements OnInit {
   ngOnInit(): void {
     
     this.userPersonalDetails=this.fb.group({
-      firstName:['', Validators.required, Validators.minLength(2)],
-      lastName:['', Validators.required, Validators.minLength(2)],
+      first_name:['', Validators.required, Validators.minLength(2)],
+      last_name:['', Validators.required, Validators.minLength(2)],
       email:['', Validators.required],
       phone:['', Validators.required],
       password:['', Validators.required],
@@ -86,10 +86,10 @@ export class UserPersonalDetailsComponent implements OnInit {
   onInputChange = () => {
     let userPersonalData = new UserPersonalDetails("","","","",0,0,"",101)
 
-    console.log(userPersonalData, this.userPersonalDetails.get('firstName')?.value)
+    console.log(userPersonalData, this.userPersonalDetails.get('first_name')?.value)
 
-    userPersonalData[`firstName`] = this.userPersonalDetails.get(`firstName`)?.value;
-    userPersonalData[`lastName`] = this.userPersonalDetails.get(`lastName`)?.value;
+    userPersonalData[`first_name`] = this.userPersonalDetails.get(`first_name`)?.value;
+    userPersonalData[`last_name`] = this.userPersonalDetails.get(`last_name`)?.value;
     userPersonalData[`email`] = this.userPersonalDetails.get(`email`)?.value;
     userPersonalData[`phone`] = this.userPersonalDetails.get(`phone`)?.value;
     userPersonalData[`password`] = this.userPersonalDetails.get(`password`)?.value;

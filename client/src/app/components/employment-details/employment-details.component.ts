@@ -20,14 +20,14 @@ export class EmploymentDetailsComponent implements OnInit {
           label: "Type of Employment",
           placeholder: "Permanent/Temporary",
           inputType: "text",
-          value: 'typeofemp',
+          value: 'type_of_employment',
           error: '',
         },
         {
           label: "Annual Salary",
           placeholder: "$$$$$",
           inputType: "number",
-          value: 'annualsal',
+          value: 'annual_salary',
           error: '',
         },
       ],
@@ -37,16 +37,16 @@ export class EmploymentDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.employmentDetails=this.fb.group({
-      typeofemp:['', Validators.required],
-      annualsal:['', Validators.required]
+      type_of_employment:['', Validators.required],
+      annual_salary:['', Validators.required]
     });
   }
 
   onInputChange = () => {
     let employmentData = new EmploymentDetails("", 0);
-    console.log(employmentData, this.employmentDetails.get('typeofemp')?.value)
-    employmentData[`typeofemp`] = this.employmentDetails.get(`typeofemp`)?.value;
-    employmentData[`annualsal`] = this.employmentDetails.get(`annualsal`)?.value;
+    console.log(employmentData, this.employmentDetails.get('type_of_employment')?.value)
+    employmentData[`type_of_employment`] = this.employmentDetails.get(`type_of_employment`)?.value;
+    employmentData[`annual_salary`] = this.employmentDetails.get(`annual_salary`)?.value;
     localStorage.setItem("employmentDetails", JSON.stringify(employmentData));
   }
 }
