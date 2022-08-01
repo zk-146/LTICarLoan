@@ -51,7 +51,7 @@ export class VehicleDetailsFormComponent implements OnInit {
   }
 
   onInputChange = () => {
-    let vehicleData = new VehicleDetails("", "", 0, 101);
+    let vehicleData = new VehicleDetails("", "", 0, 108);
 
     console.log(vehicleData, this.vehicleDetails.get('company_name')?.value)
 

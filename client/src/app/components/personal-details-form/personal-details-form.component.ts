@@ -88,7 +88,7 @@ export class PersonalDetailsFormComponent implements OnInit {
   }
   
   getUserDetails = () => {
-    const id = 101;
+    const id = 108
     this.authServ.getUserDetails(id).subscribe(response=> {
       console.log(response);
       this.fetchedPersonalData = response;
