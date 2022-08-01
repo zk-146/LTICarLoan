@@ -1,4 +1,3 @@
-import { ApplicationStatusUpdateComponent } from './pages/application-status-update/application-status-update.component';
 import { ApplicationFormComponent } from './pages/application-form/application-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,7 +16,6 @@ const routes: Routes = [
   {path:"emi-calculator",component:EmiCalcComponent},
   {path:"admin-dashboard",component:AdminDashboardComponent},
   {path:"user-dashboard",component:UserDashboardComponent},
-  {path:"application-status-update",component:ApplicationStatusUpdateComponent},
   {path:"loan-offer",component:LoanOfferComponent},
   {path:"application-form",component:ApplicationFormComponent}
 ];
