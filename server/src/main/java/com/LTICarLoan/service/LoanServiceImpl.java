@@ -14,6 +14,7 @@ import com.LTICarLoan.beans.User;
 import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.dao.LoanDao;
 import com.LTICarLoan.dao.VehicleDao;
+import com.LTICarLoan.exception.LoanException;
 
 @Service("loanService")
 public class LoanServiceImpl implements LoanService {
@@ -55,11 +56,14 @@ public class LoanServiceImpl implements LoanService {
 			vehicleDao.deleteVehicleByUserId(user.getUser_id());
 			return false;
 		}
+		
+		
 	}
 
 	@Override
 	public Loan findLoanById(int id) {
 		return loanDao.findLoanById(id);
+		
 	}
 
 	@Override
@@ -68,7 +72,7 @@ public class LoanServiceImpl implements LoanService {
 	}
 
 	@Override
-	public Loan findLoanByUserId(int user_id) {
+	public Loan findLoanByUserId(int user_id) throws LoanException {
 		return loanDao.findLoanByUserId(user_id);
 	}
 }
