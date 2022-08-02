@@ -8,18 +8,15 @@ font-size: 34px;
 line-height: 46px;
 color: #000000;
 }
+
 .container{
     box-sizing: border-box;
-    /* position: absolute;
-    width: 698px;
-    height: 564px;
-    left: 94px;
-    top: 822px; */
     background: #FFFFFF;
     border: 1px solid #EFF0F7;
     box-shadow: 0px 5px 16px rgba(8, 15, 52, 0.06);
     border-radius: 34px;
 }
+
 .Flabel{
     position: absolute;
     left: 10%;
@@ -33,6 +30,7 @@ color: #000000;
     line-height: 20px;
     color: #170F49;
 }
+
 .Finput{
     box-sizing: border-box;
     position: absolute;
@@ -45,6 +43,7 @@ color: #000000;
     box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
     border-radius: 46px;
 }
+
 .Slabel{
     position: absolute;
     left: 10%;
@@ -160,34 +159,23 @@ color: #000000;
     top: 510px;
     right: 680px;
   }
-  /* .abt{
-    
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 35px;
-    color: #000000;
-  }
-  .img2{
-    position: fixed;
-    top: 100px;
-    right: 400px;
-    
 
-  }
-  .abtTitle{
-    position: fixed;
-    top: 100px;
-    right: 400px;
-font-family: 'DM Sans';
-font-style: normal;
-font-weight: 700;
-font-size: 34px;
-line-height: 46px;
-
-
-
-color: #000000;
-
-  } */
+  .btn {
+    position: relative;
+    top: 600px;
+    left: 150px;
+    background: #4A3AFF;
+    padding: 10px 40px;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+    border-radius: 56px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: all 150ms linear;
+}
+.btn:hover {
+    color: #4A3AFF;
+    background-color: #fff;
+}
