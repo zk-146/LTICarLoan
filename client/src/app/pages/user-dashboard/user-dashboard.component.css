@@ -4,17 +4,48 @@
     display: flex;
   }
   
-  .right {
-    padding-top: 70px;
-    flex: 30%;
-  }
   .left {
-    padding-top: 70px;
-    flex: 70%;
+    padding-top: 50px;
+    flex: 40%;
+  }
+  .right {
+    padding-top: 50px;
+    flex: 60%;
   }
   body{
     padding-top: 70px;
   }
 
-  /* Clear floats after the columns */
-  
+
+  .userthead{
+    
+    background-color: #6F6C90;
+  color:#F7F7FB;  
+  }
+  th{
+    padding: 10px;
+  }
+  Table{
+
+        border: 1px solid #A0A3BD;
+  }
+
+  #table-app{
+    width: 700px;
+height: 0px;
+left: 57px;
+top: 270px;
+border: 1px solid #A0A3BD;
+}
+#th-app{
+  border-bottom: 1px solid #A0A3BD;
+  background-color: #6F6C90;
+  color:#F7F7FB;
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
+  padding: 10px;
+}
+
+.appTable{
+  padding-left: 30px;
+}
