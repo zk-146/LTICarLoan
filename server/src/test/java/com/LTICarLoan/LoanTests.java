@@ -18,6 +18,7 @@ import com.LTICarLoan.beans.Loan;
 import com.LTICarLoan.beans.User;
 import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.dao.LoanDao;
+import com.LTICarLoan.exception.LoanException;
 import com.LTICarLoan.service.LoanService;
 
 @ExtendWith(SpringExtension.class)
@@ -49,7 +50,7 @@ public class LoanTests {
 //	}
 	
 	@Test
-	void testLoanById()
+	void testLoanById() throws LoanException
 	{
 		User u=new User();
 		u.setUser_id(107);
@@ -63,7 +64,7 @@ public class LoanTests {
 	}
 	
 	@Test
-	void testLoanByUserId()
+	void testLoanByUserId() throws LoanException
 	{
 		User u=new User();
 		u.setUser_id(107);
@@ -77,7 +78,7 @@ public class LoanTests {
 	}
 	
 	@Test
-	void testLoanByCarId()
+	void testLoanByCarId() throws LoanException
 	{
 		User u=new User();
 		u.setUser_id(107);
