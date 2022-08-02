@@ -131,9 +131,6 @@ left: 66.4%;
 right: 24.9%;
 top: 90%;
 bottom: 17.96%; 
-background: #4A3AFF;
-box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
-border-radius: 56px;
 width: 150px;
 font-family: 'DM Sans';
 font-style: normal;
@@ -155,10 +152,6 @@ color: #FFFFFF;
     right: 35.9%;
     top: 90%;
     bottom: 17.96%;
-    color:#4A3AFF;
-    background: white;
-    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
-    border-radius: 56px;
     width: 150px;
     font-family: 'DM Sans';
 font-style: normal;
@@ -167,4 +160,20 @@ font-size: 15px;
 line-height: 20px;
 white-space: nowrap;
 
+}
+.btn {
+    background: #4A3AFF;
+    padding: 10px 40px;
+    color: #fff;
+    border: none;
+    box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+    border-radius: 56px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    transition: all 150ms linear;
+}
+.btn:hover {
+    color: #4A3AFF;
+    background-color: #fff;
 }
