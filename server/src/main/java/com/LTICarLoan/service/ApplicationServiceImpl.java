@@ -17,42 +17,67 @@ public class ApplicationServiceImpl implements ApplicationService {
 	@Override
 	public int addApplication(Application a) throws ApplicationException {
 		try {
-
+			System.out.println("Reached Service layer");
 			return dao.addApplication(a);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			throw new Error("An error occurred while inserting the application");
+			throw new Error(
+					"An error occurred while inserting the application. Ensure that all the field included are filled correctly.");
 		}
 	}
 
 	@Override
 	public Application findApplicationById(int id) {
-		return dao.findApplicationById(id);
+		try {
+			return dao.findApplicationById(id);
+		} catch (Exception e) {
+			System.out.println(e);
+			throw new Error("An error occured while finding the application by id.");
+		}
 	}
 
 	@Override
 	public List<Application> findApplicationByUserId(int user_id) throws ApplicationException {
-		return dao.findApplicationByUserId(user_id);
+		try {
+			return dao.findApplicationByUserId(user_id);
+		} catch (Exception e) {
+			System.out.println(e);
+			throw new Error("An error occured while finding the application by user id.");
+		}
 	}
 
 	@Override
 	public List<Application> getApplicationList() {
-		return dao.getApplicationList();
+		try {
+			return dao.getApplicationList();
+		} catch (Exception e) {
+			System.out.println(e);
+			throw new Error("An error occured while fetching all the applications.");
+		}
 	}
 
 	@Override
 	public boolean updateApplicationStatus(int id, String status) throws ApplicationException {
-		Application applicationExists = dao.findApplicationById(id);
-		if (applicationExists == null) {
-			throw new Error("Application doesn't exist");
+		try {
+			Application applicationExists = dao.findApplicationById(id);
+			System.out.println(id);
+			if (applicationExists == null) {
+				throw new Error("Application doesn't exist");
+			}
+			return dao.updateApplicationStatus(id, status);
+		} catch (Exception e) {
+			System.out.println(e);
+			throw new Error("An error occured while updating the application.");
 		}
-		return dao.updateApplicationStatus(id, status);
 	}
 
 	@Override
 	public List<Application> findApplicationByStatus(String application_status) throws ApplicationException {
-		
-		return dao.findApplicationByStatus(application_status);
+		try {
+			return dao.findApplicationByStatus(application_status);
+		} catch (Exception e) {
+			System.out.println(e);
+			throw new Error("An error occured while finding the application by status.");
+		}
 	}
-
 }

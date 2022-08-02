@@ -46,6 +46,17 @@ public class Application {
 		this.loan_tenure = loan_tenure;
 		this.user = user;
 	}
+	
+	public Application(String application_status, int emi_amt, int loan_amt, int no_of_emis, int loan_tenure,
+			User user) {
+		super();
+		this.application_status = application_status;
+		this.emi_amt = emi_amt;
+		this.loan_amt = loan_amt;
+		this.no_of_emis = no_of_emis;
+		this.loan_tenure = loan_tenure;
+		this.user = user;
+	}
 
 	public Application() {
 		super();

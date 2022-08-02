@@ -11,7 +11,6 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.LTICarLoan.beans.Application;
-import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.exception.ApplicationException;
 
 @Repository
@@ -23,7 +22,9 @@ public class ApplicationDaoImpl implements ApplicationDao {
 	@Override
 	@Transactional
 	public int addApplication(Application application) {
+		System.out.println("Reached dao layer " + application);
 		em.persist(application);
+		System.out.println(application + " 123 ");
 		return application.getApplication_id();
 	}
 
