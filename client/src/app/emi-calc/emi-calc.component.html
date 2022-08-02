@@ -1,8 +1,47 @@
-<div id="emi-calc">
-  Loan Amount:<input type="number" [(ngModel)]="loanAmount" /><br />
-  Tenure in Months:<input type="number" [(ngModel)]="tenure" /> <br />
-  interest:
-  <input type="number" [(ngModel)]="interest" />
-  <button (click)="cal()">Calculate</button>
-  <h1>EMI:{{ emi }}/m</h1>
+<!-- Loan Amount:<input type="number" [(ngModel)]="loanAmount" /><br />
+Tenure in Months:<input type="number" [(ngModel)]="tenure" /> <br />
+interest:
+<input type="number" [(ngModel)]="interest" />
+<button (click)="cal()">Calculate</button>
+<h1>EMI:{{ emi }}/m</h1> -->
+<div class="centered">
+    <h1 class="title">EMI CALCULATOR</h1>
 </div>
+<div class="split left">
+    <div class="container">
+        <div class="Flabel" >Loan Amount:</div>
+        <input type="number" [(ngModel)]="loanAmount" class="Finput"/>
+        <div class="Slabel" >Tenure in months:</div>
+        <input type="number" [(ngModel)]="tenure" class="Sinput"/>
+        <div class="Tlabel" >Interest:</div>
+        <input type="number" [(ngModel)]="interest" class="Tinput"/>
+        <button (click)="cal()" class="calc">Calculate</button>  
+    </div>
+</div>
+
+
+    <div class="split right">
+        <div class="upRight">
+        <h2 class="emi" >EMI:{{ emi }}/Month</h2>
+        <img class="img" src="/assets/svgs/calc.svg" alt="image">
+        </div>
+    </div>
+
+
+<!-- <div>
+    <div class="centered">
+         <div class="abtTitle">About Us</div> 
+        </div>
+<div class="split left"> 
+    <img class="img2" src="/assets/svgs/aboutUs.svg" alt="image"> 
+</div>
+<div class="split right"> 
+    <div class="abt"> If you want to buy a car, you would like to compare the features and prices of the Car and 
+    buy the best car loan you deserve Then, you would expect some help.
+    Our LTI car Loan is the best in the market for giving affordable car loans on-road prices of the car you choose to buy, 
+    along with attractive interest rates.
+    Apply Now to get an instant approval for a Car Loan. Sanction of the loan and final disbursement shall be subject to eligibility criteria as per our policy 
+    and completion of KYC requirements.</div>
+</div>
+</div> -->
+
