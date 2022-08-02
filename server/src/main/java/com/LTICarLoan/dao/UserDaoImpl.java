@@ -18,6 +18,7 @@ public class UserDaoImpl implements UserDao{
 	@Transactional
 	public int addUser(User u) {
 		em.persist(u);
+		System.out.println("dao layer called");
 		return u.getUser_id();
 		
 	}
@@ -31,14 +32,6 @@ public class UserDaoImpl implements UserDao{
 		User user = query.getResultList().get(0);
 		return user;
 		
-
-//		User user=null;
-//		try {
-//			user = query.getResultList().get(0);
-//		} catch (Exception e) {
-//			return false;
-//		}
-//		return true;
 	}
 	@Override
 	public User getUserDetails(int id) {
@@ -52,6 +45,7 @@ public class UserDaoImpl implements UserDao{
 			user.setPassword("");
 			return user;
 		} catch(Exception e) {
+			System.out.println(e);
 			throw new Error("An error occurred while fetching user details");
 		}
 	}
