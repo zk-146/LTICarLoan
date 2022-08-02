@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.beans.Loan;
 import com.LTICarLoan.beans.Vehicle;
-import com.LTICarLoan.exception.LoanException;
 import com.LTICarLoan.service.LoanService;
 
 @CrossOrigin(origins = "*")
@@ -36,21 +35,21 @@ public class LoanController {
 	// http://localhost:8090/loan-api/getloanbyid/1001
 
 	@GetMapping(path = "/getloanbyid/{lid}")
-	public Loan findLoanById(@PathVariable("lid") int lid) throws LoanException {
+	public Loan findLoanById(@PathVariable("lid") int lid) {
 		Loan l = loanService.findLoanById(lid);
 		return l;
 	}
 
 	// http://localhost:8090/loan-api/findloanbycid/1111
 	@GetMapping("/find-loan-by-cid/{cid}")
-	public List<Loan> getLoanByCarId(@PathVariable("cid") int car_id) throws LoanException {
+	public List<Loan> getLoanByCarId(@PathVariable("cid") int car_id) {
 
 		List<Loan> l = loanService.findLoanByCarId(car_id);
 		return l;
 	}
 
 	@GetMapping("/find-loan-by-user_id/{user_id}")
-	public Loan getLoanByUserId(@PathVariable("user_id") int user_id) throws LoanException {
+	public Loan getLoanByUserId(@PathVariable("user_id") int user_id) {
 		Loan l = loanService.findLoanByUserId(user_id);
 		return l;
 	}

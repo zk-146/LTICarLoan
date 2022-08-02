@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.LTICarLoan.beans.Vehicle;
+import com.LTICarLoan.exception.VehicleException;
 import com.LTICarLoan.service.VehicleService;
 
 @CrossOrigin(origins="*")
@@ -24,14 +25,14 @@ public class VehicleController {
 	
 	// http://localhost:8090/vehicle-api/addVehicle
 	@PostMapping(path = "/add-vehicle",consumes="application/json")
-	public boolean addVehicle(@RequestBody Vehicle v) {
+	public boolean addVehicle(@RequestBody Vehicle v) throws VehicleException {
 		System.out.println(v);
 		return vehicleService.addVehicle(v);
 	}
 	
 	// http://localhost:8090/vehicle-api/vehicle/{uid}
 	@GetMapping("/get-vehicle/{uid}")
-	public Vehicle getVehicleByUserId(@PathVariable("uid") int user_id) {
+	public Vehicle getVehicleByUserId(@PathVariable("uid") int user_id) throws VehicleException {
 		
 		Vehicle v = vehicleService.findVehicleByUserId(user_id);
 		return v;

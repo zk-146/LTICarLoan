@@ -3,7 +3,6 @@ package com.LTICarLoan.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,5 +60,5 @@ public class ApplicationController {
 		List<Application> applications = service.findApplicationByStatus(application_status);
 		return applications;
 	}
-	
+
 }

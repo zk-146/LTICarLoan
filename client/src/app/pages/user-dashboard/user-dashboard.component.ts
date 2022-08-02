@@ -1,4 +1,4 @@
-import { AuthHttpClientService } from './../../services/auth-http-client.service';
+import { UserDetailsHttpClientServiceService } from './../../services/user-details-http-client-service.service';
 import { ApplicationHttpClientService } from './../../services/application-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../admin-dashboard/Application';
@@ -14,7 +14,7 @@ export class UserDashboardComponent implements OnInit {
   userData:any = JSON.parse(localStorage.getItem("user_data")|| "");
 
   applicationList:Application[]=[];
-  constructor(private applSer:ApplicationHttpClientService, private userDetSer:AuthHttpClientService) { }
+  constructor(private applSer:ApplicationHttpClientService, private userDetSer:UserDetailsHttpClientServiceService) { }
 
   ngOnInit(): void {
     this.getApplicationByUserId();
@@ -32,7 +32,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   getUserDetailsById(){
-    this.userDetSer.getUserDetails().subscribe(
+    this.userDetSer.getUserById().subscribe(
       response=>{
         this.userData=response;
 

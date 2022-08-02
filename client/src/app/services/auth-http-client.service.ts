@@ -9,22 +9,13 @@ import { Injectable } from '@angular/core';
 
 export class AuthHttpClientService {
   baseUrl:string="http://localhost:8090/user-api";
-  constructor(private httpServ: HttpClient) { }
+  constructor(private httpSer: HttpClient) { }
   public getUserDetails()
   {
     let user = JSON.parse(localStorage.getItem("user_data")|| "")
-    return this.httpServ.get<UserDetails>(this.baseUrl+'/get-user-details?id='+user.user_id);
+    return this.httpSer.get<UserDetails>(this.baseUrl+'/get-user-details?id='+user.user_id);
   }
-  
-  public userLogin(email:string,password:string, loginAsAdmin:boolean ){
-    let loginPath = '/login'
-    if(loginAsAdmin) loginPath = '/admin-login'
-    return this.httpServ.post<any>(this.baseUrl+ loginPath +`?email=${email}&password=${password}`,{});
-  }
-  
-  
-  public addUserData(userData:any){
-    console.log("userpersonal IS BEING ADDED");
-    return this.httpServ.post<any>(this.baseUrl+'/addUser',userData);
+  public addEligibilityForm(usr:UserDetails){
+    return this.httpSer.post<any>(this.baseUrl+'/addemp',usr);
   }
 }
