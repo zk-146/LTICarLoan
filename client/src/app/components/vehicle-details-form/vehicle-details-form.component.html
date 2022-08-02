@@ -2,7 +2,6 @@
   class="vehicle-details-form"
   *ngIf="currentFormIndex === 0"
   [formGroup]="vehicleDetails"
-  [class.error]="!vehicleDetails.valid && vehicleDetails.touched"
 >
   <ng-template
     #vehicleDetail
@@ -18,42 +17,28 @@
         <div>
           <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
-          <div *ngIf="data.options; else displayTextInput">
-            <label
-              >Yes
-              <input
-                type="radio"
-                name="data.placeholder"
-                [ngClass]="{ error: data.error != '' }"
-            /></label>
-            <!-- (change)="updateFormValue(currentFormIndex, i, 'Yes')" -->
-            <label
-              >No
-              <input
-                type="radio"
-                name="data.placeholder"
-                [ngClass]="{ error: data.error != '' }"
-            /></label>
-            <!-- (change)="updateFormValue(currentFormIndex, i, 'No')" -->
-          </div>
-          <ng-template #displayTextInput>
-            <input
-              class="form-input"
-              [attr.for]="data.value"
-              type="{{ data.inputType }}"
-              placeholder="{{ data.placeholder }}"
-              formControlName="{{ data.value }}"
-              [ngClass]="{ error: data.error != '' }"
-              (input)="onInputChange()"
-            />
-            <!-- (input)="
-              updateFormValue(
-                currentFormIndex,
-                i,
-                $any($event.target).value
-              )
-            " -->
-          </ng-template>
+          <input
+            class="form-input"
+            [attr.for]="data.value"
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{
+              error:
+                vehicleDetailsControl[data.value].status === 'INVALID' &&
+                vehicleDetailsFilled
+            }"
+            (input)="onInputChange()"
+          />
+          <p
+            *ngIf="
+              vehicleDetailsControl[data.value]?.errors?.required &&
+              vehicleDetailsFilled
+            "
+            class="form-error"
+          >
+            Please fill out this field
+          </p>
         </div>
       </div>
     </ng-container>

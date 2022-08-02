@@ -1,3 +1,4 @@
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { VehicleDetails } from './../../components/vehicle-details-form/Vehicle';
 import { VehicleHttpClientService } from './../../services/vehicle-http-client.service';
 import { AuthHttpClientService } from './../../services/auth-http-client.service';
@@ -17,12 +18,38 @@ export class EligibilityFormComponent implements OnInit {
   formAlreadyFilled:boolean = false;
   formSuccess:boolean = false;
   formSubmitted: boolean = false;
+  vehicleDetailsFilled: boolean = false;
 
-  constructor(private vehicleDetailServ: VehicleHttpClientService, private eligibilityForm: EligibilityFormHttpClientService) { }
+  contactDetails!:FormGroup
+  vehicleDetails!:FormGroup;
+  personalDetails!:FormGroup;
+
+  constructor(private fb: FormBuilder, private vehicleDetailServ: VehicleHttpClientService, private eligibilityForm: EligibilityFormHttpClientService) { }
+  
 
   // increaseCurrentIndex = (formDetails:any) => {
   increaseCurrentIndex = () => {
-    let proceed = true;
+    let proceed = false;
+    // if(this.vehicleDetails.status==="INVALID") {
+    //   proceed = false;
+    // } else
+    console.log(this.vehicleDetails);
+    console.log(this.personalDetails);
+    console.log(this.contactDetails);
+    if(this.vehicleDetails.status==="VALID" && this.currentFormIndex===0) {
+      proceed = true;
+    } 
+    // if(this.vehicleDetails.status==="INVALID") {
+    //   proceed = false;
+    // } else 
+    // else if(this.vehicleDetails.status==="VALID" && this.currentFormIndex===1) {
+    //   proceed = true;
+    // } 
+
+    if(this.currentFormIndex>0) proceed = true;
+    
+    else if(this.currentFormIndex===0) this.vehicleDetailsFilled=true;
+
     // for(let i = 0; i < formDetails!.length; i++) {
     //   if(formDetails![i].value=="") {
     //     formDetails![i].error= formDetails![i].label + " is required";
@@ -34,7 +61,6 @@ export class EligibilityFormComponent implements OnInit {
     // }
     if(proceed)
       this.currentFormIndex++;
-
   }
 
   decreaseCurrentIndex = () => {
@@ -45,12 +71,32 @@ export class EligibilityFormComponent implements OnInit {
     this.addVehicle();
     setTimeout(()=> {
       this.addEligibiltyForm();
-    }, 2000)
+    }, 500)
     this.formSubmitted = true;
   }
 
   ngOnInit(): void {
     this.getVehicle();
+    this.contactDetails=this.fb.group({
+      phone:['', Validators.required],
+      email:['', [Validators.required, Validators.email]]
+    });
+  
+    this.vehicleDetails= this.fb.group({
+      model_name:['', [Validators.required, Validators.minLength(2)]],
+      company_name:['', [Validators.required, Validators.minLength(2)]],
+      price:['', Validators.required],
+    });
+    
+    this.personalDetails=this.fb.group({
+      first_name: ['', Validators.required],
+      last_name: ['', Validators.required],
+      age: ['', Validators.required],
+      gender: ['', Validators.required],
+      type_of_employment: ['', Validators.required],
+      annual_salary: ['', Validators.required],
+      exisiting_emi: ['', Validators.required],
+    });
   }
 
   getVehicle(): void {

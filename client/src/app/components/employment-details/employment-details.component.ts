@@ -25,7 +25,7 @@ export class EmploymentDetailsComponent implements OnInit {
         },
         {
           label: "Annual Salary",
-          placeholder: "$$$$$",
+          placeholder: "₹₹₹₹₹",
           inputType: "number",
           value: 'annual_salary',
           error: '',

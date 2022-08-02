@@ -43,15 +43,16 @@
             /></label>
           </div> -->
           <!-- <ng-template #displayTextInput> -->
-            <input
-              class="form-input"
-              [attr.for]="data.value"
-              type="{{ data.inputType }}"
-              placeholder="{{ data.placeholder }}"
-              formControlName="{{ data.value }}"
-              [ngClass]="{ error: data.error != '' }"
-              (change)="onInputChange()"
-            />
+          <input
+            class="form-input"
+            [attr.for]="data.value"
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{ error: data.error != '' }"
+            (change)="onInputChange()"
+            readonly
+          />
           <!-- </ng-template> -->
         </div>
       </div>

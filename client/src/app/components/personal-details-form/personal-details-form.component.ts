@@ -1,7 +1,7 @@
 import { UserDetails } from './../User';
 import { PersonalDetails } from './PersonalDetails';
 import { AuthHttpClientService } from './../../services/auth-http-client.service';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 
@@ -54,7 +54,7 @@ export class PersonalDetailsFormComponent implements OnInit {
       },
       {
         label: "Yearly Salary",
-        placeholder: "$77000",
+        placeholder: "₹77000",
         inputType: "number",
         value: 'annual_salary',
         error: '',
@@ -71,9 +71,11 @@ export class PersonalDetailsFormComponent implements OnInit {
 
   fetchedPersonalData= new UserDetails("", "", 0, "", "", 0, "", "", "", "", "", "", 0);
 
-  constructor(private fb: FormBuilder, private authServ: AuthHttpClientService) { }
+  constructor(private fb: FormBuilder, private authServ: AuthHttpClientService, private rootFormGroup: FormGroupDirective) { }
 
   ngOnInit(): void {
+    this.personalDetails = this.rootFormGroup.control;
+
     this.personalDetails=this.fb.group({
       first_name: [this.fetchedPersonalData.first_name, Validators.required],
       last_name: [this.fetchedPersonalData.last_name, Validators.required],

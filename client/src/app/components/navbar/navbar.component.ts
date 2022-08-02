@@ -12,8 +12,9 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  console.log(JSON.parse(localStorage.getItem('isAdmin')|| 'false') );
-
+    console.log(JSON.parse(localStorage.getItem('isAdmin')|| 'false') );
+    this.isAdmin = JSON.parse(localStorage.getItem('isAdmin')|| 'false');
+    this.userLoggedIn = JSON.parse(localStorage.getItem('user_personal_details') || localStorage.getItem('user_data') || "null") !== null ? true : false;
   }
 
   logout = () => {

@@ -9,8 +9,10 @@ import { EligibilityFormComponent } from './pages/eligibility-form/eligibility-f
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  {path:"",component:HomeComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"eligibility-form",component:EligibilityFormComponent},

@@ -33,16 +33,22 @@
       </div>
       <div class="separator"></div>
       <form id="eligibilityForm-details" (ngSubmit)="onSubmit()">
-        <app-vehicle-details-form
-          [currentFormIndex]="currentFormIndex"
-        ></app-vehicle-details-form>
+        <ng-container [formGroup]="vehicleDetails">
+          <app-vehicle-details-form
+            [vehicleDetailsFilled]="vehicleDetailsFilled"
+            [currentFormIndex]="currentFormIndex"
+          ></app-vehicle-details-form>
+        </ng-container>
+        <ng-container [formGroup]="personalDetails">
+          <app-personal-details-form
+            [currentFormIndex]="currentFormIndex"
+          ></app-personal-details-form>
+        </ng-container>
 
-        <app-personal-details-form
-          [currentFormIndex]="currentFormIndex"
-        ></app-personal-details-form>
-
-        <app-contact-details-form [currentFormIndex]="currentFormIndex">
-        </app-contact-details-form>
+        <ng-container [formGroup]="contactDetails">
+          <app-contact-details-form [currentFormIndex]="currentFormIndex">
+          </app-contact-details-form>
+        </ng-container>
 
         <div id="form-success" *ngIf="formSubmitted; else displayButtons">
           <p>
@@ -103,11 +109,11 @@
     </div>
     <div class="inp">
         <label>Ex Showroom Price</label>
-        <div><input type="text" required placeholder="$56781"></div>
+        <div><input type="text" required placeholder="₹56781"></div>
     </div>
     <div class="inp">
         <label>On Road Price</label>
-        <div><input type="text" required placeholder="$56781"></div>
+        <div><input type="text" required placeholder="₹56781"></div>
     </div>
 </div> -->
 <!-- <div class="input-container">

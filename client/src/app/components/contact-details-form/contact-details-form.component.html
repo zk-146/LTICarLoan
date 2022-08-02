@@ -26,6 +26,7 @@
             formControlName="{{ data.value }}"
             [ngClass]="{ error: data.error != '' }"
             (change)="onInputChange()"
+            readonly
           />
         </div>
       </div>

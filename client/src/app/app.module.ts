@@ -32,6 +32,8 @@ import { EmiCalcComponent } from './emi-calc/emi-calc.component';
 import { HttpClient } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { LoanOfferComponent } from './components/loan-offer/loan-offer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,13 +61,15 @@ import { LoanOfferComponent } from './components/loan-offer/loan-offer.component
     UserPersonalDetailsComponent,
     EmiCalcComponent,
     LoanOfferComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule
   ],
   exports: [  ReactiveFormsModule, HttpClientModule, ],
   providers: [],

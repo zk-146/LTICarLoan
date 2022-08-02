@@ -1,6 +1,6 @@
 import { VehicleDetails } from './Vehicle';
 import { VehicleHttpClientService } from './../../services/vehicle-http-client.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormGroupDirective } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -11,27 +11,28 @@ import { Component, Input, OnInit } from '@angular/core';
 export class VehicleDetailsFormComponent implements OnInit {
   vehicleDetails!:FormGroup;
   @Input() currentFormIndex = 0;
+  @Input() vehicleDetailsFilled = false;
 
   vehicleDetailsObject = {
     name: "Vehicle Details",
     fields: [
       {
         label: "Company Name",
-        placeholder: "Eg. Nissan X39-O2",
+        placeholder: "Eg. Nissan",
         inputType: "text",
         value: 'company_name',
         error: '',
       },
       {
         label: "Model Name",
-        placeholder: "Eg. Nissan",
+        placeholder: "Eg. Nissan X39-02",
         inputType: "text",
         value: 'model_name',
         error: '',
       },
       {
         label: "Price",
-        placeholder: "$77890",
+        placeholder: "₹77890",
         inputType: "number",
         value: 'price',
         error: '',
@@ -40,14 +41,14 @@ export class VehicleDetailsFormComponent implements OnInit {
   };
   
   
-  constructor(private fb: FormBuilder) { }
+  constructor(private rootFormGroup: FormGroupDirective, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.vehicleDetails= this.fb.group({
-      model_name:['', [Validators.required, Validators.minLength(2)]],
-      company_name:['', [Validators.required, Validators.minLength(2)]],
-      price:['', Validators.required],
-    });
+    this.vehicleDetails = this.rootFormGroup.control;
+  }
+
+  get vehicleDetailsControl() {
+    return this.vehicleDetails.controls;
   }
 
   onInputChange = () => {

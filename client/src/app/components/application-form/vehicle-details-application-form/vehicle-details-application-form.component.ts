@@ -31,7 +31,7 @@ export class VehicleDetailsApplicationFormComponent implements OnInit {
       },
       {
         label: "Price",
-        placeholder: "$77890",
+        placeholder: "₹77890",
         inputType: "number",
         value: 'price',
         error: '',
