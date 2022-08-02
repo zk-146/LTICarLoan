@@ -12,4 +12,6 @@ public interface VehicleService {
 	Vehicle findVehicleById(int id);
 	
 	public boolean deleteVehicleById(int id) throws VehicleException;
+	public boolean deleteVehicleByUserId(int user_id);
+	
 }

@@ -10,7 +10,6 @@ import com.LTICarLoan.exception.VehicleException;
 
 @Service("vehicleService")
 public class VehicleServiceImpl implements VehicleService{
-
 	@Autowired
 	VehicleDao vehicleDao;
 	
@@ -54,5 +53,9 @@ public class VehicleServiceImpl implements VehicleService{
 			throw new Error("An error occurred while deleting Vehicle");
 		}
 	}
+	public boolean deleteVehicleByUserId(int id) {
+		return vehicleDao.deleteVehicleByUserId(id);
+	}
+
 	
 }

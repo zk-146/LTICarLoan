@@ -12,5 +12,6 @@ public interface VehicleDao {
 	Vehicle findVehicleById(int id);
 	
 	boolean deleteVehicleById(int id) throws VehicleException;
+	boolean deleteVehicleByUserId(int id);
 	
 }
