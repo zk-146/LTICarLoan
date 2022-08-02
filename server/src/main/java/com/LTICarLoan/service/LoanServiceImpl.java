@@ -14,6 +14,7 @@ import com.LTICarLoan.beans.User;
 import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.dao.LoanDao;
 import com.LTICarLoan.dao.VehicleDao;
+import com.LTICarLoan.exception.LoanException;
 
 @Service("loanService")
 public class LoanServiceImpl implements LoanService {
@@ -52,23 +53,42 @@ public class LoanServiceImpl implements LoanService {
 			return true;
 		} else {
 			System.out.println("YOU ARE NOT ELIGIBLE FOR LOAN");
-//			vehicleDao.deleteVehicleById(user.getUser_id());
+			vehicleDao.deleteVehicleByUserId(user.getUser_id());
 			return false;
+		}
+		
+		
+	}
+
+	@Override
+	public Loan findLoanById(int id) throws LoanException{
+		
+		try {
+			return loanDao.findLoanById(id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by Loan Id");
+		}
+		
+	}
+
+	@Override
+	public List<Loan> findLoanByCarId(int car_id) throws LoanException{
+		try {
+			return loanDao.findLoanByCarId(car_id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by Car Id");
 		}
 	}
 
 	@Override
-	public Loan findLoanById(int id) {
-		return loanDao.findLoanById(id);
-	}
-
-	@Override
-	public List<Loan> findLoanByCarId(int car_id) {
-		return loanDao.findLoanByCarId(car_id);
-	}
-
-	@Override
-	public Loan findLoanByUserId(int user_id) {
-		return loanDao.findLoanByUserId(user_id);
+	public Loan findLoanByUserId(int user_id) throws LoanException {
+		try {
+			return loanDao.findLoanByUserId(user_id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by User Id");
+		}
 	}
 }

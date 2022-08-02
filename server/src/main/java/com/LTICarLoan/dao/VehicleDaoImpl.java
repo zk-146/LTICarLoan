@@ -1,5 +1,7 @@
 package com.LTICarLoan.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -8,8 +10,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.LTICarLoan.beans.Loan;
 import com.LTICarLoan.beans.Vehicle;
-import com.LTICarLoan.exception.VehicleException;
 
 @Repository
 public class VehicleDaoImpl implements VehicleDao {
@@ -27,7 +29,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 
 	@Override
-	public Vehicle findVehicleByUserId(int user_id) throws VehicleException{
+	public Vehicle findVehicleByUserId(int user_id) {
 		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id",
 				Vehicle.class);
 		qry.setParameter("user_id", user_id);
@@ -44,11 +46,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 
 	@Override
-	public boolean deleteVehicleById(int id) throws VehicleException{
-		Query qry = em.createQuery("delete from Vehicle v join v.user u where u.user_id=:user_id");
-		return true;
-	}
-		public boolean deleteVehicleByUserId(int id) {
+	public boolean deleteVehicleByUserId(int id) {
 		Query qry = em.createQuery("delete from Vehicle v v.user u where u.user_id=:user_id");
 		qry.setParameter("user_id", id);
 		int successful = qry.executeUpdate();

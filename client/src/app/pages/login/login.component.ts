@@ -1,5 +1,5 @@
+import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { Router } from '@angular/router';
-import { LoginFormHttpClientService } from './../../services/login-form-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!:FormGroup;
 
-  constructor(private fb:FormBuilder, private loginServ: LoginFormHttpClientService, private router: Router ) { }
+  constructor(private fb:FormBuilder, private loginServ: AuthHttpClientService, private router: Router ) { }
 
   toggle = "signin";
 
