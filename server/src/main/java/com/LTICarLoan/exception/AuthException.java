@@ -1,14 +1,13 @@
 package com.LTICarLoan.exception;
 
-public class AuthException extends Exception{
+public class AuthException extends Exception {
 
 	public AuthException() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public AuthException(String message, Throwable cause, boolean enableSuppression,
-			boolean writableStackTrace) {
+	public AuthException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
@@ -27,6 +26,5 @@ public class AuthException extends Exception{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-	
 
 }
