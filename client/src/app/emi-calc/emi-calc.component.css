@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 130px;
+  margin-bottom: 70px;
 }
 
 .title{
@@ -34,7 +35,6 @@
   width: 60%;
   align-items: center;
 }
-
 
 .calc-btn {
   background: #4A3AFF;
@@ -74,6 +74,7 @@
   color: #000000;
   background-color: rgba(74, 58, 255, 0.2);
   border-radius: 34px;
+  margin-bottom: 42px;
 }
 
 .split {
