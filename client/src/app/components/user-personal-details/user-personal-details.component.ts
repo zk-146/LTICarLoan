@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { UserPersonalDetails } from './userPersonal';
 
 
@@ -12,6 +12,7 @@ export class UserPersonalDetailsComponent implements OnInit {
 
   userPersonalDetails!:FormGroup;
   @Input() currentFormIndex = 0;
+  // @Output() private onFormGroupChange = new EventEmitter<any>();
 
   userPersonalDetailsObject={
   name: "User Personal Details",
@@ -47,7 +48,7 @@ export class UserPersonalDetailsComponent implements OnInit {
         {
           label: "Phone Number",
           placeholder: "9988998844",
-          inputType: "text",
+          inputType: "number",
           value: 'phone',
           error: '',
         },
@@ -68,26 +69,21 @@ export class UserPersonalDetailsComponent implements OnInit {
       ],
     };
 
+  testFormGroup!:FormGroup;
+  
+  constructor(private rootFormGroup: FormGroupDirective) { }
 
-    constructor(private fb: FormBuilder) { }
   ngOnInit(): void {
-    
-    this.userPersonalDetails=this.fb.group({
-      first_name:['', Validators.required, Validators.minLength(2)],
-      last_name:['', Validators.required, Validators.minLength(2)],
-      email:['', Validators.required],
-      phone:['', Validators.required],
-      password:['', Validators.required],
-      age:['', Validators.required],
-      gender:['', Validators.required]
-    });
+    this.userPersonalDetails = this.rootFormGroup.control
+  }
+  
+  get userPersonalDetailsControl() {
+    return this.userPersonalDetails.controls;
   }
 
   onInputChange = () => {
     let userPersonalData = new UserPersonalDetails("","","","",0,0,"",101)
-
-    console.log(userPersonalData, this.userPersonalDetails.get('first_name')?.value)
-
+    
     userPersonalData[`first_name`] = this.userPersonalDetails.get(`first_name`)?.value;
     userPersonalData[`last_name`] = this.userPersonalDetails.get(`last_name`)?.value;
     userPersonalData[`email`] = this.userPersonalDetails.get(`email`)?.value;
@@ -98,5 +94,4 @@ export class UserPersonalDetailsComponent implements OnInit {
     
     localStorage.setItem("UserPersonalDetails", JSON.stringify(userPersonalData));
   }
-
 }

@@ -20,6 +20,18 @@
             formControlName="email"
             placeholder="Email"
           />
+          <p
+            *ngIf="loginFormControl.email.errors?.email && loginClicked"
+            class="form-error"
+          >
+            Please enter email in correct format
+          </p>
+          <p
+            *ngIf="loginFormControl.email.errors?.required && loginClicked"
+            class="form-error"
+          >
+            Please enter your email id
+          </p>
         </div>
         <br />
         <div class="element">
@@ -30,6 +42,22 @@
             formControlName="password"
             placeholder="Password"
           />
+          <p
+            *ngIf="loginFormControl.password.errors?.required && loginClicked"
+            class="form-error"
+          >
+            Please enter your password
+          </p>
+          <!-- <p
+            *ngIf="
+              loginFormControl.password.dirty &&
+              loginFormControl.password.errors?.minLength?.actualLength < 8 &&
+              loginClicked
+            "
+            class="form-error"
+          >
+            Password should be of minimum length 8
+          </p> -->
         </div>
         <br />
         <label class="login-admin"
@@ -39,7 +67,11 @@
         /></label>
         <br />
         <br />
+        <!-- <p>Login failed</p> -->
         <div class="element">
+          <!-- <p *ngIf="loginForm">
+            {{ loginForm.errors }}Please enter email in correct format
+          </p> -->
           <button class="loginBtn" (click)="onLoginClick()" id="next">
             Login
           </button>

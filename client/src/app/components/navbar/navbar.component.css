@@ -26,6 +26,7 @@
 
 #navbar-logo > p {
     cursor: pointer;
+    font-weight: 600;
 }
 
 #navbar-left-btns {
@@ -42,7 +43,8 @@
     margin: 0 13px;
     border-radius: 12px;
     padding: 5px 0;
-    transition: all 150ms linear;
+    transition: all 100ms linear;
+    font-weight: 500;
 }
 
 
@@ -50,14 +52,17 @@
     color: #4A3AFF;
 }
 
-#navbar-left-btns #active {
+#navbar-left-btns .active {
     background-color: rgba(74, 58, 255, 0.3);
     padding: 5px 13px;
     margin: 0;
+    border: 1px solid transparent;
 }
 
-#navbar-left-btns #active:hover {
-    color: inherit;
+#navbar-left-btns .active:hover {
+    color: #4A3AFF;
+    background-color: #fff;
+    border: 1px solid #4A3AFF;
 }
 
 #navbar-right {

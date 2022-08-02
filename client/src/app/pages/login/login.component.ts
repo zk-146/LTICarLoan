@@ -11,6 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginAsAdmin:boolean = false;
 
+  loginClicked: boolean = false;
+
+  loginSuccess: boolean = false;
+
 
   loginForm!:FormGroup;
 
@@ -18,31 +22,53 @@ export class LoginComponent implements OnInit {
 
   toggle = "signin";
 
-onClickToggle(clickedBtn:string){
-  this.toggle=clickedBtn;
-  
-}
+  onClickToggle(clickedBtn:string){
+    this.toggle=clickedBtn;
+  }
 
   ngOnInit(): void {
 
     this.loginForm=this.fb.group({
-      email:['',Validators.required,Validators.email],
-      password:['',Validators.required,Validators.min(4),Validators.max(8)]
+      email:['',[Validators.required,Validators.email]],
+      password:['',Validators.required]
     })
+  }
 
+  // loginErrors = {
+  //   email: '',
+  //   password: '',
+  // }
+
+  get loginFormControl() {
+    return this.loginForm.controls;
   }
 
   onLoginClick = () => {
-    this.loginServ.userLogin(this.loginForm.get(`email`)?.value, this.loginForm.get(`password`)?.value, this.loginAsAdmin).subscribe(response=>{
-        console.log(response);
-        localStorage.setItem('user_data', JSON.stringify(response));
-        this.router.navigate(!this.loginAsAdmin ? ['user-dashboard'] : ['admin-dashboard']);
-        if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');
-        else localStorage.setItem('isAdmin', 'false')
-        
-        this.ngOnInit();
-      }
-    )
+    console.log(this.loginForm)
+    this.loginClicked = true;
+    if(this.loginForm.status==="VALID")
+    {
+      this.loginServ.userLogin(this.loginForm.get(`email`)?.value, this.loginForm.get(`password`)?.value, this.loginAsAdmin).subscribe((response)=>{
+        try {
+          if(response !== null) {
+            console.log(response);
+            localStorage.setItem('user_data', JSON.stringify(response));
+            this.router.navigate(!this.loginAsAdmin ? ['user-dashboard'] : ['admin-dashboard']);
+            if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');
+            else localStorage.setItem('isAdmin', 'false')
+            this.loginSuccess = true;
+          } else {
+            throw new Error("Invalid email/password combination");
+          }
+        } catch(error) {
+          this.loginSuccess = false;
+        }
+        }, error => {
+          console.log(error);
+          this.loginSuccess = false;
+        }
+      )
+    }
   }
 
   changeLoginToAdmin = (isChecked:any) => {

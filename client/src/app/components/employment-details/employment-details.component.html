@@ -27,6 +27,12 @@
             [ngClass]="{ error: data.error != '' }"
             (change)="onInputChange()"
           />
+          <p
+            *ngIf="employmentDetailsControl[data.value]?.errors?.required"
+            class="form-error"
+          >
+            Please fill this field
+          </p>
         </div>
       </div>
     </ng-container>

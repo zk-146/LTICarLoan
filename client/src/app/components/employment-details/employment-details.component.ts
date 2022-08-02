@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, FormGroupDirective } from '@angular/forms';
 import { EmploymentDetails } from './EmploymentDetails';
 
 @Component({
@@ -32,16 +32,17 @@ export class EmploymentDetailsComponent implements OnInit {
         },
       ],
   };
-  constructor(private fb: FormBuilder) { }
+
+  constructor(private rootFormGroup: FormGroupDirective) { }
 
   ngOnInit(): void {
-
-    this.employmentDetails=this.fb.group({
-      type_of_employment:['', Validators.required],
-      annual_salary:['', Validators.required]
-    });
+    this.employmentDetails = this.rootFormGroup.control;
   }
-
+  
+  get employmentDetailsControl() {
+    return this.employmentDetails.controls;
+  }
+  
   onInputChange = () => {
     let employmentData = new EmploymentDetails("", 0);
     console.log(employmentData, this.employmentDetails.get('type_of_employment')?.value)

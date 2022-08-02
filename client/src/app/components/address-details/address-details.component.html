@@ -29,6 +29,18 @@
             [ngClass]="{ error: data.error != '' }"
             (change)="onInputChange()"
           />
+          <p
+            *ngIf="addressDetailsControl[data.value]?.errors?.required"
+            class="form-error"
+          >
+            Please fill this field
+          </p>
+          <p *ngIf="addressDetailsControl[data.value]?.errors?.minLength">
+            Please enter a valid {{ data.value }}
+          </p>
+          <p *ngIf="addressDetailsControl[data.value]?.errors?.pattern">
+            Please enter a valid {{ data.value }}
+          </p>
         </div>
       </div>
     </ng-container>

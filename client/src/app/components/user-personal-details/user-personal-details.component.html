@@ -1,40 +1,70 @@
 <form
   class="user-personal-details-form"
-  *ngIf= "currentFormIndex === 0"
+  *ngIf="currentFormIndex === 0"
   [formGroup]="userPersonalDetails"
-  [class.error]="!userPersonalDetails.valid && userPersonalDetails.touched"
 >
   <ng-template
     #userPersonalDetail
     [ngTemplateOutlet]="userPersonalDetail"
     let-userPersonalFormDetail="userPersonalFormDetail"
     [ngTemplateOutletContext]="{
-        userPersonalFormDetail: userPersonalDetailsObject
+      userPersonalFormDetail: userPersonalDetailsObject
     }"
   >
     <p id="registerForm-details-title">{{ userPersonalFormDetail.name }}</p>
     <ng-container *ngFor="let data of userPersonalFormDetail.fields">
       <div id="registerForm-detials-row">
         <div>
-            <p class="label">{{ data.label }}</p>
-            <p>{{ data.error }}</p>
-            <input
+          <p class="label">{{ data.label }}</p>
+          <p>{{ data.error }}</p>
+          <input
             class="form-input"
-              [attr.for]="data.value"
-              type="{{ data.inputType }}"
-              placeholder="{{ data.placeholder }}"
-              formControlName="{{ data.value }}"
-              [ngClass]="{ error: data.error != '' }"
-              (input)="onInputChange()"
-            />
-          </div>
+            [attr.for]="data.value"
+            type="{{ data.inputType }}"
+            placeholder="{{ data.placeholder }}"
+            formControlName="{{ data.value }}"
+            [ngClass]="{
+              error: userPersonalDetailsControl[data.value].status === 'INVALID'
+            }"
+            (input)="onInputChange()"
+          />
+          <p
+            class="form-error"
+            *ngIf="userPersonalDetailsControl[data.value]?.errors?.required"
+            class="form-error"
+          >
+            Please fill out this field
+          </p>
+          <p
+            class="form-error"
+            *ngIf="
+              data.value === 'password'
+                ? userPersonalDetailsControl[data.value]?.errors?.pattern
+                : false
+            "
+          >
+            Password should contain a number,<br />
+            a special character(@,_,!), a lowercase<br />
+            and a uppercase
+          </p>
+          <p
+            class="form-error"
+            *ngIf="
+              data.value === 'phone'
+                ? userPersonalDetailsControl[data.value]?.errors?.pattern
+                : false
+            "
+          >
+            Please enter a valid mobile number
+          </p>
+          <p
+            class="form-error"
+            *ngIf="userPersonalDetailsControl[data.value]?.errors?.email"
+          >
+            Please enter a valid email id
+          </p>
+        </div>
       </div>
     </ng-container>
   </ng-template>
 </form>
-
-
-
-<!-- type="{{ data.inputType }}"
-              placeholder="{{ data.placeholder }}"
-              [ngClass]="{ error: data.error != '' }" -->

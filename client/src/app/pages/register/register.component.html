@@ -7,8 +7,11 @@
       <div *ngFor="let number of [1, 2, 3]" id="progressbar-container">
         <p
           class="progressbar-circle"
-          [ngClass]="{ active: number <= currentFormIndex + 1 }"
+          [ngClass]="{
+            active: number <= currentFormIndex + 1
+          }"
         >
+          <!-- circleError: allForm -->
           {{ number }}
         </p>
         <div
@@ -22,16 +25,20 @@
     </div>
     <div class="separator"></div>
     <form id="registerForm-details" (ngSubmit)="onSubmit()">
-      <app-user-personal-details
-        [currentFormIndex]="currentFormIndex"
-      ></app-user-personal-details>
-
-      <app-address-details
-        [currentFormIndex]="currentFormIndex"
-      ></app-address-details>
-
-      <app-employment-details [currentFormIndex]="currentFormIndex">
-      </app-employment-details>
+      <ng-container [formGroup]="userPersonalDetails">
+        <app-user-personal-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-user-personal-details>
+      </ng-container>
+      <ng-container [formGroup]="addressDetails">
+        <app-address-details
+          [currentFormIndex]="currentFormIndex"
+        ></app-address-details>
+      </ng-container>
+      <ng-container [formGroup]="employmentDetails">
+        <app-employment-details [currentFormIndex]="currentFormIndex">
+        </app-employment-details>
+      </ng-container>
 
       <div id="form-success" *ngIf="formSuccess; else displayButtons">
         <p>

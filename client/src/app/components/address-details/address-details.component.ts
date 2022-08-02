@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormGroupDirective } from '@angular/forms';
 import { AddressDetails } from './AddressDetails';
 
 @Component({
@@ -9,9 +9,10 @@ import { AddressDetails } from './AddressDetails';
 })
 export class AddressDetailsComponent implements OnInit {
 
-  addressDetails!:FormGroup;
+  @Input() addressDetails!:FormGroup;
   @Input() currentFormIndex=1;
 
+  
   addressFormDetailsObject={
     name: "Address Details",
       fields: [
@@ -53,16 +54,14 @@ export class AddressDetailsComponent implements OnInit {
       ],
   };
 
-  constructor(private fb: FormBuilder) { }
+    constructor(private rootFormGroup: FormGroupDirective) { }
 
   ngOnInit(): void {
-    this.addressDetails=this.fb.group({
-      address:['', [Validators.required, Validators.minLength(2)]],
-      city:['', [Validators.required, Validators.minLength(2)]],
-      state:['', Validators.required],
-      nationality:['', Validators.required],
-      pincode:['', Validators.required],
-    });
+    this.addressDetails = this.rootFormGroup.control;
+  }
+
+  get addressDetailsControl() {
+    return this.addressDetails.controls;
   }
 
   onInputChange = () => {
