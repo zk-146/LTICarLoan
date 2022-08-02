@@ -1,4 +1,4 @@
-import { UserpersonalHttpClientService } from './../../services/userpersonal-http-client.service';
+import { AuthHttpClientService } from './../../services/auth-http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddressDetails } from 'app/components/address-details/AddressDetails';
@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   currentFormIndex:number = 0;
   formSuccess:boolean = false;
 
-  constructor(private userPersonalDetailServ: UserpersonalHttpClientService) { }
+  constructor(private userPersonalDetailServ: AuthHttpClientService) { }
 
   increaseCurrentIndex = () => {
     let proceed = true;
