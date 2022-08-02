@@ -9,7 +9,7 @@
                 </div>
             </div>
       </div>
-      <div>
+      <div class="appTable">
         <Table>
             <thead>
                 <tr>
@@ -19,13 +19,15 @@
                     <th>Loan Amount</th>
                     <th>No of Emis</th>
                     <th>User Id</th>
-                    <th>First Name Id</th>
-                    <th>Last Name Id</th>
+                    <th>First Name </th>
+                    <th>Last Name </th>
                     <th>Email Id</th>
                     <th>Type of Employment</th>
                     <th>Annual Salary</th>
+                    
                 </tr>
             </thead>
+    
 
             <tbody>
                 <tr *ngFor = "let a of applicationList; let i=index;" align="center" >
@@ -42,24 +44,27 @@
                     <td>{{ a.user.annual_salary }}</td>
                     <!-- <button [type]="'submit'" (click)="updateStatus(a)">Update Status</button> -->
                     <div *ngIf="toggle=='pending'"> <td><button
-                        class="" 
+                        class="approve" 
                         (click)="onClickStatusToggle('approved',i)"
                         [ngClass]="{ active: statusToggle == 'approved' }"
                       >
                         Approve
                                       </button></td>
                                       <td><button
-                        class=""
+                        class="reject"
                         (click)="onClickStatusToggle('rejected',i)"
                         [ngClass]="{ active: statusToggle == 'rejected' }"
                       >
                         Reject
-                      </button></td></div>
-
+                      </button></td>
+                    </div>
+                   
                    
                 </tr>
+               
             </tbody>
+            
         </Table>
-
+        
       </div>
     </body> 

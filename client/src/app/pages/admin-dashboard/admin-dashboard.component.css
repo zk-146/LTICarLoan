@@ -45,7 +45,16 @@ font-size: 22px;
 line-height: 33px;
 width: 50%;
 height: 33px;
+color: #fff;
+
 }
+.register:hover{
+  color: black;
+
+}
+
+
+
 
 
 /* .register:hover{
@@ -58,4 +67,69 @@ height: 33px;
 
 .active{
     background-color: #6F6C90;
+}
+
+  table{
+    width: 1326px;
+height: 0px;
+left: 57px;
+top: 270px;
+border: 1px solid #A0A3BD;
+}
+th{
+  border-bottom: 1px solid #A0A3BD;
+  background-color: #6F6C90;
+  color:#F7F7FB;
+  /* padding-bottom: 10px;
+  padding-top: 10px; */
+  padding: 10px;
+}
+
+td{
+  width: 100px;
+}
+
+.btnClm{
+  background-color: white;
+  border: 1px solid #fff;
+  padding: 0px;
+}
+
+.appTable{
+  padding-left: 100px;
+  padding-top: 20px;
+}
+
+.approve:hover{
+  background-color: #fff;
+  color: green;
+}
+.reject:hover{
+  background-color: #fff;
+  color: red;
+}
+.reject {
+  background: red;
+  padding: 10px 40px;
+  color: #fff;
+  border: none;
+  box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+  border-radius: 56px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all 150ms linear;
+}
+
+.approve {
+  background: green;
+  padding: 10px 40px;
+  color: #fff;
+  border: none;
+  box-shadow: 0px 3px 12px rgba(74, 58, 255, 0.18);
+  border-radius: 56px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: all 150ms linear;
 }

@@ -61,11 +61,10 @@ export class PersonalDetailsFormComponent implements OnInit {
       },
       {
         label: "Exisitng EMI",
-        placeholder: "Yes",
+        placeholder: "Yes/No",
         inputType: "text",
         value: 'exisiting_emi',
         error: '',
-        options: true,
       },
     ],
   };

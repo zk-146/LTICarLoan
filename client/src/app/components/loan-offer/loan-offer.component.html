@@ -1,20 +1,42 @@
-<h3 id="title">Your Loan Quotes</h3>
+<h3 id="title">Finalsed Loan Offer Details</h3>
 <div class="first-container">
-  <div class="label">Loan Type: {{ loanDetails.loan_type }}</div>
+  <div class="label">
+    <b>Loan Type: {{ loanDetails.loan_type }}</b>
+  </div>
 </div>
 <div class="second-container">
-  <div class="label">Loan Amount: {{ loanDetails.loan_amt }}</div>
+  <div class="label">
+    Loan Amount:
+    <div class="fetch_details">
+      <b>{{ loanDetails.loan_amt }}</b>
+    </div>
+  </div>
 </div>
 <div class="third-container">
-  <div class="label">EMI: {{ loanDetails.loan_amt / 48 }}</div>
+  <div class="label">
+    EMI:
+    <div class="fetch_details">
+      <b>{{ loanDetails.loan_amt / 48 }}</b>
+    </div>
+  </div>
 </div>
 <div class="fourth-container">
-  <div class="label">Interest Rate: {{ loanDetails.interest_rate }}</div>
+  <div class="label">
+    Interest Rate:
+    <div class="fetch_details">
+      <b>{{ loanDetails.interest_rate }}</b>
+    </div>
+  </div>
 </div>
 <div class="fifth-container">
-  <div class="label">Processing Fee: {{ loanDetails.processing_fee }}</div>
+  <div class="label">
+    Processing Fee:
+    <div class="fetch_details">
+      <b>{{ loanDetails.processing_fee }}</b>
+    </div>
+  </div>
 </div>
 <button type="submit" class="btn" id="apply-now" (click)="addApplication()">
-  Apply Now
+  APPLY NOW
 </button>
 <button type="submit" class="btn" id="emi-scheduler">EMI SCHEDULER</button>

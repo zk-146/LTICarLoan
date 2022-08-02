@@ -51,24 +51,24 @@ statusToggle = "pending";
 
 
     this.getApplicaionListByStatus(this.toggle);
-    if(localStorage.getItem("a.application_id")!=null){
-      let application_id = localStorage.getItem("a.application_id");
-      console.log(application_id);
-      if(!application_id){
-        alert("Invalid action")
-        this.router.navigate(['admin-dashboard']);
-        return;
-      }
-      console.log(this.applicationData);
-      this.applSer.updateApplication(parseInt(application_id),this.statusToggle).subscribe(
+  //   if(localStorage.getItem("a.application_id")!=null){
+  //     let application_id = localStorage.getItem("a.application_id");
+  //     console.log(application_id);
+  //     if(!application_id){
+  //       alert("Invalid action")
+  //       this.router.navigate(['admin-dashboard']);
+  //       return;
+  //     }
+  //     console.log(this.applicationData);
+  //     this.applSer.updateApplication(parseInt(application_id),this.statusToggle).subscribe(
         
-        response=>{
-          console.log(this.toggle);
-          console.log(response);
-          // this.applicationData=response;
-        }
-      );
-  }
+  //       response=>{
+  //         console.log(this.toggle);
+  //         console.log(response);
+  //         // this.applicationData=response;
+  //       }
+  //     );
+  // }
   }
 
   // getApplicationList(){
@@ -89,19 +89,19 @@ statusToggle = "pending";
     )
   }
 
-  updateStatus(a:Application):void{
-    localStorage.removeItem("a.application_id");
-    localStorage.setItem("a.application_id",JSON.stringify(a.application_id));
-    localStorage.removeItem("application_data");
-    let applicationData = {};
-    this.applSer.getApplicationByUserId1(a.user.user_id).subscribe(response=> {
-      // applicationData = response[0];
-      localStorage.setItem("application_data", JSON.stringify(response[0]));
-      console.log(response[0]);
-    })
-    //this.router.navigate(['application-status-update'])  
+  // updateStatus(a:Application):void{
+  //   localStorage.removeItem("a.application_id");
+  //   localStorage.setItem("a.application_id",JSON.stringify(a.application_id));
+  //   localStorage.removeItem("application_data");
+  //   let applicationData = {};
+  //   this.applSer.getApplicationByUserId1(a.user.user_id).subscribe(response=> {
+  //     // applicationData = response[0];
+  //     localStorage.setItem("application_data", JSON.stringify(response[0]));
+  //     console.log(response[0]);
+  //   })
+  //   //this.router.navigate(['application-status-update'])  
     
-  }
+  // }
 
   updateApplication(i:number){
     console.log(this.applicationList[i]);
