@@ -20,7 +20,7 @@
         <div>
           <p class="label">{{ data.label }}</p>
           <p>{{ data.error }}</p>
-          <div *ngIf="data.options; else displayTextInput">
+          <!-- <div *ngIf="data.options; else displayTextInput">
             <label
               >Yes
               <input
@@ -41,8 +41,8 @@
                 formControlName="{{ data.value }}"
                 (change)="onInputChange()"
             /></label>
-          </div>
-          <ng-template #displayTextInput>
+          </div> -->
+          <!-- <ng-template #displayTextInput> -->
             <input
               class="form-input"
               [attr.for]="data.value"
@@ -52,7 +52,7 @@
               [ngClass]="{ error: data.error != '' }"
               (change)="onInputChange()"
             />
-          </ng-template>
+          <!-- </ng-template> -->
         </div>
       </div>
     </ng-container>
