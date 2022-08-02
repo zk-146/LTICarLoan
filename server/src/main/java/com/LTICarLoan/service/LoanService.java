@@ -9,9 +9,9 @@ public interface LoanService {
 
 	public boolean addLoan(Loan l, int user_id);
 	
-	Loan findLoanById(int id);
+	Loan findLoanById(int id) throws LoanException;
 
-	List<Loan> findLoanByCarId(int car_id);
+	List<Loan> findLoanByCarId(int car_id) throws LoanException;
 
 	Loan findLoanByUserId(int user_id) throws LoanException;
 

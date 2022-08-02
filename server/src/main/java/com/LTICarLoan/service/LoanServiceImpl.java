@@ -61,18 +61,34 @@ public class LoanServiceImpl implements LoanService {
 	}
 
 	@Override
-	public Loan findLoanById(int id) {
-		return loanDao.findLoanById(id);
+	public Loan findLoanById(int id) throws LoanException{
+		
+		try {
+			return loanDao.findLoanById(id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by Loan Id");
+		}
 		
 	}
 
 	@Override
-	public List<Loan> findLoanByCarId(int car_id) {
-		return loanDao.findLoanByCarId(car_id);
+	public List<Loan> findLoanByCarId(int car_id) throws LoanException{
+		try {
+			return loanDao.findLoanByCarId(car_id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by Car Id");
+		}
 	}
 
 	@Override
 	public Loan findLoanByUserId(int user_id) throws LoanException {
-		return loanDao.findLoanByUserId(user_id);
+		try {
+			return loanDao.findLoanByUserId(user_id);
+		}catch(Exception e) {
+			System.out.println(e);
+			throw new Error("An error occurred while fetching Vehicle by User Id");
+		}
 	}
 }
