@@ -52,7 +52,7 @@ export class ApplicationFormComponent implements OnInit {
   getApplicationForm = () => {
     this.applicationServ.getApplicationByUserId().subscribe(response => {
       console.log(response)
-      this.formAlreadyFilled = true;
+      if(response.length>0) this.formAlreadyFilled = true;
     });
   }
 

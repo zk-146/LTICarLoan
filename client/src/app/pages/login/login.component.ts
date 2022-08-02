@@ -36,7 +36,7 @@ onClickToggle(clickedBtn:string){
     this.loginServ.userLogin(this.loginForm.get(`email`)?.value, this.loginForm.get(`password`)?.value, this.loginAsAdmin).subscribe(response=>{
         console.log(response);
         localStorage.setItem('user_data', JSON.stringify(response));
-        this.router.navigate(['user-dashboard']);
+        this.router.navigate(!this.loginAsAdmin ? ['user-dashboard'] : ['admin-dashboard']);
         if(this.loginAsAdmin) localStorage.setItem('isAdmin', 'true');
         else localStorage.setItem('isAdmin', 'false')
         

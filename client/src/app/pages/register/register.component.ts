@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddressDetails } from 'app/components/address-details/AddressDetails';
 import { EmploymentDetails } from 'app/components/employment-details/EmploymentDetails';
 import { UserPersonalDetails } from 'app/components/user-personal-details/userPersonal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   currentFormIndex:number = 0;
   formSuccess:boolean = false;
 
-  constructor(private userPersonalDetailServ: AuthHttpClientService) { }
+  constructor(private userPersonalDetailServ: AuthHttpClientService, private router: Router) { }
 
   increaseCurrentIndex = () => {
     let proceed = true;
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.addUserData();
+    this.router.navigate(['/login'])
   }
 
   ngOnInit(): void {
