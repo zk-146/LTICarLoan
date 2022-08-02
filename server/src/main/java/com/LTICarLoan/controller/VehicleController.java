@@ -2,6 +2,7 @@ package com.LTICarLoan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,12 @@ public class VehicleController {
 	public Vehicle getVehicleByUserId(@PathVariable("uid") int user_id) {
 		
 		Vehicle v = vehicleService.findVehicleByUserId(user_id);
+		return v;
+	}
+	
+	@DeleteMapping("/delete-vehicle/{uid}")
+	public boolean deleteVehicleByUserId(@PathVariable("uid") int user_id) {
+		boolean v = vehicleService.deleteVehicleByUserId(user_id);
 		return v;
 	}
 

@@ -52,7 +52,7 @@ public class LoanServiceImpl implements LoanService {
 			return true;
 		} else {
 			System.out.println("YOU ARE NOT ELIGIBLE FOR LOAN");
-//			vehicleDao.deleteVehicleById(user.getUser_id());
+			vehicleDao.deleteVehicleByUserId(user.getUser_id());
 			return false;
 		}
 	}

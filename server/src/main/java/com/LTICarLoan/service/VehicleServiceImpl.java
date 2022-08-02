@@ -9,7 +9,6 @@ import com.LTICarLoan.dao.VehicleDao;
 
 @Service("vehicleService")
 public class VehicleServiceImpl implements VehicleService{
-
 	@Autowired
 	VehicleDao vehicleDao;
 	
@@ -31,8 +30,9 @@ public class VehicleServiceImpl implements VehicleService{
 	}
 
 	@Override
-	public boolean deleteVehicleById(int id) {
-		return vehicleDao.deleteVehicleById(id);
+	public boolean deleteVehicleByUserId(int id) {
+		return vehicleDao.deleteVehicleByUserId(id);
 	}
+
 	
 }

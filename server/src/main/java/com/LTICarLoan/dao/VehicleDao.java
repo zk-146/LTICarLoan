@@ -11,6 +11,6 @@ public interface VehicleDao {
 
 	Vehicle findVehicleById(int id);
 	
-	boolean deleteVehicleById(int id);
+	boolean deleteVehicleByUserId(int id);
 	
 }
