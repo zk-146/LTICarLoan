@@ -47,7 +47,7 @@ public class VehicleDaoImpl implements VehicleDao {
 
 	@Override
 	public boolean deleteVehicleByUserId(int id) {
-		Query qry = em.createQuery("delete from Vehicle v join v.user u where u.user_id=:user_id");
+		Query qry = em.createQuery("delete from Vehicle v v.user u where u.user_id=:user_id");
 		qry.setParameter("user_id", id);
 		int successful = qry.executeUpdate();
 		if(successful == 1) return true;

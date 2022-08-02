@@ -61,5 +61,5 @@ public class ApplicationController {
 		List<Application> applications = service.findApplicationByStatus(application_status);
 		return applications;
 	}
-
+	
 }
