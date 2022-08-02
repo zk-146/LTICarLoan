@@ -1,5 +1,7 @@
 package com.LTICarLoan.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,32 +9,19 @@ import com.LTICarLoan.beans.User;
 import com.LTICarLoan.dao.UserDao;
 
 @Service("UserService")
-public class UserPersonalServiceImpl implements UserPersonalService {
+public class UserPersonalServiceImpl implements UserPersonalService{
 	@Autowired
 	UserDao userDao;
 
 	@Override
 	public int addUser(User u) {
-		try {
-			System.out.println("service layer called");
-			return userDao.addUser(u);
-		} catch (Exception e) {
-			System.out.println(e);
-			System.out.println("User is not added due to unexpected error");
-			return 0;
-		}
+		return userDao.addUser(u);
 	}
 
 	@Override
 	public User userLogin(String email, String password) {
-
-		try {
-			return userDao.login(email, password);
-		} catch (Exception e) {
-			System.out.println(e);
-			System.out.println("Login Failed");
-			return null;
-		}
+		
+		return userDao.login(email, password);
 	}
 
 	@Override
@@ -41,7 +30,6 @@ public class UserPersonalServiceImpl implements UserPersonalService {
 			int user1 = userDao.addUser(user);
 			return "Sign up successful. \nYour userId is: " + user1;
 		} catch (Exception e) {
-			System.out.println(e);
 			return "Unexpected error occured. Signup failed.";
 		}
 	}
@@ -51,8 +39,7 @@ public class UserPersonalServiceImpl implements UserPersonalService {
 		try {
 			User user = userDao.getUserDetails(id);
 			return user;
-		} catch (Exception e) {
-			System.out.println(e);
+		} catch(Exception e) {
 			throw new Error("An error occurred while fetching the user data");
 		}
 	}
