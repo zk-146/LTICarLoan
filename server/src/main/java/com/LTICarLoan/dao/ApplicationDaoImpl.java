@@ -32,15 +32,15 @@ public class ApplicationDaoImpl implements ApplicationDao {
 	public Application findApplicationById(int id) {
 		return em.find(Application.class, id);
 	}
-	
-	
-	//nested reference
+
+	// nested reference
 	@Override
 	public List<Application> findApplicationByUserId(int user_id) throws ApplicationException {
-		TypedQuery<Application> qry = em.createQuery("Select a from Application a join a.user u where u.user_id=:user_id", Application.class);
+		TypedQuery<Application> qry = em
+				.createQuery("Select a from Application a join a.user u where u.user_id=:user_id", Application.class);
 		qry.setParameter("user_id", user_id);
-		List<Application> a =  qry.getResultList();
-		
+		List<Application> a = qry.getResultList();
+
 		return a;
 	}
 
@@ -60,12 +60,14 @@ public class ApplicationDaoImpl implements ApplicationDao {
 		qry.executeUpdate();
 		return true;
 	}
+
 	@Override
 	public List<Application> findApplicationByStatus(String application_status) throws ApplicationException {
-		TypedQuery<Application> qry = em.createQuery("Select a from Application a where a.application_status=:application_status ", Application.class);
+		TypedQuery<Application> qry = em.createQuery(
+				"Select a from Application a where a.application_status=:application_status ", Application.class);
 		qry.setParameter("application_status", application_status);
-		List<Application> a =  qry.getResultList();
-		
+		List<Application> a = qry.getResultList();
+
 		return a;
 	}
 }

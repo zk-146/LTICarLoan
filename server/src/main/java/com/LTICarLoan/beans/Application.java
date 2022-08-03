@@ -1,6 +1,5 @@
 package com.LTICarLoan.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,8 +14,8 @@ import javax.persistence.Table;
 @Table(name = "APPLICATION_DETAILS")
 public class Application {
 	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="APPLICATIONSEQ")
-	@SequenceGenerator(name="APPLICATIONSEQ",sequenceName="APPLICATIONSEQ", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "APPLICATIONSEQ")
+	@SequenceGenerator(name = "APPLICATIONSEQ", sequenceName = "APPLICATIONSEQ", allocationSize = 1)
 	@Column(name = "application_id")
 	private int application_id;
 
@@ -46,7 +45,7 @@ public class Application {
 		this.loan_tenure = loan_tenure;
 		this.user = user;
 	}
-	
+
 	public Application(String application_status, int emi_amt, int loan_amt, int no_of_emis, int loan_tenure,
 			User user) {
 		super();
