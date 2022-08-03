@@ -14,30 +14,29 @@ import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.exception.VehicleException;
 import com.LTICarLoan.service.VehicleService;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/vehicle-api")
 public class VehicleController {
-	
+
 	@Autowired
 	VehicleService vehicleService;
-	
-	
+
 	// http://localhost:8090/vehicle-api/addVehicle
-	@PostMapping(path = "/add-vehicle",consumes="application/json")
+	@PostMapping(path = "/add-vehicle", consumes = "application/json")
 	public boolean addVehicle(@RequestBody Vehicle v) throws VehicleException {
 		System.out.println(v);
 		return vehicleService.addVehicle(v);
 	}
-	
+
 	// http://localhost:8090/vehicle-api/vehicle/{uid}
 	@GetMapping("/get-vehicle/{uid}")
 	public Vehicle getVehicleByUserId(@PathVariable("uid") int user_id) throws VehicleException {
-		
+
 		Vehicle v = vehicleService.findVehicleByUserId(user_id);
 		return v;
 	}
-	
+
 	@DeleteMapping("/delete-vehicle/{uid}")
 	public boolean deleteVehicleByUserId(@PathVariable("uid") int user_id) {
 		boolean v = vehicleService.deleteVehicleByUserId(user_id);

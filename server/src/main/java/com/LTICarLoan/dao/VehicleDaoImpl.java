@@ -27,7 +27,7 @@ public class VehicleDaoImpl implements VehicleDao {
 	}
 
 	@Override
-	public Vehicle findVehicleByUserId(int user_id) throws VehicleException{
+	public Vehicle findVehicleByUserId(int user_id) throws VehicleException {
 		TypedQuery<Vehicle> qry = em.createQuery("Select v from Vehicle v join v.user u where u.user_id=:user_id",
 				Vehicle.class);
 		qry.setParameter("user_id", user_id);
@@ -43,16 +43,12 @@ public class VehicleDaoImpl implements VehicleDao {
 
 	}
 
-	@Override
-	public boolean deleteVehicleById(int id) throws VehicleException{
-		Query qry = em.createQuery("delete from Vehicle v join v.user u where u.user_id=:user_id");
-		return true;
-	}
-		public boolean deleteVehicleByUserId(int id) {
+	public boolean deleteVehicleByUserId(int id) {
 		Query qry = em.createQuery("delete from Vehicle v v.user u where u.user_id=:user_id");
 		qry.setParameter("user_id", id);
 		int successful = qry.executeUpdate();
-		if(successful == 1) return true;
+		if (successful == 1)
+			return true;
 		return false;
 	}
 
