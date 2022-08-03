@@ -43,6 +43,7 @@ public class LoanServiceImpl implements LoanService {
 		long tmp= Math.round(emi);
 		Loan loanData = new Loan("Four Wheeler Loan", 7.5, tmp * 48, 48, Math.round((.01 * v.getPrice())), v);
 
+		
 		System.out.println(v);
 		System.out.println(user);
 		System.out.println(loanData);
