@@ -45,11 +45,11 @@ font-size: 22px;
 line-height: 33px;
 width: 50%;
 height: 33px;
-color: #fff;
+color: #000;
 
 }
 .register:hover{
-  color: black;
+  color: #6F6C90;
 
 }
 
@@ -67,6 +67,7 @@ color: #fff;
 
 .active{
     background-color: #6F6C90;
+    color: #fff;
 }
 
   table{

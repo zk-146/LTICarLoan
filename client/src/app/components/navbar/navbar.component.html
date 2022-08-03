@@ -7,8 +7,11 @@
     <div id="navbar-left-btns">
       <p [routerLink]="['/']">Home</p>
       <p [routerLink]="['/emi-calculator']">EMI Calculator</p>
-      <p [routerLink]="['/eligibility-form']">Apply Loan</p>
+      <p *ngIf="userLoggedIn" [routerLink]="['/eligibility-form']">
+        Apply Loan
+      </p>
       <p
+        *ngIf="userLoggedIn"
         [routerLink]="isAdmin ? ['/admin-dashboard'] : ['/user-dashboard']"
         class="active"
       >
