@@ -33,8 +33,8 @@
     <div *ngIf="!userLoggedIn" id="navbar-login">
       <!-- <span class="material-icons-two-tone">logout</span> -->
       <!-- <img src="../../../assets/svgs/Logout.svg" alt="Enter door" /> -->
-      <p [routerLink]="'login'">Sign in</p>
-      <p [routerLink]="'register'">Register</p>
+      <p [routerLink]="'/login'">Sign in</p>
+      <p [routerLink]="'/register'">Register</p>
     </div>
     <h1 *ngIf="isAdmin && userLoggedIn">Admin</h1>
   </div>
