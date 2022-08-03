@@ -58,14 +58,7 @@ export class PersonalDetailsFormComponent implements OnInit {
         inputType: "number",
         value: 'annual_salary',
         error: '',
-      },
-      {
-        label: "Exisitng EMI",
-        placeholder: "Yes/No",
-        inputType: "text",
-        value: 'exisiting_emi',
-        error: '',
-      },
+      }
     ],
   };
 

@@ -30,14 +30,6 @@ export class EmploymentDetailsApplicationFormComponent implements OnInit {
         value: 'annual_salary',
         error: '',
       },
-      {
-        label: "Existing EMI",
-        placeholder: "Yes or No",
-        inputType: "radio",
-        value: 'existing_EMI',
-        error: '',
-        options: true,
-      },
     ],
   };
   

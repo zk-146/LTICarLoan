@@ -1,42 +1,96 @@
+<div class="loan-offer"></div>
 <h3 id="title">Finalsed Loan Offer Details</h3>
-<div class="first-container">
-  <div class="label">
-    <b>Loan Type: {{ loanDetails.loan_type }}</b>
-  </div>
-</div>
-<div class="second-container">
-  <div class="label">
-    Loan Amount:
-    <div class="fetch_details">
-      <b>{{ loanDetails.loan_amt }}</b>
+
+<div class="loan-offer-container">
+  <div class="loan-offer-row">
+    <div class="first-container">
+      <div class="label">
+        Loan Type:
+        <div class="fetch_details">
+          <b> {{ loanDetails.loan_type }}</b>
+        </div>
+      </div>
+    </div>
+    <div class="second-container">
+      <div class="label">
+        Loan Amount:
+        <div class="fetch_details">
+          <b>₹ {{ loanDetails.loan_amt }}</b>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="third-container">
-  <div class="label">
-    EMI:
-    <div class="fetch_details">
-      <b>{{ loanDetails.loan_amt / 48 }}</b>
+  <div class="loan-offer-row">
+    <div class="third-container">
+      <div class="label">
+        EMI:
+        <div class="fetch_details">
+          <b>₹ {{ loanDetails.loan_amt / 48 }}</b>
+        </div>
+      </div>
+    </div>
+    <div class="fourth-container">
+      <div class="label">
+        Interest Rate:
+        <div class="fetch_details">
+          <b>₹ {{ loanDetails.interest_rate }}</b>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="fourth-container">
-  <div class="label">
-    Interest Rate:
-    <div class="fetch_details">
-      <b>{{ loanDetails.interest_rate }}</b>
+  <div class="loan-offer-row">
+    <div class="fifth-container">
+      <div class="label">
+        Processing Fee:
+        <div class="fetch_details">
+          <b>₹ {{ loanDetails.processing_fee }}</b>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-<div class="fifth-container">
-  <div class="label">
-    Processing Fee:
-    <div class="fetch_details">
-      <b>{{ loanDetails.processing_fee }}</b>
+  <div *ngIf="displayPopUp" class="emi-scheduler">
+    <div class="emi-scheduler-container">
+      <div class="emi-scheduler-row">
+        <p>Principal Amount</p>
+        <p>
+          {{ loanDetails.loan_amt }}
+        </p>
+      </div>
+      <div class="emi-scheduler-row">
+        <p>Interest rate</p>
+        <p>
+          {{ loanDetails.interest_rate }}
+        </p>
+      </div>
+      <div class="emi-scheduler-row">
+        <p>Tenure in number of months</p>
+        <p>
+          {{ loanDetails.no_of_emi }}
+        </p>
+      </div>
+      <div class="emi-scheduler-row">
+        <p>EMI</p>
+        <p>
+          {{ loanDetails.loan_amt / 48 }}
+        </p>
+      </div>
     </div>
   </div>
+  <button
+    [disabled]="displayPopUp"
+    type="submit"
+    class="btn"
+    id="apply-now"
+    (click)="addApplication()"
+  >
+    APPLY NOW
+  </button>
+  <button
+    [disabled]="displayPopUp"
+    (click)="setDisplayPopup()"
+    class="btn"
+    id="emi-scheduler"
+  >
+    EMI SCHEDULER
+  </button>
 </div>
-<button type="submit" class="btn" id="apply-now" (click)="addApplication()">
-  APPLY NOW
-</button>
-<button type="submit" class="btn" id="emi-scheduler">EMI SCHEDULER</button>

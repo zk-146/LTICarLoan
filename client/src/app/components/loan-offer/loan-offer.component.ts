@@ -11,12 +11,30 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoanOfferComponent implements OnInit {
   loanDetails: any = (localStorage.getItem("loan_details")|| "");
-  constructor(private loanOfferServ: LoanOfferHttpClientService, private applicationServ: ApplicationHttpClientService,private router:Router) { }
+  displayPopUp:boolean = false;
+
+  constructor(private loanOfferServ: LoanOfferHttpClientService, private applicationServ: ApplicationHttpClientService,private router:Router) { 
+    document.addEventListener('keyup', (keyEvent: KeyboardEvent) => {
+      console.log('Click Event Details: ', keyEvent.code)
+      if(keyEvent.code==='Escape' && this.displayPopUp === true)
+        this.displayPopUp = false;
+    })
+    // document.addEventListener('click', (clickEvent: MouseEvent) => {
+    //   console.log('Click Event Details: ', clickEvent.which)
+    //   if(clickEvent.which === 1 && this.displayPopUp === true) {
+    //     this.displayPopUp = false;
+    //   }
+    // })
+  }
 
   ngOnInit(): void {
     // this.loanDetails = JSON.parse(this.loanDetails);
     // console.log(JSON.parse(this.loanDetails));
     this.getLoanOffer();
+  }
+
+  setDisplayPopup = () => {
+    this.displayPopUp = true;
   }
 
   getLoanOffer() {
