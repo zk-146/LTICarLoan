@@ -7,7 +7,6 @@ import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
 
 import com.LTICarLoan.beans.Admin;
-import com.LTICarLoan.beans.User;
 
 @Repository
 public class AdminDaoImpl implements AdminDao {

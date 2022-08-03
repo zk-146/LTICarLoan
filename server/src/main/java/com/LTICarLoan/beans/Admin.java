@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Table(name = "ADMIN_DETAILS")
 public class Admin {
 	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="ADMINSEQ")
-	@SequenceGenerator(name="ADMINSEQ",sequenceName="ADMINSEQ", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADMINSEQ")
+	@SequenceGenerator(name = "ADMINSEQ", sequenceName = "ADMINSEQ", allocationSize = 1)
 	@Column(name = "admin_id")
 	private int admin_id;
 

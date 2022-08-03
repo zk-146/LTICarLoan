@@ -1,10 +1,7 @@
 package com.LTICarLoan.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +28,7 @@ public class AuthController {
 	// http://localhost:8090/user-api/addUser
 	@PostMapping(path = "/addUser", consumes = "application/json")
 	public int addUser(@RequestBody User u) {
-		System.out.println("Controller"+u);
+		System.out.println("Controller" + u);
 		return userService.addUser(u);
 //		return 0;
 	}
@@ -41,14 +38,13 @@ public class AuthController {
 	public User userLogin(@RequestParam("email") String email, @RequestParam("password") String password) {
 		return userService.userLogin(email, password);
 	}
-	
+
 //	@RequestMapping(value="/")
-	
-	@RequestMapping(value="/get-user-details", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/get-user-details", method = RequestMethod.GET)
 	public User getUserDetails(@RequestParam("id") int id) {
-			return userService.getUserDetails(id);
+		return userService.getUserDetails(id);
 	}
-	
 
 	@RequestMapping(value = "/admin-login", method = RequestMethod.POST)
 	public Admin adminLogin(@RequestParam("email") String username, @RequestParam("password") String password) {
