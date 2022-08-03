@@ -38,12 +38,12 @@ public class LoanServiceImpl implements LoanService {
 		qry.setParameter("user_id", user_id);
 		Vehicle v = (Vehicle) qry.getResultList().get(0);
 
-		double emi = v.getPrice() * (7.5/1200) * ((Math.pow((1 + (7.5/1200)), 48)) / (Math.pow((1 + (7.5/1200)), 48) - 1));
+		double emi = v.getPrice() * (7.5 / 1200)
+				* ((Math.pow((1 + (7.5 / 1200)), 48)) / (Math.pow((1 + (7.5 / 1200)), 48) - 1));
 
-		long tmp= Math.round(emi);
+		long tmp = Math.round(emi);
 		Loan loanData = new Loan("Four Wheeler Loan", 7.5, tmp * 48, 48, Math.round((.01 * v.getPrice())), v);
 
-		
 		System.out.println(v);
 		System.out.println(user);
 		System.out.println(loanData);
@@ -58,27 +58,26 @@ public class LoanServiceImpl implements LoanService {
 			vehicleDao.deleteVehicleByUserId(user.getUser_id());
 			return false;
 		}
-		
-		
+
 	}
 
 	@Override
-	public Loan findLoanById(int id) throws LoanException{
-		
+	public Loan findLoanById(int id) throws LoanException {
+
 		try {
 			return loanDao.findLoanById(id);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 			throw new Error("An error occurred while fetching Vehicle by Loan Id");
 		}
-		
+
 	}
 
 	@Override
-	public List<Loan> findLoanByCarId(int car_id) throws LoanException{
+	public List<Loan> findLoanByCarId(int car_id) throws LoanException {
 		try {
 			return loanDao.findLoanByCarId(car_id);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 			throw new Error("An error occurred while fetching Vehicle by Car Id");
 		}
@@ -88,7 +87,7 @@ public class LoanServiceImpl implements LoanService {
 	public Loan findLoanByUserId(int user_id) throws LoanException {
 		try {
 			return loanDao.findLoanByUserId(user_id);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e);
 			throw new Error("An error occurred while fetching Vehicle by User Id");
 		}

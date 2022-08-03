@@ -1,6 +1,5 @@
 package com.LTICarLoan.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -54,8 +53,6 @@ public class Loan {
 	public Loan() {
 		super();
 	}
-	
-	
 
 	public Loan(String loan_type, double interest_rate, double loan_amt, int no_of_emi, double processing_fee,
 			Vehicle vehicle) {
