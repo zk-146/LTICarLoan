@@ -27,16 +27,21 @@
     <form id="registerForm-details" (ngSubmit)="onSubmit()">
       <ng-container [formGroup]="userPersonalDetails">
         <app-user-personal-details
+          [userPersonalDetailsFilled]="userPersonalDetailsFilled"
           [currentFormIndex]="currentFormIndex"
         ></app-user-personal-details>
       </ng-container>
       <ng-container [formGroup]="addressDetails">
         <app-address-details
+          [addressDetailsFilled]="addressDetailsFilled"
           [currentFormIndex]="currentFormIndex"
         ></app-address-details>
       </ng-container>
       <ng-container [formGroup]="employmentDetails">
-        <app-employment-details [currentFormIndex]="currentFormIndex">
+        <app-employment-details
+          [employmentDetailsFilled]="employmentDetailsFilled"
+          [currentFormIndex]="currentFormIndex"
+        >
         </app-employment-details>
       </ng-container>
 

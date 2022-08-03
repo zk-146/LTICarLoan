@@ -24,11 +24,18 @@
             type="{{ data.inputType }}"
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
-            [ngClass]="{ error: data.error != '' }"
+            [ngClass]="{
+              error:
+                employmentDetailsControl[data.value].status === 'INVALID' &&
+                employmentDetailsFilled
+            }"
             (change)="onInputChange()"
           />
           <p
-            *ngIf="employmentDetailsControl[data.value]?.errors?.required"
+            *ngIf="
+              employmentDetailsControl[data.value]?.errors?.required &&
+              employmentDetailsFilled
+            "
             class="form-error"
           >
             Please fill this field

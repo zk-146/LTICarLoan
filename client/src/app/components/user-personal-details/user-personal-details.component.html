@@ -24,20 +24,25 @@
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
             [ngClass]="{
-              error: userPersonalDetailsControl[data.value].status === 'INVALID'
+              error:
+                userPersonalDetailsControl[data.value].status === 'INVALID' &&
+                userPersonalDetailsFilled
             }"
             (input)="onInputChange()"
           />
           <p
             class="form-error"
-            *ngIf="userPersonalDetailsControl[data.value]?.errors?.required"
+            *ngIf="
+              userPersonalDetailsControl[data.value]?.errors?.required &&
+              userPersonalDetailsFilled
+            "
           >
             Please fill out this field
           </p>
           <p
             class="form-error"
             *ngIf="
-              data.value === 'password'
+              data.value === 'password' && userPersonalDetailsFilled
                 ? userPersonalDetailsControl[data.value]?.errors?.pattern
                 : false
             "
@@ -49,7 +54,7 @@
           <p
             class="form-error"
             *ngIf="
-              data.value === 'phone'
+              data.value === 'phone' && userPersonalDetailsFilled
                 ? userPersonalDetailsControl[data.value]?.errors?.pattern
                 : false
             "
@@ -58,7 +63,10 @@
           </p>
           <p
             class="form-error"
-            *ngIf="userPersonalDetailsControl[data.value]?.errors?.email"
+            *ngIf="
+              userPersonalDetailsControl[data.value]?.errors?.email &&
+              userPersonalDetailsFilled
+            "
           >
             Please enter a valid email id
           </p>

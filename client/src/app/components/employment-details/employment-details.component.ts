@@ -11,6 +11,7 @@ export class EmploymentDetailsComponent implements OnInit {
 
   employmentDetails!:FormGroup;
   @Input() currentFormIndex = 2;
+  @Input() employmentDetailsFilled:boolean = false;
 
   employmentDetailsObject =  {
 

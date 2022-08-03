@@ -11,6 +11,7 @@ export class AddressDetailsComponent implements OnInit {
 
   @Input() addressDetails!:FormGroup;
   @Input() currentFormIndex=1;
+  @Input() addressDetailsFilled:boolean = false;
 
   
   addressFormDetailsObject={

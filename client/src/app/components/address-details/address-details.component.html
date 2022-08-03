@@ -26,19 +26,36 @@
             type="{{ data.inputType }}"
             placeholder="{{ data.placeholder }}"
             formControlName="{{ data.value }}"
-            [ngClass]="{ error: data.error != '' }"
+            [ngClass]="{
+              error:
+                addressDetailsControl[data.value].status === 'INVALID' &&
+                addressDetailsFilled
+            }"
             (change)="onInputChange()"
           />
           <p
-            *ngIf="addressDetailsControl[data.value]?.errors?.required"
+            *ngIf="
+              addressDetailsControl[data.value]?.errors?.required &&
+              addressDetailsFilled
+            "
             class="form-error"
           >
             Please fill this field
           </p>
-          <p *ngIf="addressDetailsControl[data.value]?.errors?.minLength">
+          <p
+            *ngIf="
+              addressDetailsControl[data.value]?.errors?.minLength &&
+              addressDetailsFilled
+            "
+          >
             Please enter a valid {{ data.value }}
           </p>
-          <p *ngIf="addressDetailsControl[data.value]?.errors?.pattern">
+          <p
+            *ngIf="
+              addressDetailsControl[data.value]?.errors?.pattern &&
+              addressDetailsFilled
+            "
+          >
             Please enter a valid {{ data.value }}
           </p>
         </div>

@@ -21,7 +21,10 @@ export class RegisterComponent implements OnInit {
   employmentDetails!:FormGroup;
 
   allFormGroups = [this.userPersonalDetails, this.addressDetails, this.employmentDetails];
-
+  
+  userPersonalDetailsFilled = false;
+  addressDetailsFilled = false;
+  employmentDetailsFilled = false;
 
   constructor(private userPersonalDetailServ: AuthHttpClientService, private router: Router, private fb: FormBuilder) { }
 
@@ -31,13 +34,18 @@ export class RegisterComponent implements OnInit {
     console.log(this.addressDetails)
     console.log(this.employmentDetails)
 
-    if(this.userPersonalDetails.status=="VALID" && this.currentFormIndex==0)
-      proceed = true;
-    // if(this.currentFormIndex==0)
-    
-    else if(this.addressDetails.status=="VALID" && this.currentFormIndex==1)
-      proceed = true;
-    // if(this.currentFormIndex==1)
+    if(this.currentFormIndex===0) {
+      this.userPersonalDetailsFilled = true;
+
+      if(this.userPersonalDetails.status=="VALID")
+        proceed = true;
+    } 
+    else if (this.currentFormIndex === 1) {
+      this.addressDetailsFilled = true;
+  
+      if(this.addressDetails.status=="VALID")
+        proceed = true;
+    }
 
     if(proceed)
       this.currentFormIndex++;
@@ -48,9 +56,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit = () => {
-    if(this.employmentDetails.status=="VALID" && this.currentFormIndex==2) {
-      this.addUserData();
-      this.router.navigate(['/login'])
+    if(this.currentFormIndex === 2) {
+      this.employmentDetailsFilled = true;
+      
+      if(this.employmentDetails.status=="VALID") {
+        this.addUserData();
+        this.router.navigate(['/login'])
+      }
     }
   }
 

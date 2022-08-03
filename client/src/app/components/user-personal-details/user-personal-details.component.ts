@@ -9,10 +9,9 @@ import { UserPersonalDetails } from './userPersonal';
   styleUrls: ['./user-personal-details.component.css']
 })
 export class UserPersonalDetailsComponent implements OnInit {
-
   userPersonalDetails!:FormGroup;
   @Input() currentFormIndex = 0;
-  // @Output() private onFormGroupChange = new EventEmitter<any>();
+  @Input() userPersonalDetailsFilled:boolean = false;
 
   userPersonalDetailsObject={
   name: "User Personal Details",
