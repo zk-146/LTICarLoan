@@ -86,7 +86,7 @@ public class ApplicationTests {
 
 		Assertions.assertThat(applicationService.findApplicationByStatus("approved")).isEqualTo(allApplications);
 	}
-	
+
 //	@Test
 //	void testUpdateApplicationStatus() throws ApplicationException {
 //		User user = new User();
