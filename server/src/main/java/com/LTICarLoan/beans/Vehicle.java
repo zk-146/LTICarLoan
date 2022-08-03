@@ -1,6 +1,5 @@
 package com.LTICarLoan.beans;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,25 +11,25 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="vehicle_details")
+@Table(name = "vehicle_details")
 public class Vehicle {
 	@Id
-	@GeneratedValue(strategy= GenerationType.SEQUENCE,generator="VEHICLESEQ")
-	@SequenceGenerator(name="VEHICLESEQ",sequenceName="VEHICLESEQ", allocationSize=1)
-	@Column(name="car_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "VEHICLESEQ")
+	@SequenceGenerator(name = "VEHICLESEQ", sequenceName = "VEHICLESEQ", allocationSize = 1)
+	@Column(name = "car_id")
 	private int car_id;
-	
-	@Column(name="model_name", length=15)
+
+	@Column(name = "model_name", length = 15)
 	private String model_name;
-	
-	@Column(name="company_name", length=15)
+
+	@Column(name = "company_name", length = 15)
 	private String company_name;
-	
-	@Column(name="price")
+
+	@Column(name = "price")
 	private double price;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	User user;
 
 	public Vehicle(int car_id, String model_name, String company_name, double price, User user) {

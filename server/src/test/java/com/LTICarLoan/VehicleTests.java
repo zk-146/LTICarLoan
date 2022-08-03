@@ -19,16 +19,15 @@ import com.LTICarLoan.service.VehicleService;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class VehicleTests {
-	
+
 	@Autowired
 	VehicleService vehicleService;
-	
 
 	UserPersonalService userService;
-	
+
 	@MockBean
 	VehicleDao vehicleRepo;
-	
+
 //	@Test
 //	void testAddVehicle() throws VehicleException {
 //		
@@ -41,19 +40,19 @@ public class VehicleTests {
 //		Mockito.when(vehicleRepo.addVehicle(vehicle)).thenReturn(true);
 //		Assertions.assertThat(vehicleService.addVehicle(vehicle)).isEqualTo(true);
 //	}
-	
+
 	@Test
 	void testGetVehicleByUserId() throws VehicleException {
-		
+
 		User user = new User();
 		user.setUser_id(101);
-		Vehicle vehicle = new Vehicle(1008,"Nissan","Nissan",2500,user);
-		
+		Vehicle vehicle = new Vehicle(1008, "Nissan", "Nissan", 2500, user);
+
 //		List<Vehicle> vehicleList= new ArrayList<>();
-		
+
 		Mockito.when(vehicleRepo.findVehicleByUserId(101)).thenReturn(vehicle);
 		Assertions.assertThat(vehicleService.findVehicleByUserId(101)).isEqualTo(vehicle);
-		
+
 	}
 
 }
