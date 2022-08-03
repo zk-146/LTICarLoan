@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.beans.Loan;
-import com.LTICarLoan.beans.Vehicle;
 import com.LTICarLoan.exception.LoanException;
 import com.LTICarLoan.service.LoanService;
 

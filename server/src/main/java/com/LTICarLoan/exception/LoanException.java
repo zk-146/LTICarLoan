@@ -1,6 +1,6 @@
 package com.LTICarLoan.exception;
 
-public class LoanException extends Exception{
+public class LoanException extends Exception {
 
 	public LoanException() {
 		super();
@@ -26,7 +26,5 @@ public class LoanException extends Exception{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 }

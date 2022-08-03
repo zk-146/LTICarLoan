@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.LTICarLoan.beans.Application;
 import com.LTICarLoan.beans.Loan;
 import com.LTICarLoan.beans.Vehicle;
 
@@ -48,7 +47,7 @@ public class LoanDaoImpl implements LoanDao {
 				Vehicle.class);
 		qry1.setParameter("user_id", user_id);
 		Vehicle v = qry1.getResultList().get(0);
-		
+
 		TypedQuery<Loan> qry = em.createQuery("Select l from Loan l join l.vehicle v where v.car_id=:car_id",
 				Loan.class);
 		qry.setParameter("car_id", v.getCar_id());
@@ -57,5 +56,4 @@ public class LoanDaoImpl implements LoanDao {
 
 	}
 
-	
 }
